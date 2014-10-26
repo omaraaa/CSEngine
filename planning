@@ -1,0 +1,22 @@
+CSEngine planning.
+
+IDEAS:
+createPlayer()
+ |
+ > 
+
+what I want:
+* modular
+* each component depends on itself
+* components don't interact with the system directly
+* components only hold data
+* system handles the data
+= Game =
+= SYSTEM =
+= COMPONENTS =
+-Movement
+-Sprites
+-Sounds
+-Collision
+-properties
+-updateQ

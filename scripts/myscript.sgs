@@ -1,0 +1,10 @@
+function main()
+{
+	println("HELLO");
+}
+
+
+function getTitle()
+{
+	return "GFDG";
+}

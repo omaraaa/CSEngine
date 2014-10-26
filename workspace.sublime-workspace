@@ -1,0 +1,1300 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"img",
+				"imgRect"
+			],
+			[
+				"mov",
+				"moveCS"
+			],
+			[
+				"max",
+				"maxVel"
+			],
+			[
+				"sprite",
+				"spriteCS"
+			],
+			[
+				"move",
+				"moveCS"
+			],
+			[
+				"sprit",
+				"spriteC"
+			],
+			[
+				"re",
+				"rect"
+			],
+			[
+				"TImer",
+				"Timer::dt"
+			],
+			[
+				"over",
+				"overlapY"
+			],
+			[
+				"overla",
+				"overlapX"
+			],
+			[
+				"overlap",
+				"overlapX"
+			],
+			[
+				"delta",
+				"deltaVel"
+			],
+			[
+				"Time",
+				"Timer::dt"
+			],
+			[
+				"m",
+				"moveC"
+			],
+			[
+				"alp",
+				"alpha"
+			],
+			[
+				"cure",
+				"currentTime"
+			],
+			[
+				"time",
+				"time_in_seconds"
+			],
+			[
+				"frame",
+				"frame"
+			],
+			[
+				"TIme",
+				"Timer::slice"
+			],
+			[
+				"getPos",
+				"getPos"
+			],
+			[
+				"mo",
+				"moveCS"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"get",
+				"getSDLRect"
+			],
+			[
+				"Re",
+				"Rect"
+			],
+			[
+				"chec",
+				"checking"
+			],
+			[
+				"che",
+				"checkedWith"
+			],
+			[
+				"std",
+				"std::endl"
+			],
+			[
+				"sdlr",
+				"sdlr1"
+			],
+			[
+				"ove",
+				"overlapedMap"
+			],
+			[
+				"overl",
+				"overlapedMap"
+			],
+			[
+				"are",
+				"area"
+			],
+			[
+				"maxV",
+				"maxVel"
+			],
+			[
+				"ve",
+				"vel"
+			],
+			[
+				"foll",
+				"followE"
+			],
+			[
+				"Tim",
+				"Timer::elapsed"
+			],
+			[
+				"Timer",
+				"Timer::slice"
+			],
+			[
+				"update",
+				"update"
+			],
+			[
+				"moc",
+				"moveCS"
+			],
+			[
+				"shoo",
+				"shooter"
+			],
+			[
+				"Movem",
+				"MoveComponent"
+			],
+			[
+				"VE",
+				"Vec2::getX"
+			],
+			[
+				"check",
+				"checking"
+			],
+			[
+				"collide",
+				"collide"
+			],
+			[
+				"maxArea",
+				"maxAreaID"
+			],
+			[
+				"collid",
+				"collided"
+			],
+			[
+				"chek",
+				"checking"
+			],
+			[
+				"inde",
+				"indexes"
+			],
+			[
+				"for",
+				"forv	Vector For Loop"
+			],
+			[
+				"updat",
+				"updateBounds(&worldbounds"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"LUA",
+				"LUA_SRC"
+			],
+			[
+				"share",
+				"std::shared_ptr"
+			],
+			[
+				"fist",
+				"first"
+			],
+			[
+				"begi",
+				"begin"
+			],
+			[
+				"upd",
+				"updateBounds"
+			],
+			[
+				"worl",
+				"worldbounds"
+			],
+			[
+				"upda",
+				"update"
+			],
+			[
+				"wor",
+				"worldMax"
+			],
+			[
+				"Dr",
+				"DrawRect"
+			],
+			[
+				"ov",
+				"overlapingWith"
+			],
+			[
+				"fram",
+				"frame"
+			],
+			[
+				"tex",
+				"text"
+			],
+			[
+				"full",
+				"fullscreen"
+			],
+			[
+				"fas",
+				"false"
+			],
+			[
+				"Sim",
+				"SimpleIni"
+			],
+			[
+				"in",
+				"include"
+			],
+			[
+				"strin",
+				"string_ptr"
+			],
+			[
+				"null",
+				"nullptr"
+			],
+			[
+				"close",
+				"closeLuaState"
+			],
+			[
+				"lua_get",
+				"lua_getdefault"
+			],
+			[
+				"lual",
+				"luaL_openlibs"
+			],
+			[
+				"end",
+				"endl"
+			],
+			[
+				"stat",
+				"state"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"def",
+				"def	#ifndef … #define … #endif"
+			],
+			[
+				"se",
+				"sel::State"
+			],
+			[
+				"cre",
+				"createEntityID"
+			],
+			[
+				"scr",
+				"scripts"
+			],
+			[
+				"Vec",
+				"Vec2"
+			],
+			[
+				"ret",
+				"return"
+			],
+			[
+				"new",
+				"newVec2"
+			],
+			[
+				"luaop",
+				"luaopen_example"
+			],
+			[
+				"player",
+				"playerImgPath"
+			],
+			[
+				"curr",
+				"currentAnimation"
+			],
+			[
+				"Wind",
+				"Window"
+			],
+			[
+				"curre",
+				"currentAnimation"
+			],
+			[
+				"pla",
+				"played"
+			],
+			[
+				"text",
+				"textures"
+			],
+			[
+				"sh",
+				"shared_ptr"
+			],
+			[
+				"dele",
+				"delete"
+			],
+			[
+				"pos",
+				"postUpdate"
+			],
+			[
+				"delet",
+				"delete"
+			],
+			[
+				"coll",
+				"collisionCS"
+			],
+			[
+				"SDL_KEY",
+				"SDL_KEYUP"
+			],
+			[
+				"Curre",
+				"currentFrame"
+			],
+			[
+				"reset",
+				"resetVel"
+			],
+			[
+				"movem",
+				"movement"
+			],
+			[
+				"st",
+				"std::cout"
+			],
+			[
+				"spri",
+				"spriteC"
+			],
+			[
+				"MO",
+				"MoveComponent"
+			],
+			[
+				"edg",
+				"edgeCheckerUpdate"
+			],
+			[
+				"grou",
+				"groups"
+			],
+			[
+				"collided",
+				"collided"
+			],
+			[
+				"typ",
+				"typeinfo"
+			],
+			[
+				"Func",
+				"FuncQComponent"
+			],
+			[
+				"Prop",
+				"PropertiesComponent"
+			],
+			[
+				"hold",
+				"holdFace"
+			],
+			[
+				"hodl",
+				"holdFace"
+			],
+			[
+				"hol",
+				"holdFace"
+			],
+			[
+				"bool",
+				"boolProps"
+			],
+			[
+				"Sprite",
+				"SpriteComponent"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"collisio",
+				"collision"
+			],
+			[
+				"collis",
+				"collisionCS"
+			],
+			[
+				"col",
+				"collisionCS"
+			],
+			[
+				"coli",
+				"collided"
+			],
+			[
+				"fla",
+				"false"
+			],
+			[
+				"fa",
+				"false"
+			],
+			[
+				"sho",
+				"shooting"
+			],
+			[
+				"stin",
+				"stringProps"
+			],
+			[
+				"string",
+				"std::string"
+			],
+			[
+				"set",
+				"setScale"
+			],
+			[
+				"f",
+				"fProps"
+			],
+			[
+				"pro",
+				"propCS"
+			],
+			[
+				"el",
+				"elapsed"
+			],
+			[
+				"spr",
+				"spriteCS"
+			],
+			[
+				"bu",
+				"bulletUpdate"
+			],
+			[
+				"playe",
+				"playerUpdate"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "CSEngine\n========\nMy own personal engine made for educational purposes.\n\nComponents:\n-----------\n* MoveComponent\n>Component that handles position, velocity, and acceleration\n\n* SpriteComponent\n>Component that handles sprites and drawing\n\n* CollisionComponent\n>Component that handles collision\n\n* PropsComponent\n>Handles properties\n\n* FuncQComponent\n>handles function queues\n\n* Camera\n>Camera with zoom, position, and size in addition to screen position and screen size\n\nLua Commands:\n-------------\nPress F1 to type a command\n* createVec2(x, y) - creates a 2d Vector\n* setPos(entity id, vec2) - sets the position of an entity\n* createBoxes(x, y, no. boxes) - creates a row of boxes\n* getMousePos() - return Vec2 of mouse pos\n* mBox(x, y) - creates a box\n* player(Vec2) - creates a player\n\nTODO:\n-----\n* change how collision and overlap checking is handled\n* implement QuadTrees\n* more features\n\nnotes\n-----\n[TwinklebearDev SDL 2.0 Tutorial] - awesome SDL 2 tutorial\n\nVerion\n------\n0.0.1\n\n[TwinklebearDev SDL 2.0 Tutorial]:http://www.willusher.io/pages/sdl2/",
+			"file": "README.md",
+			"file_size": 73,
+			"file_write_time": 130588281897529501,
+			"settings":
+			{
+				"buffer_size": 1056,
+				"line_ending": "Windows",
+				"name": "CSEngine"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 1814,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "planning",
+			"settings":
+			{
+				"buffer_size": 309,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/dev/SDLTEST/README.md",
+			"settings":
+			{
+				"buffer_size": 1069,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Package Control Messages\n========================\n\nMarkdown Preview:\n----------------\n\n  Sublime Text 2/3 Markdown Preview\n  =================================\n  \n  Preview and build your markdown files quickly in your web browser from sublime text 2/3. \n  \n  You can use builtin [python-markdown][10] parser or use the [github markdown API][5] for the conversion.\n  \n  **NOTE:** If you choose the GitHub API for conversion (set parser: github in your settings), your code will be sent through https to github for live conversion. You'll have [Github flavored markdown][6], syntax highlighting and EMOJI support for free :heart: :octocat: :gift:. If you make more than 60 calls a day, be sure to set your GitHub API key in the settings :). You can also get most of this in the default Markdown parser with by enabling certain extensions; see \"[Parsing Github Flavored Markdown](#parsing-github-flavored-markdown)\"\" below for more information.\n  \n  **LINUX users:** If you want to use GitHub API for conversion, you'll need to have a custom Python install that includes python-ssl as its not built in the Sublime Text 2 Linux package. see [@dusteye comment][8]. If you use a custom window manager, also be sure to set a `BROWSER` environment variable. see [@PPvG comments][9]\n  \n  ## Features :\n  \n   - Markdown preview using the [Python-markdown][10] or the Github API just choose select the build commands.\n   - Syntax highlighting via Pygments. See \"[Configuring Pygments](#configuring-pygments)\" for more info.\n   - Build markdown file using Sublime Text build system. The build parser are config via the `\"parser\"` config.\n   - Browser preview auto reload on save if you have the [ST2 LiveReload plugin][7] installed.\n   - Builtin parser : supports `abbr`, `attr_list`, `def_list`, `fenced_code`, `footnotes`, `tables`, `smart_strong`, `smarty`,  `wikilinks`, `meta`, `sane_lists`, `codehilite`, `nl2br`, and `toc` markdown extensions.\n   - CSS search path for local and build-in CSS files (always enabled) and/or CSS overriding if you need\n   - YAML support thanks to @tommi\n   - Clipboard selection and copy to clipboard thanks to @hexatrope\n   - MathJax support : \\\\(\\frac{\\pi}{2}\\\\) thanks to @bps10\n   - HTML template customisation thanks to @hozaka\n   - Embed images as base64 (see [settings][settings] file for more info)\n   - Strip out multimarkdown critic marks (see [settings][settings] file for more info)\n   - 3rd party extensions for the Python Markdown parser:\n   	- **magiclink**: Automatic conversion of http or ftp links to html links.\n   	- **delete**: Surround inline text with `~~crossed out~~` to get del tags ~~crossed out~~.\n      - **insert**: Surround inline text with `^^underlined^^` to get ins tags <ins>underlined</ins>\n   	- **tasklist**: Support for github like tasklists using the following notation: `- [X] Completed Task`.\n   	- **githubemoji**: Support for github emojis (`:smile:` --> :smile:). Converts to HTML images that use github's actual emoji assets.\n   	- **b64**: Convert and embed images in the HTML as base64 by adding the extension as `b64(base_path=${BASE_PATH})` (recently a global b64 that works on all parsers was added; see [settings][settings] file for more info).\n   	- **headeranchor**: Adds support for github style anchor links preceding headers.\n   	- **github**: A convenience extension to add: `magiclink`, `delete`, `tasklist`, `githubemoji`, `headeranchor`, and `nl2br` to parse and display GFM in a github-ish way.  It is recommed to pair `github` with `extra` and `codehilite` (with language guessing off) to parse close to github's way.\n      - **admonitionicon**: Add font icon to admonition blocks.  Default CSS uses [font awesome](http://fortawesome.github.io/Font-Awesome/)\n      - **progressbar**: Create progress bars.  See [Using Progress Bars](#using-progress-bars) for more info.\n  \n  ## Installation :\n  \n  ### Using [Package Control][3] (*Recommended*)\n  \n  For all Sublime Text 2/3 users we recommend install via [Package Control][3].\n  \n  1. [Install][11] Package Control if you haven't yet.\n  2. Use `cmd+shift+P` then `Package Control: Install Package`\n  3. Look for `Markdown Preview` and install it.\n  \n  ### Manual Install\n  \n  1. Click the `Preferences > Browse Packages…` menu\n  2. Browse up a folder and then into the `Installed Packages/` folder\n  3. Download [zip package][12] rename it to `Markdown Preview.sublime-package` and copy it into the `Installed Packages/` directory\n  4. Restart Sublime Text\n  \n  ## Usage :\n  \n  ### To preview :\n  \n   - optionally select some of your markdown for conversion\n   - use `cmd+shift+P` then `Markdown Preview` to show the follow commands (you will be prompted to select which parser you prefer):\n  	- Markdown Preview: Preview in Browser\n  	- Markdown Preview: Export HTML in Sublime Text\n  	- Markdown Preview: Copy to Clipboard\n  	- Markdown Preview: Open Markdown Cheat sheet\n   - or bind some key in your user key binding, using a line like this one:\n     `{ \"keys\": [\"alt+m\"], \"command\": \"markdown_preview\", \"args\": {\"target\": \"browser\", \"parser\":\"markdown\"} },` for a specific parser and target or `{ \"keys\": [\"alt+m\"], \"command\": \"markdown_preview_select\", \"args\": {\"target\": \"browser\"} },` to bring up the quick panel to select enabled parsers for a given target.\n   - once converted a first time, the output HTML will be updated on each file save (with LiveReload plugin)\n  \n  ### To build :\n  \n   - Just use `Ctrl+B` (Windows/Linux) or `cmd+B` (Mac) to build current file.\n  \n  ### To config :\n  \n  Using Sublime Text menu: `Preferences`->`Package Settings`->`Markdown Preview`\n  \n  - `Settings - User` is where you change your settings for Markdown Preview.\n  - `Settings - Default` is a good reference with detailed descriptions for each setting.\n  \n  ### Configuring Pygments\n  If you add the codehilite extension manually in the enabled extensions, you can override some of the default settings.\n  \n  * Turn language guessing *on* or *off* (*on* will highlight fenced blocks even if you don't specify a language)  `codehilite(guess_lang=False)` (True|False).\n  * Show line numbers: `codehilite(linenums=True)` (True|False).\n  * Change the higlight theme: `codehilite(pygments_style=emacs)`.\n  * Inline the CSS: `codehilite(noclasses=True)` (True|False).\n  \n  See [codehilte page](https://pythonhosted.org/Markdown/extensions/code_hilite.html) for more info.\n  \n  ### Meta Data Support\n  When the `meta` extension is enabled (https://pythonhosted.org/Markdown/extensions/meta_data.html), the results will be written to the HTML head in the form `<meta name=\"key\" content=\"value1,value2\">`.  `title` is the one exception, and its content will be written to the title tag in the HTML head.\n  \n  ### YAML Frontmatter Support\n  YAML frontmatter can be stripped out and read when `strip_yaml_front_matter` is set to  `true` in the settings file.  In general the, the fronmatter is handled the same as [meta data](#meta-data-support), but if both exist in a file, the YAML keys will override the `meta` extension keys.  There are a few special keys names that won't be handled as html meta data.\n  \n  #### Special YAML Key Names\n  Yaml frontmatter has a few special key names that are used that will not be handled as meta data:\n  \n  - **basepath**: An absolute path to configure the relative paths for images etc. (for when the markdown is supposed to reference images in a different location.)\n  - **references**: Can take a file path or an array of file paths for separate markdown files containing references, footnotes, etc.  Can be an absolute path or relative path.  Relative paths first use the source file's directory, and if the file cannot be found, it will use the `basepath` setting.\n  - **destination**: This is an absolute file path or relative file path for when the markdown is saved to html via the build command or the `Save to HTML` command.  Relative paths first use the source file's directory, and if the file cannot be found, it will use the `basepath` setting.\n  - **settings**: This is a dictionary where you can override settings that are in the settings file.\n  \n  #### Example\n  ```yaml\n  ---\n      # Builtin values\n      references:\n          - references.md\n          - abbreviations.md\n          - footnotes.md\n  \n      destination: destination.html\n  \n      # Meta Data\n      title: Test Page\n      author:\n          - John Doe\n          - Jane Doe\n  \n      # Settings overrides\n      settings:\n          enabled_extensions:\n          - extra\n          - github\n          - toc\n          - headerid\n          - smarty(smart_quotes=False) # smart quotes interferes with attr_list\n          - meta\n          - wikilinks\n          - admonition\n          - codehilite(guess_lang=False,pygments_style=github)\n  ---\n  ```\n  \n  ### Using Progress Bars\n  Create a progress bar with the following notations:\n  \n  - Percentage: `[== 35% optional label]`\n  - Division: `[== 37.5/500 optional label]`\n  \n  Though progress bars will be recognized inline, they should be displayed as block; they should be used as block items except were not possible (tables etc.).  In general it is best to have an empty line before and after a progress bar.\n  \n  ```\n  Some text\n  \n  [== 25% progress bar]\n  \n  Some more text\n  ```\n  \n  Default styling is a flat candy-striped  bar, but there is included CSS for animated candy-stripping and a glossy bar.  You can access one or more of these additional stylings by adding the classes when enabling the extension `progressbar(addclasses=candystripe-animate gloss)`.\n  \n  Also by default, the progress bar extension adds classes to allow for different stylings of percent levels: 0-20%, 21-40%, 41-60%, 61-80%, 80-99%, 100%.  This can be turned off by defining the extension as `progressbar(levelclass=False)`.  When level classes are disabled, the default color is blue.\n  \n  Additionally, you can change the settings with this inline notation as well `[==50%  MyLabel]{addclasses=\"additional classes\" levelclass=\"false\"}`.\n  \n  ### Parsing Github Flavored Markdown :\n  Github Flavored Mardown (GFM) is a very popular markdown.  Markdown Preview can actually handle them in a couple of ways: online and offline.\n  \n  #### Online :\n  Parsing GFM using the online method requires using the Github API as the parser.  It may also require setting `github_mode` to `gfm` to get things like tasklists to render properly.\n  \n  #### Offline :\n  By default almost all extensions are enabled to help with the github feel, but there are some tweaks needed to get the full experience.\n  \n  GFM does not auto guess language in fenced blocks, but Markdown Preview does this by default.  You can fix this in one of two ways:\n  \n  1. Disable auto language guessing in the settings file `\"guess_language\": false,`\n  2. Or if you are manually defining extensions: `\"enabled_extensions\": [\"codehilite(guess_lang=False,pygments_style=github)\"]`\n  \n  \n  As mentioned earlier, almost all extensions are enabled by default, but as a reference, the minimum extensions that should be enabled are listed below:\n  \n  ```javascript\n  	\"enabled_extensions\": [\n  		\"extra\",\n  		\"github\",\n  		\"codehilite(guess_lang=False,pygments_style=github)\"\n  	]\n  ```\n  \n  This may be further enhanced in the future.\n  \n  \n  ## Support :\n  \n  - Any bugs about Markdown Preview please feel free to report [here][issue].\n  - And you are welcome to fork and submit pullrequests.\n  \n  \n  ## License :\n  \n  The code is available at github [project][home] under [MIT licence][4].\n  \n   [home]: https://github.com/revolunet/sublimetext-markdown-preview\n   [3]: https://sublime.wbond.net/\n   [4]: http://revolunet.mit-license.org\n   [5]: http://developer.github.com/v3/markdown\n   [6]: http://github.github.com/github-flavored-markdown/\n   [7]: https://github.com/dz0ny/LiveReload-sublimetext2\n   [8]: https://github.com/revolunet/sublimetext-markdown-preview/issues/27#issuecomment-11772098\n   [9]: https://github.com/revolunet/sublimetext-markdown-preview/issues/78#issuecomment-15644727\n   [10]: https://github.com/waylan/Python-Markdown\n   [11]: https://sublime.wbond.net/installation\n   [12]: https://github.com/revolunet/sublimetext-markdown-preview/archive/master.zip\n   [issue]: https://github.com/revolunet/sublimetext-markdown-preview/issues\n   [settings]: https://github.com/revolunet/sublimetext-markdown-preview/blob/master/MarkdownPreview.sublime-settings\n  \n",
+			"settings":
+			{
+				"buffer_size": 12419,
+				"line_ending": "Windows",
+				"name": "Package Control Messages",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "Packages/User/myMake.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"mar",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"ma",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"insa",
+				"Package Control: Install Package"
+			],
+			[
+				"32",
+				"Build: Run32"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"clea",
+				"Build: Clean"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"buid",
+				"Build: build32"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"pac",
+				"Package Control: Enable Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"cle",
+				"Build: Clean"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"clean",
+				"Build: Clean"
+			]
+		],
+		"width": 664.0
+	},
+	"console":
+	{
+		"height": 371.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/CSEngine"
+	],
+	"file_history":
+	[
+		"/C/Users/Omar/AppData/Local/Temp/7zEBB81.tmp/Timestep.cpp",
+		"/C/Users/Omar/AppData/Local/Temp/7zE45B5.tmp/Windows.h",
+		"/C/Users/Omar/AppData/Local/Temp/7zE37B0.tmp/Apple.h",
+		"/C/Users/Omar/AppData/Local/Temp/7zE29BA.tmp/Timestep.cpp",
+		"/C/SDL/x86_64-w64-mingw32/include/SDL2/SDL_rect.h",
+		"/C/dev/SDLTEST/.gitignore",
+		"/C/dev/SDLTEST/5b408044-22d4-46d4-b960-9fe790b6acb4.dmp",
+		"/C/dev/SDLTEST/include/LuaBridge/detail/Namespace.h",
+		"/C/MinGW/msys/1.0/home/Omar/simpleini/SimpleIni.h",
+		"/C/LuaJIT-2.0.3/src/lauxlib.h",
+		"/C/LuaJIT-2.0.3/src/lua.hpp",
+		"/C/LuaJIT-2.0.3/README",
+		"/C/lua/5.1/include/lua.h",
+		"/C/dev/SDLTEST/include/LuaBridge/LuaBridge.h",
+		"/C/dev/SDLTEST/include/LuaBridge/detail/LuaHelpers.h",
+		"/C/dev/SDLTEST/include/LuaBridge/detail/Stack.h",
+		"/C/lua-5.1.5/INSTALL",
+		"/C/lua-5.1.5/README",
+		"/c/tdm-gcc-64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++/bits/vector.tcc",
+		"/C/MinGW/msys/1.0/home/Omar/simpleini/test1.cpp",
+		"/C/dev/SDLTEST/scripts/myscript.sgs",
+		"/C/dev/SDLTEST/include/luaState.h",
+		"/C/Users/Omar/Desktop/SFMLTEST/src/system.cpp",
+		"/C/dev/SDLTEST/src/main.cpp",
+		"/C/sgscript/README.md",
+		"/C/dev/SDLTEST/scripts/vars.lua",
+		"/C/dev/SDLTEST/src/luaState.cpp",
+		"/C/dev/SDLTEST/trash/luatest.cpp",
+		"/C/dev/SDLTEST/include/selene/primitives.h",
+		"/C/tolua-5.2.0/INSTALL",
+		"/C/MinGW/msys/1.0/home/Omar/luna-gen/README",
+		"/C/MinGW/msys/1.0/home/Omar/luna-gen/examples/README",
+		"/C/tolua-5.2.0/README",
+		"/C/dev/SDLTEST/include/luascript.h",
+		"/C/dev/SDLTEST/src/luascript.cpp",
+		"/C/dev/SDLTEST/src/luatest.cpp",
+		"/C/Users/Omar/LuaState-master/README.md",
+		"/C/Users/Omar/LuaState-master/test/main.cpp",
+		"/C/Users/Omar/LuaState-master/test/get_test.cpp",
+		"/C/Users/Omar/LuaState-master/test/test.h",
+		"/C/dev/SDLTEST/src/example.cpp",
+		"/C/dev/SDLTEST/src/example_wrap.cxx",
+		"/C/dev/SDLTEST/src/example.i",
+		"/C/dev/SDLTEST/include/example.h",
+		"/C/Users/Omar/AppData/Local/Temp/7zE9D03.tmp/README",
+		"/C/Users/Omar/AppData/Local/Temp/7zEF981.tmp/luawrapperutil.hpp",
+		"/C/lua-5.2.3/src/luac.c",
+		"/C/dev/SDLTEST/src/min.c",
+		"/C/dev/SDLTEST/src/DELETED.txt",
+		"/C/test.cpp",
+		"/C/dev/SDLTEST/include/typedefs.h",
+		"/C/dev/SDLTEST/Makefile",
+		"/C/dev/SDLTEST/README.md",
+		"/C/dev/SDLTEST/src/CS.cpp",
+		"/Users/slouken/release/SDL/SDL2-2.0.3-source/src/main/windows/SDL_windows_main.c",
+		"/C/dev/SDLTEST/bin/terminal.glue",
+		"/C/dev/SDLTEST/data/player.png",
+		"/C/dev/SDLTEST/include/cleanup.h",
+		"/C/dev/SDLTEST/src/54dab505-fca9-4088-864e-1d5afaeb74ef.dmp",
+		"/C/dev/SDLTEST/project.sublime-project",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/C/Users/Omar/Desktop/SFMLTEST/src/components.hpp",
+		"/C/Users/Omar/Desktop/SFMLTEST/deleted",
+		"/C/dev/SDLTEST/data/fonts/FONTLOG.txt",
+		"/C/dev/SDLTEST/bin/LICENSE.tiff.txt",
+		"/C/Users/Omar/Desktop/SFMLTEST/src/game.cpp",
+		"/C/Users/Omar/Desktop/SFMLTEST/src/deleted controls code in update().txt",
+		"/C/Users/Omar/Desktop/smart sweepers - v1.0/main.cpp",
+		"/C/Users/Omar/Desktop/smart sweepers - v1.0/CMinesweeper.cpp",
+		"/C/Users/Omar/Desktop/smart sweepers - v1.0/Script1.aps",
+		"/C/Users/Omar/Desktop/smart sweepers - v1.0/Script1.rc",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 3/Packages/User/C++.sublime-settings",
+		"/C/dev/SDLTEST/20e9789b-f58a-439b-8b8d-3411319382ce.dmp",
+		"/C/dev/SDLTEST/fd8ca7fb-a8dc-40e7-9764-a500df7a3066.dmp",
+		"/C/dev/SDLTEST/src/game.cpp",
+		"/C/dev/SDLTEST/include/system.h",
+		"/C/dev/SDLTEST/data/hello.png",
+		"/C/dev/SDLTEST/bin/LICENSE.jpeg.txt",
+		"/C/dev/SDLTEST/data/gameover.bmp",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 3/Packages/User/myMake.sublime-build",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/Makefile/Make.sublime-build",
+		"/C/Program Files (x86)/Sublime Text 2/Pristine Packages/Makefile.sublime-package",
+		"/C/Program Files/Sublime Text 3/Packages/Makefile.sublime-package",
+		"/C/dev/SDLTEST/src/window.cpp",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 3/Packages/User/clang_format_custom.sublime-settings",
+		"/C/dev/SDLTEST/include/window.h",
+		"/C/dev/SDLTEST/src/DELETED.cpp",
+		"/C/dev/SDLTEST/include/game.h",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/User/myMake.sublime-build",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/User/mingw32-make.sublime-build",
+		"/C/dev/SDLTEST/src/game.h",
+		"/C/dev/SDLTEST/src/cleanup.h",
+		"/C/dev/SDLTEST/src/window.h",
+		"/C/dev/SDLTEST/src/Makefile",
+		"/C/mathart.cpp",
+		"/C/MathPic.ppm",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Omar/Desktop/SFMLTEST/main.cpp",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/User/SFML2_C++.sublime-build",
+		"/C/Users/Omar/myApp/game.js",
+		"/C/Users/Omar/Desktop/SFMLTEST/build&run.bat",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/C++/C++.sublime-build",
+		"/C/Users/Omar/Desktop/SFMLTEST/compile.sh",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/User/clangSFML.sublime-build",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Omar/AppData/Roaming/Sublime Text 2/Packages/C++/old_C++.sublime-build",
+		"/C/Users/Omar/Desktop/EULER/P18.py",
+		"/C/Users/Omar/Desktop/P18.py",
+		"/C/Users/Omar/Desktop/htmlTest/test.html",
+		"/C/Users/Omar/Desktop/htmlTest/scripts/app.js",
+		"/C/Users/Omar/Desktop/craftyTest.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\dev\\SDLTEST\\include",
+			"C:\\dev\\SDLTEST\\src",
+			"C:\\dev\\SDLTEST\\include",
+			"C:\\dev\\SDLTEST\\src",
+			"C:\\dev\\SDLTEST\\bin"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"y",
+			"c_str",
+			"cstr",
+			"getGlobalNamespace",
+			"getgloabalnamespace",
+			"worldBounds",
+			"get",
+			"bool",
+			"true",
+			"o",
+			"O",
+			"o",
+			"O",
+			")\n",
+			"h",
+			"CS::moveCS",
+			"new FuncQComponent(id)",
+			"new PropertiesComponent(id);",
+			"new SpriteComponent(",
+			"new SpriteComponent(\"../data/hello.png\", CS::moveCS, id)",
+			"MoveComponent*",
+			"SpriteComponent*",
+			"MoveComponent*",
+			"new CollisionComponent(",
+			"new MoveComponent(",
+			"*",
+			"&",
+			".erase(id)",
+			"setc",
+			"spriteCS",
+			"moveCS[id]",
+			"timer",
+			"el",
+			"elaps",
+			"moveC",
+			"funcQ",
+			"funcQS",
+			"Vec2<float>",
+			"imgRect",
+			"{\n",
+			"x",
+			"w",
+			"x",
+			"_INDEX",
+			"x",
+			"BIAS",
+			"width",
+			"rect",
+			"acc",
+			"collidingWith",
+			"2",
+			"x",
+			"1",
+			"c1->moveC->pos.x > c1->moveC->deltaPos.x",
+			"maxV",
+			"rect.",
+			"w",
+			"x",
+			"spee",
+			"gridH",
+			"gridW",
+			"gridY",
+			"gridX",
+			"it",
+			"x",
+			"w",
+			"x",
+			"1",
+			"auto",
+			"x",
+			"depth < maxDepth",
+			"QTs.size() > 0",
+			"int",
+			"r.",
+			"Vec2<float>",
+			"maxVel",
+			"maxVel.y",
+			"maxVel.x",
+			"%10",
+			"x",
+			"->vec",
+			"vec",
+			"->x",
+			"->y",
+			"vx",
+			"vy",
+			"CSys",
+			"test",
+			"CSys::moveCS[test]",
+			"[1]",
+			"1",
+			".map",
+			"map",
+			"1",
+			"game.exe"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"x",
+			"worldbounds",
+			"moveCS",
+			"std::shared_ptr<FuncQComponent>(new FuncQComponent(id));",
+			"std::shared_ptr<PropertiesComponent>(new PropertiesComponent(id));",
+			"std::shared_ptr<SpriteComponent>(",
+			"std::shared_ptr<SpriteComponent>(new SpriteComponent(\"../data/hello.png\", CS::moveCS, id))",
+			"std::shared_ptr<MoveComponent>",
+			"std::shared_ptr<SpriteComponent>",
+			"std::shared_ptr<MoveComponent>",
+			"std::shared_ptr<CollisionComponent>(new CollisionComponent(",
+			"std::shared_ptr<MoveComponent>(new MoveComponent(",
+			">",
+			"[id]",
+			"COMP[moveC][id]",
+			"CS::moveCS[id]",
+			"Vec2",
+			"result",
+			"y",
+			"h",
+			"y",
+			"_E_INDEX",
+			"y",
+			"w",
+			"r",
+			"vel",
+			"1",
+			"y",
+			"2",
+			"Xincreased",
+			"moveC->pos.",
+			"h",
+			"y",
+			"bounds.h",
+			"bounds.w",
+			"bounds.y",
+			"bounds.x",
+			"checking",
+			"y",
+			"h",
+			"yh",
+			"y",
+			"2",
+			"it-first",
+			"unsigned int",
+			"y",
+			"QTs[0] != nullptr",
+			"unsigned int",
+			"auto",
+			"r->",
+			"Vec2f",
+			"maxV",
+			"mVy",
+			"mVx",
+			"/RAND_MAX",
+			"y",
+			"->vel",
+			"vel",
+			"->pos.x",
+			"->pos.y",
+			"vec.x",
+			"vec.y",
+			"CS",
+			"id",
+			"moveC",
+			"[test]",
+			"",
+			"SPEED"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "C:\\CSEngine"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1056,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								348,
+								348
+							]
+						],
+						"settings":
+						{
+							"auto_name": "CSEngine",
+							"parser": "github",
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"target": "browser"
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Makefile",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1814,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "planning",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								309,
+								309
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"spell_check": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"wrap_width": 120
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/dev/SDLTEST/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1069,
+								483
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12419,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12419,
+								12419
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 251.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 100.0
+	},
+	"project": "",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"ex",
+				"src\\example.i"
+			],
+			[
+				"com",
+				"src\\components.cpp"
+			],
+			[
+				"cs",
+				"include\\CS.h"
+			],
+			[
+				"comp",
+				"C:\\Users\\Omar\\Desktop\\SFMLTEST\\src\\components.hpp"
+			],
+			[
+				"",
+				"src\\main.cpp"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 661.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/dev/SDLTEST/project.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"ini",
+				"Init"
+			],
+			[
+				"inti",
+				"Init"
+			],
+			[
+				"",
+				"update"
+			],
+			[
+				"out",
+				"outOfBounds"
+			],
+			[
+				"draw",
+				"Draw"
+			]
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 185.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
