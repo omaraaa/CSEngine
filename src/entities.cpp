@@ -66,7 +66,8 @@ eId bullet(Vec2 const &pos, eId const &oid){
 
 float shootTimer = 0;
 bool holdFace = false;
-void playerUpdate(eId id){		
+void playerUpdate(eId id){
+	bool running = false;		
 	if(moveCS[id]->vel.y > 0 && !(CS::collisionCS[id]->touching & FLOOR)){
 		std::vector<int> v = {6};
 		CS::spriteCS[id]->playAnimation(v, 1, false, true);
@@ -81,8 +82,9 @@ void playerUpdate(eId id){
 			CS::spriteCS[id]->playAnimation(v, 1, false, true);
 		}
 		else {
-			std::vector<int> v = {0,2,1,1,2,0};
-			CS::spriteCS[id]->playAnimation(v, 20, true);
+			running = true;
+			std::vector<int> v = {0,1,2};
+			CS::spriteCS[id]->playAnimation(v, 16, true);
 		}
 	}
 	if(CS::propCS[id]->boolProps["shooting"] && CS::propCS[id]->fProps["fireRate"] <= shootTimer)
@@ -91,7 +93,10 @@ void playerUpdate(eId id){
 		//CS::propCS[id]->boolProps["shooting"] = false;
 		shootTimer = 0;
 	}
-	//CS::spriteCS[id]->currentAnimation.speed  *= (abs(moveCS[id]->vel.x)/moveCS[id]->maxV.x);
+	float v = moveCS[id]->vel.x;
+	float mv = moveCS[id]->maxV.x;
+	if(running)
+		CS::spriteCS[id]->currentAnimation.speed  = abs(16*(v/mv));
 	shootTimer += Timer::dt;
 	CS::propCS[id]->boolProps["holdFace"] = false;
 }

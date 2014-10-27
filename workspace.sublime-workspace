@@ -520,10 +520,7 @@
 	"buffers":
 	[
 		{
-			"contents": "CSEngine\n========\nMy own personal engine made for educational purposes.\n\nComponents:\n-----------\n* MoveComponent\n>Component that handles position, velocity, and acceleration\n\n* SpriteComponent\n>Component that handles sprites and drawing\n\n* CollisionComponent\n>Component that handles collision\n\n* PropsComponent\n>Handles properties\n\n* FuncQComponent\n>handles function queues\n\n* Camera\n>Camera with zoom, position, and size in addition to screen position and screen size\n\nLua Commands:\n-------------\nPress F1 to type a command\n* createVec2(x, y) - creates a 2d Vector\n* setPos(entity id, vec2) - sets the position of an entity\n* createBoxes(x, y, no. boxes) - creates a row of boxes\n* getMousePos() - return Vec2 of mouse pos\n* mBox(x, y) - creates a box\n* player(Vec2) - creates a player\n\nTODO:\n-----\n* change how collision and overlap checking is handled\n* implement QuadTrees\n* more features\n\nnotes\n-----\n[TwinklebearDev SDL 2.0 Tutorial] - awesome SDL 2 tutorial\n\nVerion\n------\n0.0.1\n\n[TwinklebearDev SDL 2.0 Tutorial]:http://www.willusher.io/pages/sdl2/",
 			"file": "README.md",
-			"file_size": 73,
-			"file_write_time": 130588281897529501,
 			"settings":
 			{
 				"buffer_size": 1056,
@@ -532,10 +529,34 @@
 			}
 		},
 		{
-			"file": "Makefile",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 1814,
+				"buffer_size": 60,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/CS.cpp",
+			"settings":
+			{
+				"buffer_size": 5717,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/components.cpp",
+			"settings":
+			{
+				"buffer_size": 12037,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/system.cpp",
+			"settings":
+			{
+				"buffer_size": 8148,
 				"line_ending": "Windows"
 			}
 		},
@@ -686,10 +707,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/CSEngine"
+		"/C/CSEngine",
+		"/C/CSEngine/src"
 	],
 	"file_history":
 	[
+		"/C/CSEngine/.gitignore",
 		"/C/Users/Omar/AppData/Local/Temp/7zEBB81.tmp/Timestep.cpp",
 		"/C/Users/Omar/AppData/Local/Temp/7zE45B5.tmp/Windows.h",
 		"/C/Users/Omar/AppData/Local/Temp/7zE37B0.tmp/Apple.h",
@@ -1027,8 +1050,8 @@
 						"selection":
 						[
 							[
-								348,
-								348
+								71,
+								18
 							]
 						],
 						"settings":
@@ -1036,10 +1059,10 @@
 							"auto_name": "CSEngine",
 							"parser": "github",
 							"syntax": "Packages/Markdown/Markdown.tmLanguage",
-							"target": "browser"
+							"target": "disk"
 						},
 						"translation.x": 0.0,
-						"translation.y": 108.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1047,11 +1070,68 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Makefile",
-					"semi_transient": true,
+					"file": ".gitignore",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1814,
+						"buffer_size": 60,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								57,
+								57
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/CS.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5717,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3835,
+								3835
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2160.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/components.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12037,
 						"regions":
 						{
 						},
@@ -1064,17 +1144,47 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 4155.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/system.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								544,
+								544
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 5,
 					"file": "planning",
 					"semi_transient": false,
 					"settings":
@@ -1101,11 +1211,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 6,
 					"file": "/C/dev/SDLTEST/README.md",
 					"semi_transient": false,
 					"settings":
@@ -1129,11 +1239,11 @@
 						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 7,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1157,7 +1267,7 @@
 						"translation.y": 810.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]

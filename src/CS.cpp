@@ -64,7 +64,7 @@ void CS::clear(){
 	worldbounds = {0,0,0,0};
 }
 
-Grid CS::grid(0,0,800,600,50);
+Grid CS::grid(0,0,800,600,100);
 int nc=0;
 void CS::collisionUpdate(){
 	//qt.clear();
@@ -135,7 +135,7 @@ void CS::update(){
 	for(auto it = moveCS.begin(); it != moveCS.end(); it++){
 		it->second->update();
 	}
-	CS::cameraUpdate();
+	
 	for(auto it = collisionCS.begin(); it != collisionCS.end(); it++){
 		it->second->update();
 	}
@@ -146,7 +146,6 @@ void CS::update(){
 	for(auto it = spriteCS.begin(); it != spriteCS.end(); it++){
 		it->second->update();
 	}
-	
 }
 
 void CS::cameraUpdate(){
@@ -162,7 +161,7 @@ void CS::cameraUpdate(){
 // // }
 
 void CS::draw(){
-
+	CS::cameraUpdate();
 	for(auto it = spriteCS.begin(); it != spriteCS.end(); it++){		
 		if(cameras.size()>0){
 			for(auto cIt = cameras.begin(); cIt != cameras.end(); cIt++)

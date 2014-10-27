@@ -61,6 +61,11 @@ double time_in_seconds(){
 	return chrono::duration_cast<
 			chrono::duration<double>>(t.time_since_epoch()).count();
 }
+double timeMs(){
+	auto t = chrono::high_resolution_clock::now();
+	return chrono::duration_cast<
+			chrono::duration<double, std::milli>>(t.time_since_epoch()).count();
+}
 
 void setLua(lua_State *L){
 	getGlobalNamespace (L)
@@ -127,14 +132,12 @@ int main(int argc, char **argv){
 		cout << "FAILED TO LOAD LUA SCRIPT" << endl;
 	}
 
-	Timer::currentTime = 1;
+	Timer::currentTime = time_in_seconds();
 	while(!quit){
 		text = "";
 		//auto timePoint1(chrono::high_resolution_clock::now());
 		double newTime = time_in_seconds();
 		double frameTime = newTime - Timer::currentTime;
-		if(frameTime > 0.25)
-			frameTime = 0.25;
 		Timer::currentTime = newTime;
 
 		Timer::accumulator += frameTime;
@@ -222,6 +225,7 @@ int main(int argc, char **argv){
 		}
 
 		Timer::alpha = Timer::accumulator / Timer::dt;
+		cout << Timer::alpha << endl;
 		//Window::Draw(t, r);
 		//CS::interpolate();
 		CS::draw();

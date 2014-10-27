@@ -211,14 +211,17 @@ void SpriteComponent::draw(){
 }
 
 void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
-	//interpolate();
+	interpolate();
 
 	SDL_Rect b1, b2, cBounds, area;
 	b1 = imgRect;
 	b2 = clipRect;
-	cBounds = {pos.x, pos.y, size.x, size.y};
-	imgRect.x = (imgRect.x - gamePos.x);
-	imgRect.y = (imgRect.y - gamePos.y);
+	cBounds.x = pos.x;
+	cBounds.y = pos.y;
+	cBounds.w = size.x;
+	cBounds.h = size.y;
+	imgRect.x = (imgRect.x - floor(gamePos.x));
+	imgRect.y = (imgRect.y - floor(gamePos.y));
 	if(SDL_IntersectRect(&imgRect, &cBounds, &area)){
 		// if(imgRect.x + imgRect.w > pos.x + size.x){
 		// 	if((flip & SDL_FLIP_HORIZONTAL) == SDL_FLIP_NONE){
@@ -352,8 +355,8 @@ void SpriteComponent::playAnimation(std::vector<int> frames, float speed, bool l
 }
 
 void SpriteComponent::interpolate(){
-	imgRect.x = moveC->pos.x*Timer::alpha + moveC->deltaPos.x*(1.0f-Timer::alpha);
-	imgRect.y = moveC->pos.y*Timer::alpha + moveC->deltaPos.y*(1.0f-Timer::alpha);
+	imgRect.x = moveC->pos.x*Timer::alpha + moveC->deltaPos.x*(1.0-Timer::alpha);
+	imgRect.y = moveC->pos.y*Timer::alpha + moveC->deltaPos.y*(1.0-Timer::alpha);
 //	moveC->vel.x = moveC->vel.x*Timer::alpha + moveC->deltaVel.x*(1.0-Timer::alpha);
 //	moveC->vel.y = moveC->vel.y*Timer::alpha + moveC->deltaVel.y*(1.0-Timer::alpha);
 }
@@ -362,9 +365,9 @@ MoveComponent::MoveComponent(float xx, float yy, eId id) : Component(id) {
 	pos = {xx, yy};
 	vel = {0.f,0.f};
 	acc = {0.f,0.f};
-	drag = {30.f,30.f};
-	maxV = {100,100};
-	terV = {100,100};
+	drag = {0.03,0.03};
+	maxV = {0.1,0.1};
+	terV = {0.1,0.1};
 }
 
 void MoveComponent::update(){
@@ -456,5 +459,7 @@ void Camera::update(){
 	if(followE != NULL){
 		pos.x = moveCS[followE]->pos.x + CS::collisionCS[followE]->rect.w/2 - winSize.x/(2*zoom);
 		pos.y = moveCS[followE]->pos.y + CS::collisionCS[followE]->rect.h/2 - winSize.y/(2*zoom);
+		
 	}
+	
 }
