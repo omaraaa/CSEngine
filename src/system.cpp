@@ -358,8 +358,8 @@ void collide(eId e1, eId e2){
 	Rect a;
 	if(!checkOverlap(r1, r2, &a))
 		return;
-	// SDL_Rect sr3 = a.getSDLRect();
-	// Window::DrawRect(&sr3, 0,255,0);
+	SDL_Rect sr3 = a.getSDLRect();
+	Window::DrawRect(&sr3, 0,255,0);
 	// if(dx1 != dx2)
 	// {
 	// 	float maxOverlapX = absDX1 + absDX2 + BIAS;
@@ -386,24 +386,39 @@ void collide(eId e1, eId e2){
 	// 	//std::cout << maxOverlapX << " " << overlapX << std::endl;
 	// }
 	//SDL_Rect shit;
+	double xDir = c1->moveC->vel.x + c2->moveC->vel.x;
+	double yDir = c1->moveC->vel.y + c2->moveC->vel.y;
 	if(a.w <= a.h){
 		float change;
-		if(r1.x < r2.x){
-			c1->touching |= LEFT;
-			c2->touching |= RIGHT;
-			change = c1->rect.w;
+		bool c = true;
+		if(xDir > 0){
+			if(c1->touchable & RIGHT && c2->touchable & LEFT){
+				c1->touching |= LEFT;
+				c2->touching |= RIGHT;
+				change = c1->rect.w;
+			}else{
+				change = a.x - c1->moveC->pos.x;
+				c = false;
+			}
+		} else if(xDir < 0){
+			if(c1->touchable & LEFT && c2->touchable & RIGHT){
+				c1->touching |= RIGHT;
+				c2->touching |= LEFT;
+				a.w *= -1;
+				change = a.w + a.x - c1->moveC->pos.x;
+			}else{
+				change = a.x - c1->moveC->pos.x;
+				c = false;
+			}
 		} else {
-			c1->touching |= RIGHT;
-			c2->touching |= LEFT;
-			a.w *= -1;
-			change = a.w+a.x-c1->moveC->pos.x;
+			c = false;
 		}
-		if(!c2->moveable){
+		if(!c2->moveable && c){
 			c1->moveC->pos.x = a.x - change;
 			//c1->moveC->vel.x = 0;
 			c1->moveC->vel.x = 0;//(c1->moveC->pos.x - c1->moveC->deltaPos.x);
 		}
-		else if(!c1->moveable){
+		else if(!c1->moveable && c){
 			c2->moveC->pos.x = c2->moveC->pos.x + a.w;
 			c2->moveC->vel.x = 0;//(c2->moveC->pos.x - c2->moveC->deltaPos.x);
 			//c2->moveC->vel.x = 0;
@@ -411,21 +426,39 @@ void collide(eId e1, eId e2){
 	}
 	else {
 		float change;
-		if(r1.y < r2.y){
-			c1->touching |= FLOOR;
-			c2->touching |= TOP;
-			change = c1->rect.h;
+		float c = true;
+		if(yDir > 0 && c1->moveC->deltaPos.y + c1->rect.h <= r2.y+1){
+			//std::cout << yDir << " " << c1->moveC->deltaPos.y + c1->rect.h << " " << r2.y << "\n";
+
+			if(c1->touchable & TOP && c2->touchable & FLOOR){
+				c1->touching |= FLOOR;
+				c2->touching |= TOP;
+				change = c1->rect.h;
+			}else{
+				change = a.y - c1->moveC->pos.y;
+				c = false;
+			}
+		} else if( yDir < 0 && c1->moveC->deltaPos.y  >= r2.y + r2.y-1){
+
+			if(c1->touchable & FLOOR && c2->touchable & TOP){
+				c1->touching |= TOP;
+				c2->touching |= FLOOR;
+				a.h *= -1;
+				change = a.h+a.y-c1->moveC->pos.y;
+			}else{
+				change = a.y - c1->moveC->pos.y;
+				c = false;
+			}
 		} else {
-			c1->touching |= TOP;
-			c2->touching |= FLOOR;
-			a.h *= -1;
-			change = a.h+a.y-c1->moveC->pos.y;
+			//std::cout << yDir << " " << c1->moveC->deltaPos.y + c1->rect.h << " " << r2.y << "\n";
+
+			c = false;
 		}
-		if(!c2->moveable){
+		if(!c2->moveable && c){
 			c1->moveC->setPosition(c1->moveC->pos.x, a.y-change);
 			c1->moveC->vel.y = 0;//(c1->moveC->pos.y - c1->moveC->deltaPos.y);
 		}
-		else if(!c1->moveable){
+		else if(!c1->moveable && c){
 			c2->moveC->setPosition(c2->moveC->pos.x, c2->moveC->pos.y+a.h);
 			c2->moveC->vel.y = 0;//(c2->moveC->pos.y - c2->moveC->deltaPos.y);
 		}

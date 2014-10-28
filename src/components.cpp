@@ -59,6 +59,7 @@ CollisionComponent::CollisionComponent(std::map<eId, std::shared_ptr<SpriteCompo
 	solid = s;
 	moveable = true;
 	touching = NONE;
+	touchable = ALL;
 	collidedWith = 0;
 }
 
@@ -84,6 +85,7 @@ CollisionComponent::CollisionComponent(int w, int h,
 	solid = s;
 	moveable = true;
 	touching = NONE;
+	touchable = ALL;
 	collidedWith = 0;
 }
 
@@ -462,6 +464,11 @@ SDL_Rect Camera::getScreenRect(SDL_Rect r){
 }
 
 void Camera::update(){
+	//pos.x = CS::worldbounds.x;
+	//pos.y = CS::worldbounds.y;
+	//winSize.x = CS::worldbounds.w;
+	//winSize.y = CS::worldbounds.h;
+	//zoom = (winSize.y*winSize.x)/(CS::worldbounds.h*CS::worldbounds.w);
 	size.x = winSize.x/zoom;
 	size.y = winSize.y/zoom;
 	if(followE != NULL){

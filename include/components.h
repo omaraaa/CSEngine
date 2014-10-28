@@ -15,7 +15,7 @@ typedef unsigned long eId;
 
 
 //Enums
-enum Direction {UP = 0x0001, TOP = 0x0001, DOWN = 0x0010, FLOOR = 0x0010, LEFT = 0x0100, RIGHT = 0x1000, NONE = 0x000};
+enum Direction {UP = 0x0001, TOP = 0x0001, DOWN = 0x0010, FLOOR = 0x0010, LEFT = 0x0100, RIGHT = 0x1000, NONE = 0x0000, ALL = 0x1111};
 
 //Basic component
 struct Component {
@@ -105,6 +105,7 @@ struct CollisionComponent : public Component {
 	bool moveable;
 	bool debugDraw;
 	int touching;
+	int touchable;
 	std::vector<int> gridIndex;
 	CollisionComponent(int w, int h, std::map<eId, std::shared_ptr<MoveComponent>> &moveMap, eId id, bool s);
 	CollisionComponent(std::map<eId, std::shared_ptr<SpriteComponent>> &spriteMap,

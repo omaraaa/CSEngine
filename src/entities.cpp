@@ -209,7 +209,7 @@ eId TEST(Vec2 const &pos) {
 	// CS::spriteCS[id]->playAnimation(f, 8, true);
 	moveCS[id]->maxV = {350,650};
 	moveCS[id]->drag = {320,0};
-	moveCS[id]->acc.y = 600;
+	moveCS[id]->acc.y = 800;
 	//CS::collisionCS[id]->debugDraw = true;
 	//moveCS[id]->vel.y = sin(rand()%361)*moveCS[id]->maxV.y;
 	//moveCS[id]->vel.x = cos(rand()%361)*moveCS[id]->maxV.x;
@@ -351,6 +351,7 @@ eId mBox(float x, float y){
 	//CS::spriteCS[id]->setScale(0.1,0.1);
 	CS::collisionCS[id] = std::shared_ptr<CollisionComponent>(new CollisionComponent(CS::spriteCS,moveCS,id,true));
 	CS::collisionCS[id]->moveable = false;
+	CS::collisionCS[id]->touchable =  FLOOR ;
 	//CS::collisionCS[id]->debugDraw = true;
 	float grid = CS::spriteCS[id]->imgRect.w;
 	moveCS[id]->pos = {floor(x/grid)*grid, floor(y/grid)*grid};
