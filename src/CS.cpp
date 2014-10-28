@@ -135,7 +135,6 @@ void CS::update(){
 	for(auto it = moveCS.begin(); it != moveCS.end(); it++){
 		it->second->update();
 	}
-	
 	for(auto it = collisionCS.begin(); it != collisionCS.end(); it++){
 		it->second->update();
 	}
@@ -146,6 +145,7 @@ void CS::update(){
 	for(auto it = spriteCS.begin(); it != spriteCS.end(); it++){
 		it->second->update();
 	}
+	CS::cameraUpdate();
 }
 
 void CS::cameraUpdate(){
@@ -161,11 +161,12 @@ void CS::cameraUpdate(){
 // // }
 
 void CS::draw(){
-	CS::cameraUpdate();
+	
 	for(auto it = spriteCS.begin(); it != spriteCS.end(); it++){		
 		if(cameras.size()>0){
-			for(auto cIt = cameras.begin(); cIt != cameras.end(); cIt++)
+			for(auto cIt = cameras.begin(); cIt != cameras.end(); cIt++){
 				it->second->CameraDraw(cIt->second->winPos, cIt->second->size, cIt->second->zoom, cIt->second->pos);
+			}
 		} else
 			it->second->draw();
 	}

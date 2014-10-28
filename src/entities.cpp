@@ -6,6 +6,22 @@
 
 float P_firerate{};
 
+void kill(eId id){
+	CS::deleteEntity(id);
+	return;
+}
+
+eId STAR(float x, float y){
+	eId id = CS::createEntityID();
+	CS::createMoveC(x-16, y-16, id);
+	CS::spriteCS[id] = std::shared_ptr<SpriteComponent>(new SpriteComponent("../data/Caret.png", moveCS, id));
+	CS::spriteCS[id]->setFrame(32,32);
+	std::vector<int> v = {0,1,2,3};
+	void (*animC)(eId) = kill;
+	CS::spriteCS[id]->playAnimation(v, 40, false, false, animC);
+	return id;
+}
+
 bool testCollision(eId owner, std::string type){
 	const eId shooter = CS::propCS[owner]->entities["shooter"];
 	if(CS::collisionCS[owner]->overlaped && CS::collisionCS[owner]->overlapingWith[0] != shooter){
@@ -24,10 +40,11 @@ void bulletUpdate(eId id){
 	//moveCS[id]->vel.y = flip*cos(CS::propCS[id]->fProps["duration"]*0.01)*4;// - 3.14/2*flip;
 	if(CS::propCS[id]->fProps["duration"] < 0 
 			|| testCollision(id, "bullet")){
+		STAR(moveCS[id]->pos.x, moveCS[id]->pos.y);
 		CS::deleteEntity(id);
 		return;
 	}
-	CS::propCS[id]->fProps["duration"] -= Timer::frame;
+	CS::propCS[id]->fProps["duration"] -= Timer::dt;
 }
 
 eId bullet(Vec2 const &pos, eId const &oid){
@@ -41,7 +58,7 @@ eId bullet(Vec2 const &pos, eId const &oid){
 
 	CS::spriteCS[id] = std::shared_ptr<SpriteComponent>(new SpriteComponent("../data/hello.png", moveCS, id));
 	CS::spriteCS[id]->setScale(0.4, 0.2);
-	CS::spriteCS[id]->setColor(255, 100, 255);
+	CS::spriteCS[id]->setColor(255, 255, 255);
 	float speed = 4000;
 	if(CS::spriteCS[oid]->facing == RIGHT){
 		moveCS[id]->acc.x = speed;
@@ -51,9 +68,10 @@ eId bullet(Vec2 const &pos, eId const &oid){
 		moveCS[id]->acc.x = -speed;
 		moveCS[id]->pos.x = moveCS[id]->pos.x - CS::spriteCS[id]->imgRect.w;
 	}
+	STAR(moveCS[id]->pos.x, moveCS[id]->pos.y);
 	CS::propCS[id] = std::shared_ptr<PropertiesComponent>(new PropertiesComponent(id));
 	CS::propCS[id]->entities["shooter"] = oid;
-	CS::propCS[id]->fProps["duration"] = 1*1600;
+	CS::propCS[id]->fProps["duration"] = 0.25;
 	CS::propCS[id]->fProps["flip"] = 1;
 	CS::propCS[id]->stringProps["type"] == "bullet";
 	CS::funcQCS[id] = std::shared_ptr<FuncQComponent>(new FuncQComponent(id));

@@ -211,7 +211,7 @@ void SpriteComponent::draw(){
 }
 
 void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
-	interpolate();
+	//interpolate();
 
 	SDL_Rect b1, b2, cBounds, area;
 	b1 = imgRect;
@@ -220,8 +220,8 @@ void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
 	cBounds.y = pos.y;
 	cBounds.w = size.x;
 	cBounds.h = size.y;
-	imgRect.x = (imgRect.x - floor(gamePos.x));
-	imgRect.y = (imgRect.y - floor(gamePos.y));
+	imgRect.x = (imgRect.x - int(gamePos.x));
+	imgRect.y = (imgRect.y - int(gamePos.y));
 	if(SDL_IntersectRect(&imgRect, &cBounds, &area)){
 		// if(imgRect.x + imgRect.w > pos.x + size.x){
 		// 	if((flip & SDL_FLIP_HORIZONTAL) == SDL_FLIP_NONE){
@@ -290,7 +290,7 @@ void SpriteComponent::update(){
 	imgRect.x = moveC->pos.x + offset.x;
 	imgRect.y = moveC->pos.y + offset.y;
 	if(playingAnimation){
-		if(frameTimer < 1/currentAnimation.speed && !currentAnimation.played){
+		if(frameTimer < 1.f/currentAnimation.speed && !currentAnimation.played){
 			currentAnimation.currentFrame = currentAnimation.frames.at(currentAnimation.currentIt);
 			int fY = floor(currentAnimation.currentFrame/(texSize.x/(clipRect.w/scale.x)));
 			clipRect.x = currentAnimation.currentFrame*clipRect.w;
@@ -298,7 +298,7 @@ void SpriteComponent::update(){
 			currentAnimation.currentIt++;
 			currentAnimation.played = true;
 		}
-		else if(frameTimer > 1/currentAnimation.speed && currentAnimation.played){
+		else if(frameTimer > 1.f/currentAnimation.speed && currentAnimation.played){
 			currentAnimation.played = false;
 			frameTimer = 0;
 			if(currentAnimation.currentIt == currentAnimation.frames.size())
@@ -310,6 +310,10 @@ void SpriteComponent::update(){
 			}
 		}
 		frameTimer += Timer::dt;
+	}
+	if(!playingAnimation && currentAnimation.callback != nullptr){
+		currentAnimation.callback(owner);
+		currentAnimation.callback = nullptr;
 	}
 	if(facing == LEFT)
 	{
@@ -342,15 +346,17 @@ void SpriteComponent::setScale(float x, float y){
 	setFrame(w, h);
 }
 
-void SpriteComponent::playAnimation(std::vector<int> frames, float speed, bool loop, bool force){
+void SpriteComponent::playAnimation(std::vector<int> frames, float speed, bool loop, bool force, void (*cb)(eId)){
 	if(frames != currentAnimation.frames || force){
 		currentAnimation.frames.swap(frames);
 		currentAnimation.speed = speed;
 		currentAnimation.loop = loop;
 		currentAnimation.currentIt = 0;
 		currentAnimation.played = false;
+		currentAnimation.callback = cb;
 		frameTimer = 0;
 		playingAnimation = true;
+		
 	}
 }
 
@@ -373,6 +379,7 @@ MoveComponent::MoveComponent(float xx, float yy, eId id) : Component(id) {
 void MoveComponent::update(){
 	//vel = {vel.x+acc.x,vel.y+acc.y};
 	deltaVel = vel;
+	deltaPos = pos;
 	if(acc.x != 0 ){
 		vel.x += acc.x*Timer::dt;
 
@@ -404,7 +411,7 @@ void MoveComponent::update(){
 	if (vel.y > maxV.y || vel.y < -maxV.y){
 		vel.y = (vel.y>0)?maxV.y:-maxV.y;
 	}
-	deltaPos = pos;
+	
 	pos.x += vel.x*Timer::dt;
 	pos.y += vel.y*Timer::dt;
 }
@@ -457,9 +464,13 @@ void Camera::update(){
 	size.x = winSize.x/zoom;
 	size.y = winSize.y/zoom;
 	if(followE != NULL){
-		pos.x = moveCS[followE]->pos.x + CS::collisionCS[followE]->rect.w/2 - winSize.x/(2*zoom);
-		pos.y = moveCS[followE]->pos.y + CS::collisionCS[followE]->rect.h/2 - winSize.y/(2*zoom);
-		
+		pos.x = moveCS[followE]->pos.x + CS::collisionCS[followE]->rect.w/2.f - winSize.x/(2.f*zoom);
+		pos.y = moveCS[followE]->pos.y + CS::collisionCS[followE]->rect.h/2.f - winSize.y/(2.f*zoom);
 	}
 	
+}
+
+void Camera::interpolate(){
+	pos.x = pos.x*Timer::alpha + deltaPos.x*(1.0-Timer::alpha);
+	pos.y = pos.y*Timer::alpha + deltaPos.y*(1.0-Timer::alpha);
 }

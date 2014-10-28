@@ -225,7 +225,7 @@ int main(int argc, char **argv){
 		}
 
 		Timer::alpha = Timer::accumulator / Timer::dt;
-		cout << Timer::alpha << endl;
+		//cout << Timer::alpha << endl;
 		//Window::Draw(t, r);
 		//CS::interpolate();
 		CS::draw();

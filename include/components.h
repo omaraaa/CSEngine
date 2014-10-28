@@ -8,7 +8,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include <functional>
-//#include "../include/system.h"
+#include "../include/system.h"
 //Entities are just an unsinged long
 typedef unsigned long eId;
 
@@ -21,6 +21,7 @@ enum Direction {UP = 0x0001, TOP = 0x0001, DOWN = 0x0010, FLOOR = 0x0010, LEFT =
 struct Component {
 	Component(eId id);
 	eId owner;
+	//ComponentSystem CS;
 };
 
 //Movemenet component
@@ -51,6 +52,7 @@ struct SpriteComponent : public Component {
 		float speed;
 		bool loop;
 		bool played;
+		void (*callback)(eId) = nullptr;
 	};
 
 	struct Color
@@ -84,10 +86,11 @@ struct SpriteComponent : public Component {
 	void setScale(float x, float y);
 	void setColor(Uint8 r, Uint8 g, Uint8 b);
 	void interpolate();
-	void playAnimation(std::vector<int> frames, float speed=1, bool loop=false, bool force=false);
+	void playAnimation(std::vector<int> frames, float speed=1, bool loop=false, bool force=false, void(*cb)(eId)=nullptr);
 };
 
 struct CollisionComponent : public Component {
+	std::vector<std::string> types;
 	Rect rect;
 	std::shared_ptr<MoveComponent> moveC;
 	std::shared_ptr<SpriteComponent> spriteC;
@@ -156,6 +159,7 @@ struct Camera : public MoveComponent {
 	Vec2 getWorldPos(Vec2 p);
 	SDL_Rect getScreenRect(SDL_Rect r);
 	void follow(eId mc);
+	void interpolate();
 };
 
 
