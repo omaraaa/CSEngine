@@ -137,7 +137,7 @@ struct FuncQComponent : public Component {
 struct PropertiesComponent : public Component {
 	std::map<std::string, std::vector<eId>> groups;
 	std::map<std::string, eId> entities;
-	std::map<std::string, float> fProps;
+	std::map<std::string, double> fProps;
 	std::map<std::string, bool> boolProps;
 	std::map<std::string, std::string> stringProps;
 	std::vector<std::string> types;

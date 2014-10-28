@@ -414,6 +414,7 @@ void MoveComponent::update(){
 	
 	pos.x += vel.x*Timer::dt;
 	pos.y += vel.y*Timer::dt;
+	//std::cout << vel.y << std::endl;
 }
 
 void MoveComponent::interpolate(){

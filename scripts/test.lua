@@ -11,7 +11,7 @@ pos = createVec2(100,100);
 p = player(pos);
 
 function p()
-	setPos(p,getMousePos());
+	player(getMousePos());
 end
 
 function createBoxes()

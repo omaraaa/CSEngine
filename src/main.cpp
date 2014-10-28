@@ -217,7 +217,8 @@ int main(int argc, char **argv){
 		Window::Clear();
 		while(Timer::accumulator >= Timer::dt)
 		{
-			CS::update();
+			if(!consoleOpen)
+				CS::update();
 			Timer::t += Timer::dt;
 			Timer::accumulator -= Timer::dt;
 			//cout << Timer::frame <<endl;
@@ -225,7 +226,7 @@ int main(int argc, char **argv){
 		}
 
 		Timer::alpha = Timer::accumulator / Timer::dt;
-		//cout << Timer::alpha << endl;
+		//cout << 1/frameTime << endl;
 		//Window::Draw(t, r);
 		//CS::interpolate();
 		CS::draw();

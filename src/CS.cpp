@@ -129,9 +129,7 @@ void CS::eventUpdate(SDL_Event &e){
 }
 
 void CS::update(){
-	for(auto it = funcQCS.begin(); it != funcQCS.end(); it++){
-		it->second->update();
-	}
+	
 	for(auto it = moveCS.begin(); it != moveCS.end(); it++){
 		it->second->update();
 	}
@@ -146,6 +144,9 @@ void CS::update(){
 		it->second->update();
 	}
 	CS::cameraUpdate();
+	for(auto it = funcQCS.begin(); it != funcQCS.end(); it++){
+		it->second->update();
+	}
 }
 
 void CS::cameraUpdate(){
