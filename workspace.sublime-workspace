@@ -4,12 +4,68 @@
 		"selected_items":
 		[
 			[
-				"TIme",
-				"Timer::alpha"
+				"dy",
+				"dy1"
 			],
 			[
 				"std",
-				"std::endl"
+				"std::cout"
+			],
+			[
+				"mo",
+				"moveC"
+			],
+			[
+				"z",
+				"zoom"
+			],
+			[
+				"win",
+				"winSize"
+			],
+			[
+				"mov",
+				"moveC"
+			],
+			[
+				"touch",
+				"touchable"
+			],
+			[
+				"cons",
+				"consoleOpen"
+			],
+			[
+				"abs",
+				"absDY2"
+			],
+			[
+				"shoot",
+				"shootTimer"
+			],
+			[
+				"OVELA",
+				"overlapRect"
+			],
+			[
+				"spri",
+				"spriteCS"
+			],
+			[
+				"move",
+				"moveC"
+			],
+			[
+				"delta",
+				"deltaPos"
+			],
+			[
+				"pos",
+				"pos"
+			],
+			[
+				"TIme",
+				"Timer::alpha"
 			],
 			[
 				"ma",
@@ -28,20 +84,12 @@
 				"imgRect"
 			],
 			[
-				"mov",
-				"moveCS"
-			],
-			[
 				"max",
 				"maxVel"
 			],
 			[
 				"sprite",
 				"spriteCS"
-			],
-			[
-				"move",
-				"moveCS"
 			],
 			[
 				"sprit",
@@ -66,10 +114,6 @@
 			[
 				"overlap",
 				"overlapX"
-			],
-			[
-				"delta",
-				"deltaVel"
 			],
 			[
 				"Time",
@@ -98,10 +142,6 @@
 			[
 				"getPos",
 				"getPos"
-			],
-			[
-				"mo",
-				"moveCS"
 			],
 			[
 				"res",
@@ -368,10 +408,6 @@
 				"delete"
 			],
 			[
-				"pos",
-				"postUpdate"
-			],
-			[
 				"delet",
 				"delete"
 			],
@@ -398,10 +434,6 @@
 			[
 				"st",
 				"std::cout"
-			],
-			[
-				"spri",
-				"spriteC"
 			],
 			[
 				"MO",
@@ -482,38 +514,6 @@
 			[
 				"sho",
 				"shooting"
-			],
-			[
-				"stin",
-				"stringProps"
-			],
-			[
-				"string",
-				"std::string"
-			],
-			[
-				"set",
-				"setScale"
-			],
-			[
-				"f",
-				"fProps"
-			],
-			[
-				"pro",
-				"propCS"
-			],
-			[
-				"el",
-				"elapsed"
-			],
-			[
-				"spr",
-				"spriteCS"
-			],
-			[
-				"bu",
-				"bulletUpdate"
 			]
 		]
 	},
@@ -532,7 +532,7 @@
 			"file": "src/CS.cpp",
 			"settings":
 			{
-				"buffer_size": 5717,
+				"buffer_size": 5725,
 				"line_ending": "Windows"
 			}
 		},
@@ -540,7 +540,7 @@
 			"file": "src/main.cpp",
 			"settings":
 			{
-				"buffer_size": 7150,
+				"buffer_size": 7198,
 				"line_ending": "Windows"
 			}
 		},
@@ -548,15 +548,7 @@
 			"file": "src/components.cpp",
 			"settings":
 			{
-				"buffer_size": 12091,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/componentsystem.cpp",
-			"settings":
-			{
-				"buffer_size": 171,
+				"buffer_size": 12720,
 				"line_ending": "Windows"
 			}
 		},
@@ -564,7 +556,7 @@
 			"file": "include/components.h",
 			"settings":
 			{
-				"buffer_size": 3866,
+				"buffer_size": 3978,
 				"line_ending": "Windows"
 			}
 		},
@@ -572,7 +564,7 @@
 			"file": "src/game.cpp",
 			"settings":
 			{
-				"buffer_size": 241,
+				"buffer_size": 280,
 				"line_ending": "Windows"
 			}
 		},
@@ -580,7 +572,7 @@
 			"file": "include/game.h",
 			"settings":
 			{
-				"buffer_size": 99,
+				"buffer_size": 152,
 				"line_ending": "Windows"
 			}
 		},
@@ -588,7 +580,7 @@
 			"file": "src/system.cpp",
 			"settings":
 			{
-				"buffer_size": 11272,
+				"buffer_size": 13493,
 				"line_ending": "Windows"
 			}
 		},
@@ -596,7 +588,7 @@
 			"file": "include/system.h",
 			"settings":
 			{
-				"buffer_size": 1583,
+				"buffer_size": 1636,
 				"line_ending": "Windows"
 			}
 		},
@@ -604,7 +596,7 @@
 			"file": "src/window.cpp",
 			"settings":
 			{
-				"buffer_size": 3527,
+				"buffer_size": 3531,
 				"line_ending": "Windows"
 			}
 		},
@@ -612,7 +604,15 @@
 			"file": "src/entities.cpp",
 			"settings":
 			{
-				"buffer_size": 11755,
+				"buffer_size": 13143,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripts/test.lua",
+			"settings":
+			{
+				"buffer_size": 193,
 				"line_ending": "Windows"
 			}
 		},
@@ -633,21 +633,11 @@
 			}
 		},
 		{
-			"file": "/C/dev/SDLTEST/README.md",
+			"file": "src/componentsystem.cpp",
 			"settings":
 			{
-				"buffer_size": 1069,
+				"buffer_size": 93,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nMarkdown Preview:\n----------------\n\n  Sublime Text 2/3 Markdown Preview\n  =================================\n  \n  Preview and build your markdown files quickly in your web browser from sublime text 2/3. \n  \n  You can use builtin [python-markdown][10] parser or use the [github markdown API][5] for the conversion.\n  \n  **NOTE:** If you choose the GitHub API for conversion (set parser: github in your settings), your code will be sent through https to github for live conversion. You'll have [Github flavored markdown][6], syntax highlighting and EMOJI support for free :heart: :octocat: :gift:. If you make more than 60 calls a day, be sure to set your GitHub API key in the settings :). You can also get most of this in the default Markdown parser with by enabling certain extensions; see \"[Parsing Github Flavored Markdown](#parsing-github-flavored-markdown)\"\" below for more information.\n  \n  **LINUX users:** If you want to use GitHub API for conversion, you'll need to have a custom Python install that includes python-ssl as its not built in the Sublime Text 2 Linux package. see [@dusteye comment][8]. If you use a custom window manager, also be sure to set a `BROWSER` environment variable. see [@PPvG comments][9]\n  \n  ## Features :\n  \n   - Markdown preview using the [Python-markdown][10] or the Github API just choose select the build commands.\n   - Syntax highlighting via Pygments. See \"[Configuring Pygments](#configuring-pygments)\" for more info.\n   - Build markdown file using Sublime Text build system. The build parser are config via the `\"parser\"` config.\n   - Browser preview auto reload on save if you have the [ST2 LiveReload plugin][7] installed.\n   - Builtin parser : supports `abbr`, `attr_list`, `def_list`, `fenced_code`, `footnotes`, `tables`, `smart_strong`, `smarty`,  `wikilinks`, `meta`, `sane_lists`, `codehilite`, `nl2br`, and `toc` markdown extensions.\n   - CSS search path for local and build-in CSS files (always enabled) and/or CSS overriding if you need\n   - YAML support thanks to @tommi\n   - Clipboard selection and copy to clipboard thanks to @hexatrope\n   - MathJax support : \\\\(\\frac{\\pi}{2}\\\\) thanks to @bps10\n   - HTML template customisation thanks to @hozaka\n   - Embed images as base64 (see [settings][settings] file for more info)\n   - Strip out multimarkdown critic marks (see [settings][settings] file for more info)\n   - 3rd party extensions for the Python Markdown parser:\n   	- **magiclink**: Automatic conversion of http or ftp links to html links.\n   	- **delete**: Surround inline text with `~~crossed out~~` to get del tags ~~crossed out~~.\n      - **insert**: Surround inline text with `^^underlined^^` to get ins tags <ins>underlined</ins>\n   	- **tasklist**: Support for github like tasklists using the following notation: `- [X] Completed Task`.\n   	- **githubemoji**: Support for github emojis (`:smile:` --> :smile:). Converts to HTML images that use github's actual emoji assets.\n   	- **b64**: Convert and embed images in the HTML as base64 by adding the extension as `b64(base_path=${BASE_PATH})` (recently a global b64 that works on all parsers was added; see [settings][settings] file for more info).\n   	- **headeranchor**: Adds support for github style anchor links preceding headers.\n   	- **github**: A convenience extension to add: `magiclink`, `delete`, `tasklist`, `githubemoji`, `headeranchor`, and `nl2br` to parse and display GFM in a github-ish way.  It is recommed to pair `github` with `extra` and `codehilite` (with language guessing off) to parse close to github's way.\n      - **admonitionicon**: Add font icon to admonition blocks.  Default CSS uses [font awesome](http://fortawesome.github.io/Font-Awesome/)\n      - **progressbar**: Create progress bars.  See [Using Progress Bars](#using-progress-bars) for more info.\n  \n  ## Installation :\n  \n  ### Using [Package Control][3] (*Recommended*)\n  \n  For all Sublime Text 2/3 users we recommend install via [Package Control][3].\n  \n  1. [Install][11] Package Control if you haven't yet.\n  2. Use `cmd+shift+P` then `Package Control: Install Package`\n  3. Look for `Markdown Preview` and install it.\n  \n  ### Manual Install\n  \n  1. Click the `Preferences > Browse Packages…` menu\n  2. Browse up a folder and then into the `Installed Packages/` folder\n  3. Download [zip package][12] rename it to `Markdown Preview.sublime-package` and copy it into the `Installed Packages/` directory\n  4. Restart Sublime Text\n  \n  ## Usage :\n  \n  ### To preview :\n  \n   - optionally select some of your markdown for conversion\n   - use `cmd+shift+P` then `Markdown Preview` to show the follow commands (you will be prompted to select which parser you prefer):\n  	- Markdown Preview: Preview in Browser\n  	- Markdown Preview: Export HTML in Sublime Text\n  	- Markdown Preview: Copy to Clipboard\n  	- Markdown Preview: Open Markdown Cheat sheet\n   - or bind some key in your user key binding, using a line like this one:\n     `{ \"keys\": [\"alt+m\"], \"command\": \"markdown_preview\", \"args\": {\"target\": \"browser\", \"parser\":\"markdown\"} },` for a specific parser and target or `{ \"keys\": [\"alt+m\"], \"command\": \"markdown_preview_select\", \"args\": {\"target\": \"browser\"} },` to bring up the quick panel to select enabled parsers for a given target.\n   - once converted a first time, the output HTML will be updated on each file save (with LiveReload plugin)\n  \n  ### To build :\n  \n   - Just use `Ctrl+B` (Windows/Linux) or `cmd+B` (Mac) to build current file.\n  \n  ### To config :\n  \n  Using Sublime Text menu: `Preferences`->`Package Settings`->`Markdown Preview`\n  \n  - `Settings - User` is where you change your settings for Markdown Preview.\n  - `Settings - Default` is a good reference with detailed descriptions for each setting.\n  \n  ### Configuring Pygments\n  If you add the codehilite extension manually in the enabled extensions, you can override some of the default settings.\n  \n  * Turn language guessing *on* or *off* (*on* will highlight fenced blocks even if you don't specify a language)  `codehilite(guess_lang=False)` (True|False).\n  * Show line numbers: `codehilite(linenums=True)` (True|False).\n  * Change the higlight theme: `codehilite(pygments_style=emacs)`.\n  * Inline the CSS: `codehilite(noclasses=True)` (True|False).\n  \n  See [codehilte page](https://pythonhosted.org/Markdown/extensions/code_hilite.html) for more info.\n  \n  ### Meta Data Support\n  When the `meta` extension is enabled (https://pythonhosted.org/Markdown/extensions/meta_data.html), the results will be written to the HTML head in the form `<meta name=\"key\" content=\"value1,value2\">`.  `title` is the one exception, and its content will be written to the title tag in the HTML head.\n  \n  ### YAML Frontmatter Support\n  YAML frontmatter can be stripped out and read when `strip_yaml_front_matter` is set to  `true` in the settings file.  In general the, the fronmatter is handled the same as [meta data](#meta-data-support), but if both exist in a file, the YAML keys will override the `meta` extension keys.  There are a few special keys names that won't be handled as html meta data.\n  \n  #### Special YAML Key Names\n  Yaml frontmatter has a few special key names that are used that will not be handled as meta data:\n  \n  - **basepath**: An absolute path to configure the relative paths for images etc. (for when the markdown is supposed to reference images in a different location.)\n  - **references**: Can take a file path or an array of file paths for separate markdown files containing references, footnotes, etc.  Can be an absolute path or relative path.  Relative paths first use the source file's directory, and if the file cannot be found, it will use the `basepath` setting.\n  - **destination**: This is an absolute file path or relative file path for when the markdown is saved to html via the build command or the `Save to HTML` command.  Relative paths first use the source file's directory, and if the file cannot be found, it will use the `basepath` setting.\n  - **settings**: This is a dictionary where you can override settings that are in the settings file.\n  \n  #### Example\n  ```yaml\n  ---\n      # Builtin values\n      references:\n          - references.md\n          - abbreviations.md\n          - footnotes.md\n  \n      destination: destination.html\n  \n      # Meta Data\n      title: Test Page\n      author:\n          - John Doe\n          - Jane Doe\n  \n      # Settings overrides\n      settings:\n          enabled_extensions:\n          - extra\n          - github\n          - toc\n          - headerid\n          - smarty(smart_quotes=False) # smart quotes interferes with attr_list\n          - meta\n          - wikilinks\n          - admonition\n          - codehilite(guess_lang=False,pygments_style=github)\n  ---\n  ```\n  \n  ### Using Progress Bars\n  Create a progress bar with the following notations:\n  \n  - Percentage: `[== 35% optional label]`\n  - Division: `[== 37.5/500 optional label]`\n  \n  Though progress bars will be recognized inline, they should be displayed as block; they should be used as block items except were not possible (tables etc.).  In general it is best to have an empty line before and after a progress bar.\n  \n  ```\n  Some text\n  \n  [== 25% progress bar]\n  \n  Some more text\n  ```\n  \n  Default styling is a flat candy-striped  bar, but there is included CSS for animated candy-stripping and a glossy bar.  You can access one or more of these additional stylings by adding the classes when enabling the extension `progressbar(addclasses=candystripe-animate gloss)`.\n  \n  Also by default, the progress bar extension adds classes to allow for different stylings of percent levels: 0-20%, 21-40%, 41-60%, 61-80%, 80-99%, 100%.  This can be turned off by defining the extension as `progressbar(levelclass=False)`.  When level classes are disabled, the default color is blue.\n  \n  Additionally, you can change the settings with this inline notation as well `[==50%  MyLabel]{addclasses=\"additional classes\" levelclass=\"false\"}`.\n  \n  ### Parsing Github Flavored Markdown :\n  Github Flavored Mardown (GFM) is a very popular markdown.  Markdown Preview can actually handle them in a couple of ways: online and offline.\n  \n  #### Online :\n  Parsing GFM using the online method requires using the Github API as the parser.  It may also require setting `github_mode` to `gfm` to get things like tasklists to render properly.\n  \n  #### Offline :\n  By default almost all extensions are enabled to help with the github feel, but there are some tweaks needed to get the full experience.\n  \n  GFM does not auto guess language in fenced blocks, but Markdown Preview does this by default.  You can fix this in one of two ways:\n  \n  1. Disable auto language guessing in the settings file `\"guess_language\": false,`\n  2. Or if you are manually defining extensions: `\"enabled_extensions\": [\"codehilite(guess_lang=False,pygments_style=github)\"]`\n  \n  \n  As mentioned earlier, almost all extensions are enabled by default, but as a reference, the minimum extensions that should be enabled are listed below:\n  \n  ```javascript\n  	\"enabled_extensions\": [\n  		\"extra\",\n  		\"github\",\n  		\"codehilite(guess_lang=False,pygments_style=github)\"\n  	]\n  ```\n  \n  This may be further enhanced in the future.\n  \n  \n  ## Support :\n  \n  - Any bugs about Markdown Preview please feel free to report [here][issue].\n  - And you are welcome to fork and submit pullrequests.\n  \n  \n  ## License :\n  \n  The code is available at github [project][home] under [MIT licence][4].\n  \n   [home]: https://github.com/revolunet/sublimetext-markdown-preview\n   [3]: https://sublime.wbond.net/\n   [4]: http://revolunet.mit-license.org\n   [5]: http://developer.github.com/v3/markdown\n   [6]: http://github.github.com/github-flavored-markdown/\n   [7]: https://github.com/dz0ny/LiveReload-sublimetext2\n   [8]: https://github.com/revolunet/sublimetext-markdown-preview/issues/27#issuecomment-11772098\n   [9]: https://github.com/revolunet/sublimetext-markdown-preview/issues/78#issuecomment-15644727\n   [10]: https://github.com/waylan/Python-Markdown\n   [11]: https://sublime.wbond.net/installation\n   [12]: https://github.com/revolunet/sublimetext-markdown-preview/archive/master.zip\n   [issue]: https://github.com/revolunet/sublimetext-markdown-preview/issues\n   [settings]: https://github.com/revolunet/sublimetext-markdown-preview/blob/master/MarkdownPreview.sublime-settings\n  \n",
-			"settings":
-			{
-				"buffer_size": 12419,
-				"line_ending": "Windows",
-				"name": "Package Control Messages",
-				"scratch": true
 			}
 		}
 	],
@@ -772,11 +762,19 @@
 	"expanded_folders":
 	[
 		"/C/CSEngine",
+		"/C/CSEngine/data",
 		"/C/CSEngine/include",
+		"/C/CSEngine/scripts",
 		"/C/CSEngine/src"
 	],
 	"file_history":
 	[
+		"/C/dev/SDLTEST/README.md",
+		"/C/Program Files (x86)/Steam/steamapps/common/Cave Story+/data/base/Bullet.bmp",
+		"/C/dev/SDLTEST/data/Caret.bmp",
+		"/C/CSEngine/data/Caret.bmp",
+		"/C/Program Files (x86)/Steam/steamapps/common/Cave Story+/data/base/Caret.bmp",
+		"/C/SDL/x86_64-w64-mingw32/include/SDL2/SDL_platform.h",
 		"/C/CSEngine/.gitignore",
 		"/C/Users/Omar/Desktop/cavestory-screencast-master/Makefile",
 		"/C/Users/Omar/AppData/Local/Temp/7zEBB81.tmp/Timestep.cpp",
@@ -831,7 +829,6 @@
 		"/C/test.cpp",
 		"/C/dev/SDLTEST/include/typedefs.h",
 		"/C/dev/SDLTEST/Makefile",
-		"/C/dev/SDLTEST/README.md",
 		"/C/dev/SDLTEST/src/CS.cpp",
 		"/Users/slouken/release/SDL/SDL2-2.0.3-source/src/main/windows/SDL_windows_main.c",
 		"/C/dev/SDLTEST/bin/terminal.glue",
@@ -901,6 +898,9 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"C:\\CSEngine\\include",
+			"C:\\CSEngine\\src",
+			"C:\\dev\\SDLTEST\\src",
 			"C:\\dev\\SDLTEST\\include",
 			"C:\\dev\\SDLTEST\\src",
 			"C:\\dev\\SDLTEST\\include",
@@ -913,6 +913,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"double",
 			"y",
 			"c_str",
 			"cstr",
@@ -1131,7 +1132,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -1140,15 +1141,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5717,
+						"buffer_size": 5725,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1675,
-								1675
+								3822,
+								3822
 							]
 						],
 						"settings":
@@ -1157,10 +1158,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1023.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1169,15 +1170,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7150,
+						"buffer_size": 7198,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5433,
-								5433
+								5453,
+								5453
 							]
 						],
 						"settings":
@@ -1186,10 +1187,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3723.0,
+						"translation.y": 3687.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1198,15 +1199,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12091,
+						"buffer_size": 12720,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1948,
-								1948
+								12099,
+								12099
 							]
 						],
 						"settings":
@@ -1215,27 +1216,84 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1131.0,
+						"translation.y": 8205.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "src/componentsystem.cpp",
+					"file": "include/components.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 171,
+						"buffer_size": 3978,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								142,
-								142
+								410,
+								410
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/game.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								280,
+								30
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "include/game.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								152,
+								1
 							]
 						],
 						"settings":
@@ -1250,105 +1308,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "include/components.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3866,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								504,
-								504
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C Improved/C Improved.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 108.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/game.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 241,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								115,
-								115
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++11/C++11.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
 					"buffer": 7,
-					"file": "include/game.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 99,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								97,
-								97
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++11/C++11.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "src/system.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11272,
+						"buffer_size": 13493,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								390,
-								390
+								11968,
+								11968
 							]
 						],
 						"settings":
@@ -1357,27 +1330,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 519.0,
+						"translation.y": 7557.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "include/system.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1583,
+						"buffer_size": 1636,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1518,
-								1518
+								691,
+								691
 							]
 						],
 						"settings":
@@ -1386,27 +1359,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 375.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "src/window.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3527,
+						"buffer_size": 3531,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3472,
-								3472
+								1492,
+								1465
 							]
 						],
 						"settings":
@@ -1416,27 +1389,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1401.0,
+						"translation.y": 463.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 10,
 					"file": "src/entities.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11755,
+						"buffer_size": 13143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5816,
-								5816
+								12529,
+								12529
 							]
 						],
 						"settings":
@@ -1445,11 +1418,45 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2805.0,
+						"translation.y": 6102.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 1,
 					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "scripts/test.lua",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 193,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								85,
+								85
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Lua/Lua.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"file": "/C/Program Files (x86)/Steam/steamapps/common/Cave Story+/data/base/Bullet.bmp",
+					"semi_transient": false,
+					"stack_index": 13,
+					"type": "image"
 				},
 				{
 					"buffer": 12,
@@ -1476,7 +1483,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1507,63 +1514,35 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "/C/dev/SDLTEST/README.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1069,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1069,
-								483
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 108.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 14,
+					"file": "src/componentsystem.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12419,
+						"buffer_size": 93,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12419,
-								12419
+								84,
+								84
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": true
+							"syntax": "Packages/C++11/C++11.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 810.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 14,
 					"type": "text"
 				}
 			]

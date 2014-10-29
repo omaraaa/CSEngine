@@ -351,7 +351,7 @@ eId mBox(float x, float y){
 	//CS::spriteCS[id]->setScale(0.1,0.1);
 	CS::collisionCS[id] = std::shared_ptr<CollisionComponent>(new CollisionComponent(CS::spriteCS,moveCS,id,true));
 	CS::collisionCS[id]->moveable = false;
-	CS::collisionCS[id]->touchable =  FLOOR ;
+	CS::collisionCS[id]->touchable =  FLOOR | RIGHT;
 	//CS::collisionCS[id]->debugDraw = true;
 	float grid = CS::spriteCS[id]->imgRect.w;
 	moveCS[id]->pos = {floor(x/grid)*grid, floor(y/grid)*grid};

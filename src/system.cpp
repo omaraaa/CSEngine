@@ -358,8 +358,8 @@ void collide(eId e1, eId e2){
 	Rect a;
 	if(!checkOverlap(r1, r2, &a))
 		return;
-	SDL_Rect sr3 = a.getSDLRect();
-	Window::DrawRect(&sr3, 0,255,0);
+	// SDL_Rect sr3 = a.getSDLRect();
+	// Window::DrawRect(&sr3, 0,255,0);
 	// if(dx1 != dx2)
 	// {
 	// 	float maxOverlapX = absDX1 + absDX2 + BIAS;
@@ -391,7 +391,7 @@ void collide(eId e1, eId e2){
 	if(a.w <= a.h){
 		float change;
 		bool c = true;
-		if(xDir > 0){
+		if(xDir > 0 && c1->moveC->deltaPos.x + c1->rect.w <= r2.x+1){
 			if(c1->touchable & RIGHT && c2->touchable & LEFT){
 				c1->touching |= LEFT;
 				c2->touching |= RIGHT;
@@ -400,12 +400,12 @@ void collide(eId e1, eId e2){
 				change = a.x - c1->moveC->pos.x;
 				c = false;
 			}
-		} else if(xDir < 0){
+		} else if(xDir < 0 && c1->moveC->deltaPos.x  >= r2.x + r2.w-1){
 			if(c1->touchable & LEFT && c2->touchable & RIGHT){
 				c1->touching |= RIGHT;
 				c2->touching |= LEFT;
 				a.w *= -1;
-				change = a.w + a.x - c1->moveC->pos.x;
+				change = a.w;
 			}else{
 				change = a.x - c1->moveC->pos.x;
 				c = false;
@@ -438,7 +438,7 @@ void collide(eId e1, eId e2){
 				change = a.y - c1->moveC->pos.y;
 				c = false;
 			}
-		} else if( yDir < 0 && c1->moveC->deltaPos.y  >= r2.y + r2.y-1){
+		} else if( yDir < 0 && c1->moveC->deltaPos.y  >= r2.y + r2.h-1){
 
 			if(c1->touchable & FLOOR && c2->touchable & TOP){
 				c1->touching |= TOP;
