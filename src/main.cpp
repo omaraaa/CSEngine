@@ -210,10 +210,6 @@ int main(int argc, char **argv){
 			
 
 		}
-		//if(rand()%10 > 5)
-		//mBox(rand()%800, rand()%600);
-		// std::cout << CS::_E_INDEX << std::endl;
-		//Timer::slice += Timer::elapsed;
 		Window::Clear();
 		while(Timer::accumulator >= Timer::dt)
 		{
@@ -221,72 +217,14 @@ int main(int argc, char **argv){
 				CS::update();
 			Timer::t += Timer::dt;
 			Timer::accumulator -= Timer::dt;
-			//cout << Timer::frame <<endl;
-			//CS::collisionUpdate();
 		}
 
 		Timer::alpha = Timer::accumulator / Timer::dt;
-		//cout << 1/frameTime << endl;
-		//Window::Draw(t, r);
-		//CS::interpolate();
 		CS::draw();
 		Window::Present();
-		//auto timePoint2(chrono::high_resolution_clock::now());
-		//auto elaspedTime(timePoint2 - timePoint1);
-
-		//Timer::elapsed = chrono::duration_cast<
-		//	chrono::duration<float, milli>>(elaspedTime).count();
-		// std::cout << (1000.f/ft) << std::endl;
-		// if(Timer::elapsed > maxTime){
-		// 	int loops = Timer::elapsed/maxTime;
-		// 	for(int i=0;i<loops;i++){
-		// 		CS::update();
-		// 	}
-		// } else {3
-		// 	SDL_Delay(delay);
-		// }r
 	}
 
 	Window::Quit();
-	//lua_close(L);
+	lua_close(L);
 	return 0;
 }
-
-// int main(int argc, char *argv[])
-// {
-//    // InitVideo();
-//     /* ... */
-// 	SDL_Event event;
-//     SDL_StartTextInput();
-//     char* text;
-//     char* ptext;
-//     while (true)
-//     {
-//         if (SDL_PollEvent(&event))
-//         {
-//             switch (event.type)
-//             {
-//                 case SDL_TEXTINPUT:
-//                     /* Add new text onto the end of our text */
-//                     strcat(text, event.text.text);
-//                     break;
-//                 case SDL_TEXTEDITING:
-                    
-//                     Update the composition text.
-//                     Update the cursor position.
-//                     Update the selection length (if any).
-                    
-//                     composition = event.edit.text;
-//                     cursor = event.edit.start;
-//                     selection_len = event.edit.length;
-//                     break;
-//             }
-//         }
-//         if(text == ptext){
-//         	std::string str = text;
-//         	std::cout << str << std::endl;
-//         }
-//         ptext = text;
-//        // Redraw();
-//     }
-// }

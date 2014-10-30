@@ -344,14 +344,14 @@ eId mBox(float x, float y){
 	eId id = CS::createEntityID();
 	CS::createMoveC(x, y, id);
 	CS::spriteCS[id] = std::shared_ptr<SpriteComponent>(new SpriteComponent("../data/hello.png", moveCS, id));
-	CS::spriteCS[id]->setColor(0,255,0);
+	CS::spriteCS[id]->setColor(0,111,0);
 	//moveCS[id]->vel.y = sin(rand()%361)*moveCS[id]->maxV.y;
 	//moveCS[id]->vel.x = cos(rand()%361)*moveCS[id]->maxV.x;
 	//moveCS[id]->maxV = {3,3};
 	//CS::spriteCS[id]->setScale(0.1,0.1);
 	CS::collisionCS[id] = std::shared_ptr<CollisionComponent>(new CollisionComponent(CS::spriteCS,moveCS,id,true));
 	CS::collisionCS[id]->moveable = false;
-	CS::collisionCS[id]->touchable =  FLOOR | RIGHT;
+	CS::collisionCS[id]->touchable =  FLOOR | RIGHT | LEFT;
 	//CS::collisionCS[id]->debugDraw = true;
 	float grid = CS::spriteCS[id]->imgRect.w;
 	moveCS[id]->pos = {floor(x/grid)*grid, floor(y/grid)*grid};

@@ -15,7 +15,7 @@ float Timer::elapsed{0};
 float Timer::frame{1000.f/60.f};
 float Timer::slice{0.f};
 double Timer::t{0.0};
-double Timer::dt{0.002};
+double Timer::dt{0.01};
 double Timer::currentTime{0.0};
 double Timer::accumulator{0.0};
 float Timer::alpha{0.0};

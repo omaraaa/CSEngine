@@ -101,7 +101,7 @@ void Window::Clear(){
 void Window::Present(){
 
     SDL_RenderPresent(mRenderer.get());
-    SDL_SetRenderDrawColor(mRenderer.get(), 111, 40, 190, 0);
+    SDL_SetRenderDrawColor(mRenderer.get(), 50, 50, 111, 0);
 }
 SDL_Rect Window::Box(){
     return mBox;

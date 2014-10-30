@@ -580,7 +580,7 @@
 			"file": "src/system.cpp",
 			"settings":
 			{
-				"buffer_size": 13493,
+				"buffer_size": 13565,
 				"line_ending": "Windows"
 			}
 		},
@@ -604,7 +604,7 @@
 			"file": "src/entities.cpp",
 			"settings":
 			{
-				"buffer_size": 13143,
+				"buffer_size": 13157,
 				"line_ending": "Windows"
 			}
 		},
@@ -1101,7 +1101,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 10,
 			"sheets":
 			[
 				{
@@ -1313,15 +1313,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13493,
+						"buffer_size": 13565,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11968,
-								11968
+								13182,
+								13182
 							]
 						],
 						"settings":
@@ -1330,10 +1330,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7557.0,
+						"translation.y": 8421.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1401,15 +1401,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13143,
+						"buffer_size": 13157,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12529,
-								12529
+								12420,
+								12420
 							]
 						],
 						"settings":
@@ -1418,10 +1418,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6102.0,
+						"translation.y": 5971.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
