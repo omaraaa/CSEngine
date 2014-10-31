@@ -23,6 +23,7 @@ public:
 	static std::map<const std::string, SDL_Texture*> textures;
 	static std::map<eId, std::shared_ptr<Camera>> cameras;
 	static std::vector<eId> deletedEntities;
+	static std::vector<eId> toDelete;
 	static QuadTree qt;
 	static Grid grid;
 

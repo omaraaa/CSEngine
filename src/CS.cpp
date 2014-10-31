@@ -24,6 +24,7 @@ std::map<const std::string, std::vector<eId>> CS::groups{};
 std::map<const std::string, SDL_Texture*> CS::textures{};
 std::map<eId, std::shared_ptr<Camera>> CS::cameras{};
 std::vector<eId> CS::deletedEntities{};
+std::vector<eId> CS::toDelete{};
 //QuadTree CS::qt(0,0,800,600);
 //CS INIT//
 
@@ -189,17 +190,25 @@ void CS::draw(){
 }
 
 void CS::deleteEntity(eId id){
-	CS::deletedEntities.push_back(id);
+	// moveCS.erase(id);
+	// CS::spriteCS.erase(id);
+	// CS::controllerCS.erase(id);
+	// CS::collisionCS.erase(id);
+	// CS::funcQCS.erase(id);
+	// CS::propCS.erase(id);
+	toDelete.push_back(id);
 }
 
 void CS::cleanup(){
-	for(auto it = deletedEntities.begin(); it != deletedEntities.end(); it++){
+	for(auto it = toDelete.begin(); it != toDelete.end();){
 		moveCS.erase(*it);
 		CS::spriteCS.erase(*it);
 		CS::controllerCS.erase(*it);
 		CS::collisionCS.erase(*it);
 		CS::funcQCS.erase(*it);
 		CS::propCS.erase(*it);
+		CS::deletedEntities.push_back(*it);
+		it = toDelete.erase(it);
 	}
 }
 

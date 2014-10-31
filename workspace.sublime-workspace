@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"dele",
+				"deletedEntities"
+			],
+			[
+				"chec",
+				"checkClean"
+			],
+			[
+				"clea",
+				"cleanup"
+			],
+			[
+				"func",
+				"funcQCS"
+			],
+			[
+				"move",
+				"moveCS"
+			],
+			[
+				"get",
+				"get"
+			],
+			[
+				"res",
+				"reset"
+			],
+			[
+				"upd",
+				"update"
+			],
+			[
+				"eid",
+				"eId"
+			],
+			[
 				"dy",
 				"dy1"
 			],
@@ -50,10 +86,6 @@
 			[
 				"spri",
 				"spriteCS"
-			],
-			[
-				"move",
-				"moveC"
 			],
 			[
 				"delta",
@@ -144,20 +176,8 @@
 				"getPos"
 			],
 			[
-				"res",
-				"result"
-			],
-			[
-				"get",
-				"getSDLRect"
-			],
-			[
 				"Re",
 				"Rect"
-			],
-			[
-				"chec",
-				"checking"
 			],
 			[
 				"che",
@@ -266,10 +286,6 @@
 			[
 				"begi",
 				"begin"
-			],
-			[
-				"upd",
-				"updateBounds"
 			],
 			[
 				"worl",
@@ -404,10 +420,6 @@
 				"shared_ptr"
 			],
 			[
-				"dele",
-				"delete"
-			],
-			[
 				"delet",
 				"delete"
 			],
@@ -502,18 +514,6 @@
 			[
 				"coli",
 				"collided"
-			],
-			[
-				"fla",
-				"false"
-			],
-			[
-				"fa",
-				"false"
-			],
-			[
-				"sho",
-				"shooting"
 			]
 		]
 	},
@@ -532,7 +532,15 @@
 			"file": "src/CS.cpp",
 			"settings":
 			{
-				"buffer_size": 5725,
+				"buffer_size": 5958,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "include/CS.h",
+			"settings":
+			{
+				"buffer_size": 1680,
 				"line_ending": "Windows"
 			}
 		},
@@ -540,7 +548,7 @@
 			"file": "src/main.cpp",
 			"settings":
 			{
-				"buffer_size": 4671,
+				"buffer_size": 4687,
 				"line_ending": "Windows"
 			}
 		},
@@ -548,7 +556,7 @@
 			"file": "src/components.cpp",
 			"settings":
 			{
-				"buffer_size": 12422,
+				"buffer_size": 12421,
 				"line_ending": "Windows"
 			}
 		},
@@ -604,7 +612,7 @@
 			"file": "src/entities.cpp",
 			"settings":
 			{
-				"buffer_size": 13157,
+				"buffer_size": 12844,
 				"line_ending": "Windows"
 			}
 		},
@@ -612,7 +620,7 @@
 			"file": "scripts/test.lua",
 			"settings":
 			{
-				"buffer_size": 193,
+				"buffer_size": 192,
 				"line_ending": "Windows"
 			}
 		},
@@ -633,6 +641,14 @@
 			}
 		},
 		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 88,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "src/componentsystem.cpp",
 			"settings":
 			{
@@ -648,6 +664,30 @@
 		"selected_items":
 		[
 			[
+				"insa",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
 				"mar",
 				"Markdown Preview: Preview in Browser"
 			],
@@ -656,20 +696,8 @@
 				"Markdown Preview: Preview in Browser"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"insa",
-				"Package Control: Install Package"
-			],
-			[
 				"32",
 				"Build: Run32"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			],
 			[
 				"install",
@@ -698,10 +726,6 @@
 			[
 				"disa",
 				"Package Control: Disable Package"
-			],
-			[
-				"ins",
-				"Package Control: Install Package"
 			],
 			[
 				"enable",
@@ -761,14 +785,11 @@
 	},
 	"expanded_folders":
 	[
-		"/C/CSEngine",
-		"/C/CSEngine/data",
-		"/C/CSEngine/include",
-		"/C/CSEngine/scripts",
-		"/C/CSEngine/src"
+		"/C/CSEngine"
 	],
 	"file_history":
 	[
+		"/C/CSEngine/workspace.sublime-workspace",
 		"/C/dev/SDLTEST/README.md",
 		"/C/Program Files (x86)/Steam/steamapps/common/Cave Story+/data/base/Bullet.bmp",
 		"/C/dev/SDLTEST/data/Caret.bmp",
@@ -914,6 +935,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"id",
 			"Timer::frame",
 			"double",
 			"y",
@@ -1018,6 +1040,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"*it",
 			"x",
 			"worldbounds",
 			"moveCS",
@@ -1103,7 +1126,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 16,
 			"sheets":
 			[
 				{
@@ -1134,7 +1157,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
@@ -1143,44 +1166,73 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5725,
+						"buffer_size": 5958,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3822,
-								3822
+								914,
+								914
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "include/CS.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1363,
+								1363
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "src/main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4671,
+						"buffer_size": 4687,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4164,
-								4164
+								4554,
+								4554
 							]
 						],
 						"settings":
@@ -1189,27 +1241,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2931.0,
+						"translation.y": 2823.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "src/components.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12422,
+						"buffer_size": 12421,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9695,
-								9695
+								11172,
+								11192
 							]
 						],
 						"settings":
@@ -1218,14 +1270,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8262.0,
+						"translation.y": 7162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "include/components.h",
 					"semi_transient": false,
 					"settings":
@@ -1237,8 +1289,8 @@
 						"selection":
 						[
 							[
-								410,
-								410
+								496,
+								496
 							]
 						],
 						"settings":
@@ -1246,15 +1298,15 @@
 							"syntax": "Packages/C Improved/C Improved.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": -0.0,
-						"translation.y": 2700.0,
+						"translation.x": 0.0,
+						"translation.y": 1813.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "src/game.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1266,8 +1318,8 @@
 						"selection":
 						[
 							[
-								269,
-								269
+								280,
+								280
 							]
 						],
 						"settings":
@@ -1278,11 +1330,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "include/game.h",
 					"semi_transient": false,
 					"settings":
@@ -1306,11 +1358,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "src/system.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1322,8 +1374,8 @@
 						"selection":
 						[
 							[
-								369,
-								369
+								390,
+								390
 							]
 						],
 						"settings":
@@ -1335,11 +1387,11 @@
 						"translation.y": 105.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "include/system.h",
 					"semi_transient": false,
 					"settings":
@@ -1364,11 +1416,11 @@
 						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "src/window.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1380,8 +1432,8 @@
 						"selection":
 						[
 							[
-								2871,
-								2871
+								2200,
+								2200
 							]
 						],
 						"settings":
@@ -1391,27 +1443,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1489.0,
+						"translation.y": 1206.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "src/entities.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13157,
+						"buffer_size": 12844,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12143,
-								12143
+								2090,
+								2090
 							]
 						],
 						"settings":
@@ -1420,27 +1472,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6025.0,
+						"translation.y": 972.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "scripts/test.lua",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 193,
+						"buffer_size": 192,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								85,
-								85
+								12,
+								12
 							]
 						],
 						"settings":
@@ -1451,17 +1503,17 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
 					"file": "/C/Program Files (x86)/Steam/steamapps/common/Cave Story+/data/base/Bullet.bmp",
 					"semi_transient": false,
-					"stack_index": 13,
+					"stack_index": 16,
 					"type": "image"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "config.ini",
 					"semi_transient": false,
 					"settings":
@@ -1485,11 +1537,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "planning",
 					"semi_transient": false,
 					"settings":
@@ -1501,8 +1553,8 @@
 						"selection":
 						[
 							[
-								309,
-								309
+								62,
+								62
 							]
 						],
 						"settings":
@@ -1516,11 +1568,39 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 15,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 88,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								88,
+								88
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
 					"file": "src/componentsystem.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1544,7 +1624,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
