@@ -71,13 +71,10 @@ void setLua(lua_State *L){
 	getGlobalNamespace (L)
   .beginNamespace ("game")
 	.beginClass<Vec2> ("Vec2")
-		//.addProperty("x", &Vec2::getX, &Vec2::setX)
-		//.addProperty("y", &Vec2::getY, &Vec2::setY)
 		.addData("x", &Vec2::x)
 		.addData("y", &Vec2::y)
 	.endClass()
 	.beginClass<MoveComponent> ("MoveComponent")
-		//.addData("owner", &Component::owner)
 		.addData("pos", &MoveComponent::pos)
 		.addData("vel", &MoveComponent::vel)
 		.addData("acc", &MoveComponent::acc)
@@ -96,7 +93,6 @@ void setLua(lua_State *L){
 int main(int argc, char **argv){
 	L = lua_open();
 	luaL_openlibs(L);
-	//getGlobalNamespace (L);
 	setLua(L);
 
 	CSimpleIniA ini;
@@ -116,16 +112,9 @@ int main(int argc, char **argv){
 	SDL_Event e;
 	bool quit=false;
 	int controll = 1;
-	// SDL_Rect r;
-	// SDL_Texture* t;
-	// t = Window::RenderText("FPS: " + std::to_string(1000/Timer::elapsed), "../data/fonts/PressSTart2P.ttf",{255,255,255,255}, 8);
-	// SDL_QueryTexture(t, nullptr, nullptr, &r.w, &r.h)
-	// r.x=1;r.y=1;
 	c = createCamera(0,0);
 	SDL_Rect textrect = {0,0,400,100};
-	//eId c2 = createCamera(400,300);
 	SDL_StartTextInput();
-	//SDL_SetTextInputRect(&textrect);
 	std::string text = "";
 	if(luaL_loadfile(L, "../scripts/test.lua")
     	|| lua_pcall(L,0,0,0)){
@@ -135,7 +124,6 @@ int main(int argc, char **argv){
 	Timer::currentTime = time_in_seconds();
 	while(!quit){
 		text = "";
-		//auto timePoint1(chrono::high_resolution_clock::now());
 		double newTime = time_in_seconds();
 		double frameTime = newTime - Timer::currentTime;
 		Timer::currentTime = newTime;
@@ -190,12 +178,6 @@ int main(int argc, char **argv){
 					case SDLK_e:
 						controll *= -1;
 						break;
-					// case SDLK_r:
-					// 	if(!consoleOpen){
-					// 		CS::clear();
-					// 		c = createCamera(0,0);
-					// 	}
-					// 	break;
 				}
 			}
 			if(e.type == SDL_TEXTINPUT && consoleOpen){
@@ -218,7 +200,7 @@ int main(int argc, char **argv){
 			Timer::t += Timer::dt;
 			Timer::accumulator -= Timer::dt;
 		}
-
+		CS::cleanup();
 		Timer::alpha = Timer::accumulator / Timer::dt;
 		CS::draw();
 		Window::Present();

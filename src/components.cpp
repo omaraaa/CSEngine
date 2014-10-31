@@ -1,8 +1,3 @@
-// #include <vector>
-// #include <map>
-// #include <string>
-// #include <memory>
-// #include <cmath>
 #include <iostream>
 #include <cmath>
 #include <typeinfo>
@@ -13,9 +8,6 @@
 #include "../include/CS.h"
 #include "../include/components.h"
 #include "../include/entities.h"
-
-
-
 
 PropertiesComponent::PropertiesComponent(eId id) : Component(id){
 
@@ -47,7 +39,6 @@ void FuncQComponent::eventUpdate(SDL_Event &e){
 CollisionComponent::CollisionComponent(std::map<eId, std::shared_ptr<SpriteComponent>> &spriteMap,
 		std::map<eId, std::shared_ptr<MoveComponent>> &moveMap, eId id, bool s = true) : Component(id){
 	spriteC = spriteMap[id];
-	//rect = spriteMap[id]->imgRect;
 	moveC = moveMap[id];
 	rect.x = moveC->pos.x;
 	rect.y = moveC->pos.y;
@@ -163,12 +154,6 @@ void ControllerComponent::eventUpdate(SDL_Event &e){
 			case SDLK_a:
 				if(moveC->acc.x<0)
 					moveC->acc.x += SPEED;break;
-			// case SDLK_w:
-			// 	if(moveC->acc.y<0)
-			// 		moveC->acc.y += SPEED;break;
-			// case SDLK_s:
-			// 	if(moveC->acc.y>0)
-			// 		moveC->acc.y -= SPEED;break;
 		}
 	}
 }
@@ -316,6 +301,7 @@ void SpriteComponent::update(){
 	if(!playingAnimation && currentAnimation.callback != nullptr){
 		currentAnimation.callback(owner);
 		currentAnimation.callback = nullptr;
+
 	}
 	if(facing == LEFT)
 	{
@@ -323,6 +309,7 @@ void SpriteComponent::update(){
 	} else if(facing == RIGHT) {
 		flip = SDL_FLIP_HORIZONTAL;
 	}
+
 }
 
 void SpriteComponent::setColor(Uint8 r, Uint8 g, Uint8 b){
@@ -435,7 +422,8 @@ void MoveComponent::resetVel(){
 	vel = {0, 0};
 }
 
-Component::Component(eId id) : owner(id){}
+Component::Component(eId id) : owner(id){
+}
 
 
 Camera::Camera(float x, float y, float w, float h, float z, eId id) : MoveComponent(0, 0, id) {

@@ -30,6 +30,7 @@ public:
 	static eId createCameraID();
 	static void createMoveC(float xx, float yy, const eId &id);
 	static void deleteEntity(eId id);
+	static void updateEntity(eId id);
 	static void setGroup(const eId &id, const std::string &s);
 
 	static void eventUpdate(SDL_Event &e);
@@ -39,6 +40,7 @@ public:
 	static void collisionUpdate();
 	static void cameraUpdate();
 	static void clear();
+	static void cleanup();
 
 	static std::shared_ptr<SpriteComponent> getSpriteC(eId e);
 	static std::shared_ptr<CollisionComponent> getCollisionC(eId e);

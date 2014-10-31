@@ -46,6 +46,13 @@ eId CS::createCameraID(){
 void CS::createMoveC(float xx, float yy, const eId &id){
 	moveCS[id] = std::shared_ptr<MoveComponent>(new MoveComponent(xx, yy, id));
 }
+
+void CS::updateEntity(eId id){
+	moveCS[id]->update();
+	CS::spriteCS[id]->update();
+	CS::collisionCS[id]->update();
+	CS::funcQCS[id]->update();
+}
 //CS CREATE//
 
 
@@ -155,11 +162,11 @@ void CS::cameraUpdate(){
 	}
 }
 
-// void CS::interpolate(){
-// // 	for(auto it = moveCS.begin(); it != moveCS.end(); it++){
-// // 		it->second->interpolate();
-// // 	}
-// // }
+void CS::interpolate(){
+	for(auto it = moveCS.begin(); it != moveCS.end(); it++){
+		it->second->interpolate();
+	}
+}
 
 void CS::draw(){
 	
@@ -182,13 +189,18 @@ void CS::draw(){
 }
 
 void CS::deleteEntity(eId id){
-	moveCS.erase(id);
-	CS::spriteCS.erase(id);
-	CS::controllerCS.erase(id);
-	CS::collisionCS.erase(id);
-	CS::funcQCS.erase(id);
-	CS::propCS.erase(id);
 	CS::deletedEntities.push_back(id);
+}
+
+void CS::cleanup(){
+	for(auto it = deletedEntities.begin(); it != deletedEntities.end(); it++){
+		moveCS.erase(*it);
+		CS::spriteCS.erase(*it);
+		CS::controllerCS.erase(*it);
+		CS::collisionCS.erase(*it);
+		CS::funcQCS.erase(*it);
+		CS::propCS.erase(*it);
+	}
 }
 
 void CS::setGroup(const eId &id, const std::string &s){

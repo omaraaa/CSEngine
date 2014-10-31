@@ -1,7 +1,7 @@
 
 
 
-for i=0,12 do
+for i=0,4 do
 	mBox(i*64, 400)
 end
 

@@ -25,26 +25,23 @@ eId STAR(float x, float y){
 bool testCollision(eId owner, std::string type){
 	const eId shooter = CS::propCS[owner]->entities["shooter"];
 	if(CS::collisionCS[owner]->overlaped && CS::collisionCS[owner]->overlapingWith[0] != shooter){
-		// if(CS::propCS[id] == nullptr)
-		// 	return false;
 				return true;
 			
 	}
 	return false;
 }
+
 void bulletUpdate(eId id){
-	// eId firstColl = CS::collisionCS[id]->collidingWith[0];
-	// eId shooter = CS::propCS[id]->entities["shooter"];
 	const eId shooter = CS::propCS[id]->entities["shooter"];
 	int flip = CS::propCS[id]->fProps["flip"];
 	CS::propCS[id]->fProps["duration"] -= Timer::dt;
-	//if(moveCS[id]->pos.x == moveCS[id]->deltaPos.x)
-	//std::cout << id << " " << CS::propCS[id]->fProps["duration"]  << " " << moveCS[id]->pos.x << std::endl;
-	//moveCS[id]->vel.y = flip*cos(CS::propCS[id]->fProps["duration"]*0.01)*4;// - 3.14/2*flip;
+
 	if(CS::propCS[id]->fProps["duration"] <= 0 
 			|| testCollision(id, "bullet")){
 		STAR(moveCS[id]->pos.x, moveCS[id]->pos.y);
+			CS::propCS[id]->boolProps["dead"] = true;
 		CS::deleteEntity(id);
+
 		return;
 	}
 
@@ -53,7 +50,6 @@ void bulletUpdate(eId id){
 eId bullet(Vec2 const &pos, eId const &oid){
 	eId id = CS::createEntityID();
 	CS::createMoveC(pos.x, pos.y + CS::spriteCS[oid]->imgRect.h/2, id);
-	//moveCS[id]->vel = moveCS[oid]->vel;
 	moveCS[id]->drag = {1,1};
 	moveCS[id]->maxV = {1500, 1500};
 	moveCS[id]->terV = {1500, 1500};
@@ -73,10 +69,10 @@ eId bullet(Vec2 const &pos, eId const &oid){
 		moveCS[id]->pos.x = moveCS[id]->pos.x - CS::spriteCS[id]->imgRect.w;
 		STAR(moveCS[id]->pos.x+CS::spriteCS[id]->imgRect.w, moveCS[id]->pos.y);
 	}
-	
+	CS::spriteCS[id]->update();
 	CS::propCS[id] = std::shared_ptr<PropertiesComponent>(new PropertiesComponent(id));
 	CS::propCS[id]->entities["shooter"] = oid;
-	CS::propCS[id]->fProps["duration"] = 0.3;
+	CS::propCS[id]->fProps["duration"] = 0.25;
 	CS::propCS[id]->fProps["flip"] = 1;
 	CS::propCS[id]->stringProps["type"] == "bullet";
 	CS::funcQCS[id] = std::shared_ptr<FuncQComponent>(new FuncQComponent(id));
@@ -114,6 +110,9 @@ void playerUpdate(eId id){
 	if(CS::propCS[id]->boolProps["shooting"] && CS::propCS[id]->fProps["fireRate"] <= shootTimer)
 	{
 		bullet(moveCS[id]->pos, id);
+		Vec2 pos2 = moveCS[id]->pos;
+		pos2.y -= 30;
+		//bullet(pos2, id);	
 		//CS::propCS[id]->boolProps["shooting"] = false;
 		shootTimer = 0;
 	}
