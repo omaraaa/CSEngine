@@ -351,8 +351,6 @@ void collide(eId e1, eId e2){
 	// SDL_Rect sr2 = r2.getSDLRect();
 	// Window::DrawRect(&sr1, 0,255,0);
 	// Window::DrawRect(&sr2, 0,255,0);
-	// SDL_Rect overlapRect;
-	// SDL_IntersectRect(&r1, &r2, &overlapRect);
 	float overlapX=0, overlapY=0;
 	int BIAS = 4;
 	Rect a;
@@ -360,32 +358,6 @@ void collide(eId e1, eId e2){
 		return;
 	// SDL_Rect sr3 = a.getSDLRect();
 	// Window::DrawRect(&sr3, 0,255,0);
-	// if(dx1 != dx2)
-	// {
-	// 	float maxOverlapX = absDX1 + absDX2 + BIAS;
-	// 	if((r1.x < r2.x + r2.w) && (r1.x + r1.w > r2.x) 
-	// 		&& (r1.y < r2.y + r2.h) && ( r1.y + r1.h > r2.y))
-	// 	if(r1.x < r2.x)
-	// 	{
-	// 		overlapX = r1.x + r1.w - r2.x;
-	// 		if(overlapX > maxOverlapX)
-	// 			overlapX = 0;
-	// 		else{
-	// 			c1->touching |= LEFT;
-	// 			c2->touching |= RIGHT;
-	// 		}
-	// 	} else  {
-	// 		overlapX = -(r2.x + r2.w - r1.x);
-	// 		if(-overlapX > maxOverlapX)
-	// 			overlapX = 0;
-	// 		else{
-	// 			c1->touching |= RIGHT;
-	// 			c2->touching |= LEFT;
-	// 		}
-	// 	}
-	// 	//std::cout << maxOverlapX << " " << overlapX << std::endl;
-	// }
-	//SDL_Rect shit;
 	double xDir = c1->moveC->vel.x + c2->moveC->vel.x;
 	double yDir = c1->moveC->vel.y + c2->moveC->vel.y;
 	if(a.w <= a.h){
@@ -517,3 +489,20 @@ bool strToBool(std::string str){
 	}
 }
 
+QuadTree::QuadTree(Rect b, int l){
+	bounds = b;
+	level = l;
+}
+
+void QuadTree::split(){
+	double midX = bounds.x + bounds.w/2.f;
+	double midY = bounds.y + bounds.h/2.f;
+	Rect topLeft  = {bounds.x, bounds.y, bounds.w/2.f, bounds.h/2.f};
+	Rect topRight = {midX, bounds.y, bounds.w/2.f, bounds.h/2.f};
+	Rect botLeft  = {bounds.x, midY,  bounds.w/2.f, bounds.h/2.f};
+	Rect botRight = {midX, midY, bounds.w/2.f, bounds.h/2.f};
+	nodes[0] = new QuadTree(topLeft, level+1);
+	nodes[1] = new QuadTree(topRight, level+1);
+	nodes[2] = new QuadTree(botLeft, level+1);
+	nodes[3] = new QuadTree(botRight, level+1);
+}

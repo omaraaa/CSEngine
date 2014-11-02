@@ -127,18 +127,18 @@ int main(int argc, char **argv){
 		double newTime = time_in_seconds();
 		double frameTime = newTime - Timer::currentTime;
 		Timer::currentTime = newTime;
-		SDL_Delay(1000.f/120.f);
+		//SDL_Delay(1000.f/120.f);
 		Timer::accumulator += frameTime;
 		while (SDL_PollEvent(&e)){
 			if (e.type == SDL_QUIT)
 				quit = true;
 			if(e.type == SDL_MOUSEWHEEL){
-				CS::cameras[c]->zoom += 0.5*e.wheel.y;
+				CS::cameras[c]->zoom += 0.1*e.wheel.y;
 			}
 			if(e.type == SDL_MOUSEBUTTONDOWN){
 				if(e.button.button == SDL_BUTTON_LEFT){
 					Vec2 p = CS::cameras[c]->getWorldPos({e.button.x, e.button.y});
-					mBox(p.x, p.y);
+					collisionChecker(p.x, p.y, createBox);
 				}
 				if(e.button.button == SDL_BUTTON_RIGHT){
 					if(controll < 0)
@@ -199,8 +199,8 @@ int main(int argc, char **argv){
 				CS::update();
 			Timer::t += Timer::dt;
 			Timer::accumulator -= Timer::dt;
+			CS::cleanup();
 		}
-		CS::cleanup();
 		Timer::alpha = Timer::accumulator / Timer::dt;
 		CS::draw();
 		Window::Present();

@@ -1,7 +1,7 @@
 
 
 
-for i=0,4 do
+for i=0,12 do
 	mBox(i*64, 400)
 end
 
@@ -14,8 +14,15 @@ function p()
 	player(getMousePos());
 end
 
-function createBoxes()
-	for i=0,12 do
-		mBox(i*64, 200)
+function createBoxes(x, y, n)
+	for i=0,n do
+		mBox(i*x, y)
 	end
 end
+
+function createBoxes2(pos, n)
+	for i=0,n do
+		mBox(i*pos.x, pos.y)
+	end
+end
+

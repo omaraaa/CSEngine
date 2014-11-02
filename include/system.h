@@ -34,10 +34,13 @@ public:
 
 class QuadTree {
 public:
-	QuadTree(SDL_Rect bounds);
+	QuadTree(Rect b, int l=0);
+	void split();
+	void insert(unsigned long id);
+	void getIndex(Rect r);
 
 private:
-	SDL_Rect bounds;
+	Rect bounds;
 	int level;
 	int maxLevel;
 	QuadTree** nodes;

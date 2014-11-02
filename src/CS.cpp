@@ -49,10 +49,14 @@ void CS::createMoveC(float xx, float yy, const eId &id){
 }
 
 void CS::updateEntity(eId id){
-	moveCS[id]->update();
-	CS::spriteCS[id]->update();
-	CS::collisionCS[id]->update();
-	CS::funcQCS[id]->update();
+	if(moveCS[id])
+		moveCS[id]->update();
+	if(CS::spriteCS[id])
+		CS::spriteCS[id]->update();
+	if(CS::collisionCS[id])
+		CS::collisionCS[id]->update();
+	if(CS::funcQCS[id])
+		CS::funcQCS[id]->update();
 }
 //CS CREATE//
 

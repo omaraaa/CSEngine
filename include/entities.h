@@ -10,6 +10,10 @@ eId GAMEOVER();
 eId createCamera(float x, float y);
 eId edgeChecker(eId parent);
 eId wallChecker(eId parent);
+eId collisionChecker(float x, float y, void(*callback)(eId));
+
+//*CALLBACKS*//
+void createBox(eId id);
 
 //*CONSTANTS*//
 extern float P_firerate;
