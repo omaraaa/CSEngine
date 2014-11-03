@@ -258,10 +258,10 @@ void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
 		// 		clipRect.h = area.h/scale.y;
 		// 	}
 		// }
-		imgRect.x = floor(imgRect.x*zoom);
-		imgRect.y = floor(imgRect.y*zoom);
-		imgRect.h = ceil(imgRect.h*zoom);
-		imgRect.w = ceil(imgRect.w*zoom);
+		imgRect.x = round(imgRect.x*zoom);
+		imgRect.y = round(imgRect.y*zoom);
+		imgRect.h = round(imgRect.h*zoom);
+		imgRect.w = round(imgRect.w*zoom);
 	
 		//Window::Draw(img, imgRect, &clipRect, 0,0,0,flip);
 		draw();

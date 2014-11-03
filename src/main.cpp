@@ -127,7 +127,7 @@ int main(int argc, char **argv){
 		double newTime = time_in_seconds();
 		double frameTime = newTime - Timer::currentTime;
 		Timer::currentTime = newTime;
-		//SDL_Delay(1000.f/120.f);
+		SDL_Delay(1000.f/120.f);
 		Timer::accumulator += frameTime;
 		while (SDL_PollEvent(&e)){
 			if (e.type == SDL_QUIT)
