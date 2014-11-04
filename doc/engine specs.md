@@ -11,28 +11,28 @@ Main Functions
 --------------
 #####Initializing and starting
 ```c++
-CS_Start(...);
+void CS_Start(...);
 ```
 Initializes the game and call the game's main loop.
 
 ```c++
-CS_Init(...);
+void CS_Init(...);
 ```
 Initializes the game engine. doesn't call the game's main game loop.
 
 #####Quit
 ```
-CS_Quit();
+void CS_Quit();
 ```
 Called to quit.
 
 #####Update
 ```
-CS_run();
+void CS_run();
 ```
 runs the game's main loop.
 ```
-CS_update();
+void CS_update();
 ```
 updates 1 frame. Used if you set up your own game loop.
 
@@ -88,5 +88,28 @@ void CS_CloseConsole();
 ```
 Closes console.
 
+Usage Example
+=============
+main.cpp
+```c++
+int main(){
+	CS_Start();
+	return 0;
+}
+```
 
+game.lua
+```lua
+function playerUpdate(id)
+	
+end
+
+function player(x, y)
+	id = CS_CreateEntity();
+	CS_CreateMoveC(id, x, y);
+	CS_CreateSpriteC(id, "../data/test.png");
+	CS_getSprite(id).blsh blah blah
+end
+
+```
 

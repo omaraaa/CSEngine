@@ -529,6 +529,25 @@
 			}
 		},
 		{
+			"contents": "CS Engine Specs\n===============\n\nFeatures\n--------\n* flixable\n* lua console\n* .ini support\n\nMain Functions\n--------------\n#####Initializing and starting\n```c++\nvoid CS_Start(...);\n```\nInitializes the game and call the game's main loop.\n\n```c++\nvoid CS_Init(...);\n```\nInitializes the game engine. doesn't call the game's main game loop.\n\n#####Quit\n```\nvoid CS_Quit();\n```\nCalled to quit.\n\n#####Update\n```\nvoid CS_run();\n```\nruns the game's main loop.\n```\nvoid CS_update();\n```\nupdates 1 frame. Used if you set up your own game loop.\n\nComponents Functions\n--------------------\n#####Adding components\n```c++\nID CS_AddComponent<ComponantClass T>(ID id, args...);\n```\nor\n```c++\nID CS_AddComponent<ComponantClass T>(T c);\n```\nadds a component to the system.\n\n#####Getting components\n```\nshared_ptr<T> CS_GetC<ComponentClass T>(ID id);\n```\nGets the entity's component and returns a std::shared_ptr.\n\nSystem Functions\n----------------\n#####Drawing\n```\nvoid CS_Draw(args...);\n```\nSystem's draw call.\n\n#####Lua\n```\nvoid CS_LuaInit(args...);\n```\nSets Lua up.\n\n```\nvoid CS_runScript(args...);\n```\nLoads a Lua script and excutes it.\n\n```\nvoid CS_LuaFunc(args...);\n```\nPasses a lua funtion or command to run.\n\n```\nvoid CS_OpenConsole();\n```\nOpens console.\n\n```\nvoid CS_CloseConsole();\n```\nCloses console.\n\n\n\n",
+			"file": "doc/engine specs.md",
+			"file_size": 1361,
+			"file_write_time": 130595097012157524,
+			"settings":
+			{
+				"buffer_size": 1294,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "doc/components.md",
+			"settings":
+			{
+				"buffer_size": 23,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "include/CS.h",
 			"settings":
 			{
@@ -540,7 +559,7 @@
 			"file": "src/main.cpp",
 			"settings":
 			{
-				"buffer_size": 4713,
+				"buffer_size": 4711,
 				"line_ending": "Windows"
 			}
 		},
@@ -556,7 +575,7 @@
 			"file": "src/components.cpp",
 			"settings":
 			{
-				"buffer_size": 12421,
+				"buffer_size": 12423,
 				"line_ending": "Windows"
 			}
 		},
@@ -641,14 +660,6 @@
 			}
 		},
 		{
-			"file": "planning",
-			"settings":
-			{
-				"buffer_size": 309,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "src/componentsystem.cpp",
 			"settings":
 			{
@@ -660,9 +671,13 @@
 	"build_system": "Packages/User/myMake.sublime-build",
 	"command_palette":
 	{
-		"height": 81.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"mar",
+				"Markdown Preview: Preview in Browser"
+			],
 			[
 				"32",
 				"Build: Run32"
@@ -690,10 +705,6 @@
 			[
 				"intall",
 				"Package Control: Install Package"
-			],
-			[
-				"mar",
-				"Markdown Preview: Preview in Browser"
 			],
 			[
 				"ma",
@@ -786,10 +797,12 @@
 	"expanded_folders":
 	[
 		"/C/CSEngine",
-		"/C/CSEngine/data"
+		"/C/CSEngine/doc"
 	],
 	"file_history":
 	[
+		"/C/CSEngine/doc",
+		"/C/CSEngine/planning",
 		"/C/CSEngine/.gitignore",
 		"/C/CSEngine/workspace.sublime-workspace",
 		"/C/dev/SDLTEST/README.md",
@@ -1122,7 +1135,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 14,
 			"sheets":
 			[
 				{
@@ -1153,11 +1166,71 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "doc/engine specs.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1294,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1294,
+								1294
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"parser": "markdown",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"target": "disk"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1134.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "doc/components.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "include/CS.h",
 					"semi_transient": false,
 					"settings":
@@ -1182,24 +1255,24 @@
 						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "src/main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4713,
+						"buffer_size": 4711,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2677,
-								2671
+								2871,
+								2871
 							]
 						],
 						"settings":
@@ -1211,11 +1284,11 @@
 						"translation.y": 2001.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "include/components.h",
 					"semi_transient": false,
 					"settings":
@@ -1240,24 +1313,24 @@
 						"translation.y": 1597.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "src/components.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 12421,
+						"buffer_size": 12423,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4871,
-								4871
+								6944,
+								6944
 							]
 						],
 						"settings":
@@ -1266,14 +1339,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 956.0,
+						"translation.y": 4332.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 7,
 					"file": "src/CS.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1298,11 +1371,11 @@
 						"translation.y": 725.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 8,
 					"file": "src/game.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1326,11 +1399,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 9,
 					"file": "include/game.h",
 					"semi_transient": false,
 					"settings":
@@ -1354,11 +1427,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "include/entities.h",
 					"semi_transient": false,
 					"settings":
@@ -1382,11 +1455,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"file": "src/entities.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1411,11 +1484,11 @@
 						"translation.y": 3272.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 12,
 					"file": "src/system.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1440,17 +1513,11 @@
 						"translation.y": 8723.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"file": "data/player.png",
-					"semi_transient": true,
-					"stack_index": 2,
-					"type": "image"
-				},
-				{
-					"buffer": 11,
+					"buffer": 13,
 					"file": "include/system.h",
 					"semi_transient": false,
 					"settings":
@@ -1475,11 +1542,11 @@
 						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 14,
 					"file": "src/window.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1491,8 +1558,8 @@
 						"selection":
 						[
 							[
-								2200,
-								2200
+								1684,
+								1684
 							]
 						],
 						"settings":
@@ -1502,14 +1569,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1206.0,
+						"translation.y": 151.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 15,
 					"file": "scripts/test.lua",
 					"semi_transient": false,
 					"settings":
@@ -1533,7 +1600,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -1543,7 +1610,7 @@
 					"type": "image"
 				},
 				{
-					"buffer": 14,
+					"buffer": 16,
 					"file": "config.ini",
 					"semi_transient": false,
 					"settings":
@@ -1564,45 +1631,14 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "planning",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 309,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								249,
-								249
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"spell_check": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"wrap_width": 120
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 13,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
+					"buffer": 17,
 					"file": "src/componentsystem.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1626,7 +1662,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
