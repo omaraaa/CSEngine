@@ -113,3 +113,20 @@ end
 
 ```
 
+Concepts
+========
+
+Pushing draw functions
+---
+Each entity can push draw functions to it's layer.
+```c++
+std::map<int layer, std::map<ID, void (*)(ID)>> drawQueue;
+```
+or
+```c++
+std::map<ID, void (*)(ID)> bgDrawQ;
+std::map<ID, void (*)(ID)> mainDrawQ;
+std::map<ID, void (*)(ID)> fgDrawQ;
+```
+
+
