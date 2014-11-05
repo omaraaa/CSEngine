@@ -18,7 +18,7 @@ eId STAR(float x, float y){
 	CS::spriteCS[id]->setFrame(32,32);
 	std::vector<int> v = {0,1,2,3};
 	void (*animC)(eId) = kill;
-	CS::spriteCS[id]->playAnimation(v, 40, false, false, animC);
+	CS::spriteCS[id]->playAnimation(v, 10, false, false, animC);
 	return id;
 }
 
@@ -88,6 +88,12 @@ bool holdFace = false;
 void playerUpdate(eId id){
 	bool running = false;
 	float shootTimer = CS::propCS[id]->fProps["shootTimer"];
+	float starTimer = CS::propCS[id]->fProps["starTimer"];
+	starTimer += Timer::dt;
+	if(starTimer > 0.085 && abs(moveCS[id]->vel.x) > 0){
+		STAR(moveCS[id]->pos.x + CS::spriteCS[id]->imgRect.w/2, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
+		starTimer = 0;
+	}
 	if(moveCS[id]->vel.y > 0 && !(CS::collisionCS[id]->touching & FLOOR)){
 		std::vector<int> v = {2};
 		CS::spriteCS[id]->playAnimation(v, 1, false, true);
@@ -123,6 +129,7 @@ void playerUpdate(eId id){
 	shootTimer += Timer::dt;
 	CS::propCS[id]->boolProps["holdFace"] = false;
 	CS::propCS[id]->fProps["shootTimer"] = shootTimer;
+	CS::propCS[id]->fProps["starTimer"] = starTimer;
 }
 bool shooting = false;
 bool shot = false;
@@ -194,6 +201,7 @@ eId TEST(Vec2 const &pos) {
 	CS::propCS[id]->groups["bullets"] = std::vector<eId>{};
 	CS::propCS[id]->boolProps["shooting"] = false;
 	CS::propCS[id]->fProps["shootTimer"] = 0;
+	CS::propCS[id]->fProps["starTimer"] = 0;
 	CS::propCS[id]->fProps["fireRate"] = 1/P_firerate;
 	//CS::propCS[id]->entities["edgeChecker"] = edgeChecker(id);
 	//CS::propCS[id]->entities["wallChecker"] = wallChecker(id);
