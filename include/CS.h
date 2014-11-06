@@ -21,11 +21,13 @@ public:
 	static std::map<eId, std::shared_ptr<FuncQComponent>> funcQCS;
 	static std::map<const std::string, std::vector<eId>> groups; 
 	static std::map<const std::string, SDL_Texture*> textures;
+	static std::map<const int, std::map<eId, void (*)(eId)>> drawCalls;
 	static std::map<eId, std::shared_ptr<Camera>> cameras;
 	static std::vector<eId> deletedEntities;
 	static std::vector<eId> toDelete;
 	static QuadTree qt;
 	static Grid grid;
+	static std::shared_ptr<Camera> mainCamera;
 
 	static eId createEntityID();
 	static eId createCameraID();

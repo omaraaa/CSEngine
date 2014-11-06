@@ -77,6 +77,7 @@ struct SpriteComponent : public Component {
 	Vec2 scale;
 	Vec2 offset;
 	Vec2 texSize;
+	int layer=0;
 	SpriteComponent(const std::string &file, std::map<eId, std::shared_ptr<MoveComponent>> &moveMap, eId id);
 
 	void draw();

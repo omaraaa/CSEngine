@@ -22,6 +22,7 @@ std::map<eId, std::shared_ptr<PropertiesComponent>> CS::propCS{};
 std::map<eId, std::shared_ptr<FuncQComponent>> CS::funcQCS{};
 std::map<const std::string, std::vector<eId>> CS::groups{};
 std::map<const std::string, SDL_Texture*> CS::textures{};
+std::map<const int, std::map<eId, void (*)(eId)>> CS::drawCalls;
 std::map<eId, std::shared_ptr<Camera>> CS::cameras{};
 std::vector<eId> CS::deletedEntities{};
 std::vector<eId> CS::toDelete{};
@@ -175,13 +176,13 @@ void CS::interpolate(){
 
 void CS::draw(){
 	
-	for(auto it = spriteCS.begin(); it != spriteCS.end(); it++){		
-		if(cameras.size()>0){
-			for(auto cIt = cameras.begin(); cIt != cameras.end(); cIt++){
-				it->second->CameraDraw(cIt->second->winPos, cIt->second->size, cIt->second->zoom, cIt->second->pos);
-			}
-		} else
-			it->second->draw();
+	for(auto it = drawCalls.begin(); it != drawCalls.end(); it++){
+		std::map<eId, void(*)(eId)> dmap = it->second;
+		for(auto it2 = dmap.begin(); it2 != dmap.end(); it2++){
+			void (*drawcall)(eId) = it2->second;
+			if(CS::spriteCS.find(it2->first) != CS::spriteCS.end())
+				drawcall(it2->first);
+		}
 	}
 	for(auto it = collisionCS.begin(); it != collisionCS.end(); it++){
 		if(it->second->debugDraw)
@@ -206,6 +207,7 @@ void CS::deleteEntity(eId id){
 void CS::cleanup(){
 	for(auto it = toDelete.begin(); it != toDelete.end();){
 		moveCS.erase(*it);
+		drawCalls[spriteCS.at(*it)->layer].erase(*it);
 		CS::spriteCS.erase(*it);
 		CS::controllerCS.erase(*it);
 		CS::collisionCS.erase(*it);

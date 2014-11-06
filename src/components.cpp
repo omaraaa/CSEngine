@@ -187,6 +187,7 @@ SpriteComponent::SpriteComponent(const std::string &file,
 	//clipRect.w *= 0.5;
 	playingAnimation = false;
 	facing = RIGHT;
+	layer = 0;
 	flip = SDL_FLIP_NONE;
 }
 
@@ -270,6 +271,10 @@ void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
 	clipRect = b2;
 }
 
+void drawCall(eId id){
+	auto c = CS::spriteCS[id];
+	c->draw();
+}
 
 void SpriteComponent::update(){
 	deltaPos.x = imgRect.x;
@@ -309,7 +314,7 @@ void SpriteComponent::update(){
 	} else if(facing == RIGHT) {
 		flip = SDL_FLIP_HORIZONTAL;
 	}
-
+	CS::drawCalls[layer][owner] = drawCall;
 }
 
 void SpriteComponent::setColor(Uint8 r, Uint8 g, Uint8 b){

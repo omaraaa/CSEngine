@@ -16,6 +16,7 @@ eId STAR(float x, float y){
 	CS::createMoveC(x-16, y-16, id);
 	CS::spriteCS[id] = std::shared_ptr<SpriteComponent>(new SpriteComponent("../data/Caret.png", moveCS, id));
 	CS::spriteCS[id]->setFrame(32,32);
+	CS::spriteCS[id]->layer = -10;
 	std::vector<int> v = {0,1,2,3};
 	void (*animC)(eId) = kill;
 	CS::spriteCS[id]->playAnimation(v, 10, false, false, animC);

@@ -193,6 +193,7 @@ int main(int argc, char **argv){
 
 		}
 		Window::Clear();
+		Timer::t = 0;
 		while(Timer::accumulator >= Timer::dt)
 		{
 			if(!consoleOpen)
