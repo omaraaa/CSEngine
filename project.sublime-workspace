@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"end",
+				"end"
+			],
+			[
+				"delete",
+				"deleteEntity"
+			],
+			[
+				"dele",
+				"deletedEntities"
+			],
+			[
+				"clea",
+				"clear"
+			],
+			[
+				"draw",
+				"drawCalls"
+			],
+			[
+				"dra",
+				"drawCall"
+			],
+			[
+				"sprit",
+				"spriteCS"
+			],
+			[
 				"spr",
 				"spriteCS"
 			],
@@ -26,10 +54,6 @@
 			[
 				"creat",
 				"create"
-			],
-			[
-				"dele",
-				"deleteEntity"
 			],
 			[
 				"movec",
@@ -66,10 +90,6 @@
 			[
 				"chec",
 				"checkClean"
-			],
-			[
-				"clea",
-				"cleanup"
 			],
 			[
 				"func",
@@ -178,10 +198,6 @@
 			[
 				"sprite",
 				"spriteCS"
-			],
-			[
-				"sprit",
-				"spriteC"
 			],
 			[
 				"re",
@@ -400,10 +416,6 @@
 				"luaL_openlibs"
 			],
 			[
-				"end",
-				"endl"
-			],
-			[
 				"stat",
 				"state"
 			],
@@ -502,18 +514,6 @@
 			[
 				"edg",
 				"edgeCheckerUpdate"
-			],
-			[
-				"grou",
-				"groups"
-			],
-			[
-				"collided",
-				"collided"
-			],
-			[
-				"typ",
-				"typeinfo"
 			]
 		]
 	},
@@ -529,10 +529,13 @@
 			}
 		},
 		{
+			"contents": "CS Engine Specs\n===============\n\nFeatures\n--------\n* flixable\n* lua console\n* .ini support\n\nMain Functions\n--------------\n#####Initializing and starting\n```c++\nvoid CS_Start(...);\n```\nInitializes the game and call the game's main loop.\n\n```c++\nvoid CS_Init(...);\n```\nInitializes the game engine. doesn't call the game's main game loop.\n\n#####Quit\n```\nvoid CS_Quit();\n```\nCalled to quit.\n\n#####Update\n```\nvoid CS_run();\n```\nruns the game's main loop.\n```\nvoid CS_update();\n```\nupdates 1 frame. Used if you set up your own game loop.\n\nComponents Functions\n--------------------\n#####Adding components\n```c++\nID CS_AddComponent<ComponantClass T>(ID id, args...);\n```\nor\n```c++\nID CS_AddComponent<ComponantClass T>(T c);\n```\nadds a component to the system.\n\n#####Getting components\n```\nshared_ptr<T> CS_GetC<ComponentClass T>(ID id);\n```\nGets the entity's component and returns a std::shared_ptr.\n\nSystem Functions\n----------------\n#####Drawing\n```\nvoid CS_Draw(args...);\n```\nSystem's draw call.\n\n#####Lua\n```\nvoid CS_LuaInit(args...);\n```\nSets Lua up.\n\n```\nvoid CS_runScript(args...);\n```\nLoads a Lua script and excutes it.\n\n```\nvoid CS_LuaFunc(args...);\n```\nPasses a lua funtion or command to run.\n\n```\nvoid CS_OpenConsole();\n```\nOpens console.\n\n```\nvoid CS_CloseConsole();\n```\nCloses console.\n\nUsage Example\n=============\nmain.cpp\n```c++\nint main(){\n	CS_Start();\n	return 0;\n}\n```\n\ngame.lua\n```lua\nfunction playerUpdate(id)\n	\nend\n\nfunction player(x, y)\n	id = CS_CreateEntity();\n	CS_CreateMoveC(id, x, y);\n	CS_CreateSpriteC(id, \"../data/test.png\");\n	CS_getSprite(id).blsh blah blah\nend\n\n```\n\nConcepts\n========\n\nPushing draw functions\n---\nEach entity can push draw functions to it's layer.\n```c++\nstd::map<int layer, std::map<ID, void (*)(ID)>> drawQueue;\n```\nor(chose the top one)\n```c++\nstd::map<ID, void (*)(ID)> bgDrawQ;\nstd::map<ID, void (*)(ID)> mainDrawQ;\nstd::map<ID, void (*)(ID)> fgDrawQ;\n```\n\n\n",
 			"file": "doc/engine specs.md",
+			"file_size": 2013,
+			"file_write_time": 130596927729641125,
 			"settings":
 			{
-				"buffer_size": 1881,
+				"buffer_size": 1900,
 				"line_ending": "Windows"
 			}
 		},
@@ -545,34 +548,10 @@
 			}
 		},
 		{
-			"file": "include/CS.h",
-			"settings":
-			{
-				"buffer_size": 1715,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "src/main.cpp",
 			"settings":
 			{
-				"buffer_size": 4711,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "include/components.h",
-			"settings":
-			{
-				"buffer_size": 3978,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/components.cpp",
-			"settings":
-			{
-				"buffer_size": 12423,
+				"buffer_size": 4727,
 				"line_ending": "Windows"
 			}
 		},
@@ -580,7 +559,34 @@
 			"file": "src/CS.cpp",
 			"settings":
 			{
-				"buffer_size": 6280,
+				"buffer_size": 6442,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "#ifndef CS_H\n#define CS_H\n//Includes\n#include <vector>\n#include <map>\n#include <iostream>\n#include <typeindex>\n#include <typeinfo>\n#include <memory>\n#include \"../include/system.h\"\n#include \"../include/components.h\"\n\n\nstruct Entity\n{\n	\n};\n\nextern std::map<eId, std::shared_ptr<MoveComponent>> moveCS;\n\nclass CS {\npublic:\n	static std::map<eId, std::shared_ptr<SpriteComponent>> spriteCS;\n	static std::map<eId, std::shared_ptr<ControllerComponent>> controllerCS;\n	static std::map<eId, std::shared_ptr<CollisionComponent>> collisionCS;\n	static std::map<eId, std::shared_ptr<PropertiesComponent>> propCS;\n	static std::map<eId, std::shared_ptr<FuncQComponent>> funcQCS;\n	static std::map<const std::string, std::vector<eId>> groups; \n	static std::map<const std::string, SDL_Texture*> textures;\n	static std::map<const int, std::map<eId, void (*)(eId)>> drawCalls;\n	static std::map<eId, std::shared_ptr<Camera>> cameras;\n	static std::vector<eId> deletedEntities;\n	static std::vector<eId> toDelete;\n	static QuadTree qt;\n	static Grid grid;\n	static std::shared_ptr<Camera> mainCamera;\n\n	static eId createEntityID();\n	static eId createCameraID();\n	static void createMoveC(float xx, float yy, const eId &id);\n	static void deleteEntity(eId id);\n	static void updateEntity(eId id);\n	static void setGroup(const eId &id, const std::string &s);\n\n	static void eventUpdate(SDL_Event &e);\n	static void update();\n	static void interpolate();\n	static void draw();\n	static void collisionUpdate();\n	static void cameraUpdate();\n	static void clear();\n	static void cleanup();\n\n	static std::shared_ptr<SpriteComponent> getSpriteC(eId e);\n	static std::shared_ptr<CollisionComponent> getCollisionC(eId e);\n	static bool inGroup(const eId &id, const std::string &s);\n\n	static eId _E_INDEX; //entities index\n	static eId _C_INDEX; //cameras index\n	static SDL_Rect worldbounds;\n};\n\n\n\n#endif",
+			"file": "include/CS.h",
+			"file_size": 1886,
+			"file_write_time": 130597590108052263,
+			"settings":
+			{
+				"buffer_size": 1851,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "include/components.h",
+			"settings":
+			{
+				"buffer_size": 3992,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/components.cpp",
+			"settings":
+			{
+				"buffer_size": 12540,
 				"line_ending": "Windows"
 			}
 		},
@@ -612,7 +618,7 @@
 			"file": "src/entities.cpp",
 			"settings":
 			{
-				"buffer_size": 13728,
+				"buffer_size": 13896,
 				"line_ending": "Windows"
 			}
 		},
@@ -798,6 +804,9 @@
 	],
 	"file_history":
 	[
+		"/C/CSEngine/include/CS.h",
+		"/C/weechat-1.0.1/README.asciidoc",
+		"/C/CSEngine/src/<built-in>",
 		"/C/CSEngine/doc",
 		"/C/CSEngine/planning",
 		"/C/CSEngine/.gitignore",
@@ -1132,7 +1141,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1163,7 +1172,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1172,15 +1181,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1881,
+						"buffer_size": 1900,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1596,
-								1596
+								1474,
+								1474
 							]
 						],
 						"settings":
@@ -1191,10 +1200,10 @@
 							"target": "browser"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1566.0,
+						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1223,24 +1232,82 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "include/CS.h",
+					"file": "src/main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1715,
+						"buffer_size": 4727,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								861,
-								861
+								4411,
+								4411
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1947.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/CS.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6442,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5675,
+								5675
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3508.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "include/CS.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1851,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								234,
+								234
 							]
 						],
 						"settings":
@@ -1249,56 +1316,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 138.0,
+						"translation.y": 126.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src/main.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4711,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2871,
-								2871
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++11/C++11.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2001.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "include/components.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3978,
+						"buffer_size": 3992,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2310,
-								2310
+								1461,
+								1461
 							]
 						],
 						"settings":
@@ -1307,56 +1345,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1597.0,
+						"translation.y": 1057.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/components.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12423,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6944,
-								6944
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++11/C++11.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4332.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "src/CS.cpp",
+					"file": "src/components.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6280,
+						"buffer_size": 12540,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1547,
-								1547
+								4826,
+								4826
 							]
 						],
 						"settings":
@@ -1365,10 +1374,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 725.0,
+						"translation.y": 3076.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1452,7 +1461,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1461,15 +1470,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13728,
+						"buffer_size": 13896,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								163,
-								163
+								3671,
+								3671
 							]
 						],
 						"settings":
@@ -1478,10 +1487,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1998.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1510,7 +1519,7 @@
 						"translation.y": 8723.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -1539,7 +1548,7 @@
 						"translation.y": 486.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -1569,7 +1578,7 @@
 						"translation.y": 151.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1631,7 +1640,7 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1698,7 +1707,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 101.0
+		"height": 252.0
 	},
 	"output.find_results":
 	{

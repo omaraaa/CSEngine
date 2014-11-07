@@ -91,9 +91,14 @@ void playerUpdate(eId id){
 	float shootTimer = CS::propCS[id]->fProps["shootTimer"];
 	float starTimer = CS::propCS[id]->fProps["starTimer"];
 	starTimer += Timer::dt;
-	if(starTimer > 0.085 && abs(moveCS[id]->vel.x) > 0){
-		STAR(moveCS[id]->pos.x + CS::spriteCS[id]->imgRect.w/2, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
-		starTimer = 0;
+	if(starTimer > 0.085){
+		if(moveCS[id]->vel.x > 0){
+			STAR(moveCS[id]->pos.x, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
+			starTimer = 0;
+		} else if(moveCS[id]->vel.x < 0){
+			STAR(moveCS[id]->pos.x + CS::spriteCS[id]->imgRect.w, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
+			starTimer = 0;
+		}
 	}
 	if(moveCS[id]->vel.y > 0 && !(CS::collisionCS[id]->touching & FLOOR)){
 		std::vector<int> v = {2};
