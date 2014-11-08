@@ -122,7 +122,7 @@ Each entity can push draw functions to it's layer.
 ```c++
 std::map<int layer, std::map<ID, void (*)(ID)>> drawQueue;
 ```
-or
+or(chose the top one)
 ```c++
 std::map<ID, void (*)(ID)> bgDrawQ;
 std::map<ID, void (*)(ID)> mainDrawQ;

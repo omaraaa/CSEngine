@@ -10,6 +10,12 @@
 #include "../include/system.h"
 #include "../include/components.h"
 
+
+struct Entity
+{
+	
+};
+
 extern std::map<eId, std::shared_ptr<MoveComponent>> moveCS;
 
 class CS {

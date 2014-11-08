@@ -529,10 +529,7 @@
 			}
 		},
 		{
-			"contents": "CS Engine Specs\n===============\n\nFeatures\n--------\n* flixable\n* lua console\n* .ini support\n\nMain Functions\n--------------\n#####Initializing and starting\n```c++\nvoid CS_Start(...);\n```\nInitializes the game and call the game's main loop.\n\n```c++\nvoid CS_Init(...);\n```\nInitializes the game engine. doesn't call the game's main game loop.\n\n#####Quit\n```\nvoid CS_Quit();\n```\nCalled to quit.\n\n#####Update\n```\nvoid CS_run();\n```\nruns the game's main loop.\n```\nvoid CS_update();\n```\nupdates 1 frame. Used if you set up your own game loop.\n\nComponents Functions\n--------------------\n#####Adding components\n```c++\nID CS_AddComponent<ComponantClass T>(ID id, args...);\n```\nor\n```c++\nID CS_AddComponent<ComponantClass T>(T c);\n```\nadds a component to the system.\n\n#####Getting components\n```\nshared_ptr<T> CS_GetC<ComponentClass T>(ID id);\n```\nGets the entity's component and returns a std::shared_ptr.\n\nSystem Functions\n----------------\n#####Drawing\n```\nvoid CS_Draw(args...);\n```\nSystem's draw call.\n\n#####Lua\n```\nvoid CS_LuaInit(args...);\n```\nSets Lua up.\n\n```\nvoid CS_runScript(args...);\n```\nLoads a Lua script and excutes it.\n\n```\nvoid CS_LuaFunc(args...);\n```\nPasses a lua funtion or command to run.\n\n```\nvoid CS_OpenConsole();\n```\nOpens console.\n\n```\nvoid CS_CloseConsole();\n```\nCloses console.\n\nUsage Example\n=============\nmain.cpp\n```c++\nint main(){\n	CS_Start();\n	return 0;\n}\n```\n\ngame.lua\n```lua\nfunction playerUpdate(id)\n	\nend\n\nfunction player(x, y)\n	id = CS_CreateEntity();\n	CS_CreateMoveC(id, x, y);\n	CS_CreateSpriteC(id, \"../data/test.png\");\n	CS_getSprite(id).blsh blah blah\nend\n\n```\n\nConcepts\n========\n\nPushing draw functions\n---\nEach entity can push draw functions to it's layer.\n```c++\nstd::map<int layer, std::map<ID, void (*)(ID)>> drawQueue;\n```\nor(chose the top one)\n```c++\nstd::map<ID, void (*)(ID)> bgDrawQ;\nstd::map<ID, void (*)(ID)> mainDrawQ;\nstd::map<ID, void (*)(ID)> fgDrawQ;\n```\n\n\n",
 			"file": "doc/engine specs.md",
-			"file_size": 2013,
-			"file_write_time": 130596927729641125,
 			"settings":
 			{
 				"buffer_size": 1900,
@@ -564,10 +561,7 @@
 			}
 		},
 		{
-			"contents": "#ifndef CS_H\n#define CS_H\n//Includes\n#include <vector>\n#include <map>\n#include <iostream>\n#include <typeindex>\n#include <typeinfo>\n#include <memory>\n#include \"../include/system.h\"\n#include \"../include/components.h\"\n\n\nstruct Entity\n{\n	\n};\n\nextern std::map<eId, std::shared_ptr<MoveComponent>> moveCS;\n\nclass CS {\npublic:\n	static std::map<eId, std::shared_ptr<SpriteComponent>> spriteCS;\n	static std::map<eId, std::shared_ptr<ControllerComponent>> controllerCS;\n	static std::map<eId, std::shared_ptr<CollisionComponent>> collisionCS;\n	static std::map<eId, std::shared_ptr<PropertiesComponent>> propCS;\n	static std::map<eId, std::shared_ptr<FuncQComponent>> funcQCS;\n	static std::map<const std::string, std::vector<eId>> groups; \n	static std::map<const std::string, SDL_Texture*> textures;\n	static std::map<const int, std::map<eId, void (*)(eId)>> drawCalls;\n	static std::map<eId, std::shared_ptr<Camera>> cameras;\n	static std::vector<eId> deletedEntities;\n	static std::vector<eId> toDelete;\n	static QuadTree qt;\n	static Grid grid;\n	static std::shared_ptr<Camera> mainCamera;\n\n	static eId createEntityID();\n	static eId createCameraID();\n	static void createMoveC(float xx, float yy, const eId &id);\n	static void deleteEntity(eId id);\n	static void updateEntity(eId id);\n	static void setGroup(const eId &id, const std::string &s);\n\n	static void eventUpdate(SDL_Event &e);\n	static void update();\n	static void interpolate();\n	static void draw();\n	static void collisionUpdate();\n	static void cameraUpdate();\n	static void clear();\n	static void cleanup();\n\n	static std::shared_ptr<SpriteComponent> getSpriteC(eId e);\n	static std::shared_ptr<CollisionComponent> getCollisionC(eId e);\n	static bool inGroup(const eId &id, const std::string &s);\n\n	static eId _E_INDEX; //entities index\n	static eId _C_INDEX; //cameras index\n	static SDL_Rect worldbounds;\n};\n\n\n\n#endif",
 			"file": "include/CS.h",
-			"file_size": 1886,
-			"file_write_time": 130597590108052263,
 			"settings":
 			{
 				"buffer_size": 1851,
@@ -1197,7 +1191,7 @@
 							"open_with_edit": true,
 							"parser": "markdown",
 							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"target": "browser"
+							"target": "disk"
 						},
 						"translation.x": 0.0,
 						"translation.y": 216.0,
@@ -1306,8 +1300,8 @@
 						"selection":
 						[
 							[
-								234,
-								234
+								1103,
+								1103
 							]
 						],
 						"settings":
@@ -1316,7 +1310,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 126.0,
+						"translation.y": 342.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

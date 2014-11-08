@@ -19,7 +19,7 @@ eId STAR(float x, float y){
 	CS::spriteCS[id]->layer = -10;
 	std::vector<int> v = {0,1,2,3};
 	void (*animC)(eId) = kill;
-	CS::spriteCS[id]->playAnimation(v, 10, false, false, animC);
+	CS::spriteCS[id]->playAnimation(v, 15, false, false, animC);
 	return id;
 }
 
@@ -91,7 +91,7 @@ void playerUpdate(eId id){
 	float shootTimer = CS::propCS[id]->fProps["shootTimer"];
 	float starTimer = CS::propCS[id]->fProps["starTimer"];
 	starTimer += Timer::dt;
-	if(starTimer > 0.085){
+	if(starTimer > 0.075){
 		if(moveCS[id]->vel.x > 0){
 			STAR(moveCS[id]->pos.x, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
 			starTimer = 0;
