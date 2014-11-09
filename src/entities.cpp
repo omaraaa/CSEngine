@@ -16,10 +16,10 @@ eId STAR(float x, float y){
 	CS::createMoveC(x-16, y-16, id);
 	CS::spriteCS[id] = std::shared_ptr<SpriteComponent>(new SpriteComponent("../data/Caret.png", moveCS, id));
 	CS::spriteCS[id]->setFrame(32,32);
-	CS::spriteCS[id]->layer = -10;
+	CS::spriteCS[id]->layer = -1;
 	std::vector<int> v = {0,1,2,3};
 	void (*animC)(eId) = kill;
-	CS::spriteCS[id]->playAnimation(v, 15, false, false, animC);
+	CS::spriteCS[id]->playAnimation(v, 30, false, false, animC);
 	return id;
 }
 
@@ -93,10 +93,10 @@ void playerUpdate(eId id){
 	starTimer += Timer::dt;
 	if(starTimer > 0.075){
 		if(moveCS[id]->vel.x > 0){
-			STAR(moveCS[id]->pos.x, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
+			//STAR(moveCS[id]->pos.x, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
 			starTimer = 0;
 		} else if(moveCS[id]->vel.x < 0){
-			STAR(moveCS[id]->pos.x + CS::spriteCS[id]->imgRect.w, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
+			//STAR(moveCS[id]->pos.x + CS::spriteCS[id]->imgRect.w, moveCS[id]->pos.y + CS::spriteCS[id]->imgRect.h/2);
 			starTimer = 0;
 		}
 	}
@@ -376,6 +376,7 @@ eId mBox(float x, float y){
 	//CS::collisionCS[id]->debugDraw = true;
 	float grid = CS::spriteCS[id]->imgRect.w;
 	moveCS[id]->pos = {floor(x/grid)*grid, floor(y/grid)*grid};
+	CS::spriteCS[id]->layer = -2;
 	CS::spriteCS[id]->update();
 	//CS::setGroup(id, "tiles");
 	//CS::updateEntity(id);
