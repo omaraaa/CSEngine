@@ -200,7 +200,6 @@ void SpriteComponent::draw(){
 
 void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
 	//interpolate();
-
 	SDL_Rect b1, b2, cBounds, area;
 	b1 = imgRect;
 	b2 = clipRect;
@@ -210,6 +209,7 @@ void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
 	cBounds.h = size.y;
 	imgRect.x = (imgRect.x - int(gamePos.x));
 	imgRect.y = (imgRect.y - int(gamePos.y));
+
 	if(SDL_IntersectRect(&imgRect, &cBounds, &area)){
 		// if(imgRect.x + imgRect.w > pos.x + size.x){
 		// 	if((flip & SDL_FLIP_HORIZONTAL) == SDL_FLIP_NONE){
@@ -273,7 +273,12 @@ void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
 
 void drawCall(eId id){
 	auto c = CS::spriteCS[id];
-	c->draw();
+	if(CS::cameras.size() > 0){
+		auto camera = CS::cameras[1];
+		c->CameraDraw(camera->winPos, camera->size, camera->zoom, camera->pos);
+	}
+	else 
+		c->draw();
 }
 
 void SpriteComponent::update(){

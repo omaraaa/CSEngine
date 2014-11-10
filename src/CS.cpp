@@ -65,6 +65,7 @@ void CS::updateEntity(eId id){
 void CS::clear(){
 	moveCS.clear();
 	CS::spriteCS.clear();
+	CS::drawCalls.clear();
 	CS::controllerCS.clear();
 	CS::collisionCS.clear();
 	CS::funcQCS.clear();
@@ -178,6 +179,10 @@ void CS::draw(){
 	
 	for(auto it = drawCalls.begin(); it != drawCalls.end(); it++){
 		std::map<eId, void(*)(eId)> dmap = it->second;
+		std::cout << dmap.size() << std::endl;
+		if(dmap.size() == 0){
+			it = drawCalls.erase(it);
+		}
 		for(auto it2 = dmap.begin(); it2 != dmap.end(); it2++){
 			void (*drawcall)(eId) = it2->second;
 			if(CS::spriteCS.find(it2->first) != CS::spriteCS.end())
