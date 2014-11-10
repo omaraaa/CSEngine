@@ -129,4 +129,16 @@ std::map<ID, void (*)(ID)> mainDrawQ;
 std::map<ID, void (*)(ID)> fgDrawQ;
 ```
 
+Camera
+---
 
+#####Camera
+```
+Camera:
+	window bounds;
+	game bounds;
+```
+
+* A camera has a window bounds and a game bounds.
+* A main camera is the camera that spriteComponents default to if no cameras are assinged to them.
+* camera size in game world changes according to zoom level and camera veiw size.

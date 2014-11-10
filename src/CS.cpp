@@ -179,7 +179,6 @@ void CS::draw(){
 	
 	for(auto it = drawCalls.begin(); it != drawCalls.end(); it++){
 		std::map<eId, void(*)(eId)> dmap = it->second;
-		std::cout << dmap.size() << std::endl;
 		if(dmap.size() == 0){
 			it = drawCalls.erase(it);
 		}
@@ -196,16 +195,9 @@ void CS::draw(){
 				Window::DrawRect(&r, 100, 150, 100);
 			}
 	}
-	//grid.draw();
 }
 
 void CS::deleteEntity(eId id){
-	// moveCS.erase(id);
-	// CS::spriteCS.erase(id);
-	// CS::controllerCS.erase(id);
-	// CS::collisionCS.erase(id);
-	// CS::funcQCS.erase(id);
-	// CS::propCS.erase(id);
 	toDelete.push_back(id);
 }
 

@@ -8,7 +8,7 @@ end
 
 
 pos = createVec2(100,100);
-p = player(pos);
+--p = player(pos);
 
 function p()
 	player(getMousePos());

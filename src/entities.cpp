@@ -240,9 +240,9 @@ void enemyUpdate(eId id){
 	// 	moveCS[id]->vel.x = 0;
 	// }
 	if(moveCS[id]->vel.x > 0){
-		CS::spriteCS[id]->facing = RIGHT;
-	}else if(moveCS[id]->vel.x < 0){
 		CS::spriteCS[id]->facing = LEFT;
+	}else if(moveCS[id]->vel.x < 0){
+		CS::spriteCS[id]->facing = RIGHT;
 	}
 }
 
@@ -250,12 +250,10 @@ void edgeCheckerUpdate(eId id){
 	eId parent = CS::propCS[id]->entities["parent"];
 	//MoveComponent* pMoveC = moveCS[parent];
 	//CollisionComponent* pCollC = CS::collisionCS[parent];
-	if(!CS::collisionCS[id]->overlaped && CS::propCS[id]->boolProps["active"]){
+	if(!CS::collisionCS[id]->overlaped && CS::propCS[parent]->boolProps["WEflip"]){
 		moveCS[parent]->acc.x *= -1;
 		moveCS[parent]->vel.x = 0;
-		CS::propCS[id]->boolProps["active"] = false;
-	}else if(CS::collisionCS[id]->overlaped && !CS::propCS[id]->boolProps["active"]) {
-		CS::propCS[id]->boolProps["active"] = true;
+		//CS::propCS[id]->boolProps["active"] = false;
 	}
 	if(moveCS[parent]->acc.x > 0){
 		moveCS[id]->pos.x = moveCS[parent]->pos.x + CS::collisionCS[parent]->rect.w + moveCS[id]->acc.x + moveCS[id]->vel.x + 1;
@@ -285,13 +283,15 @@ void wallCheckerUpdate(eId id){
 	//MoveComponent* pMoveC = moveCS[parent];
 	//CollisionComponent* pCollC = CS::collisionCS[parent];
 	if(CS::collisionCS[id]->overlaped){
-		//moveCS[parent]->acc.x *= -1;
-		//moveCS[parent]->vel.x = 0;
+		// moveCS[parent]->acc.x *= -1;
+		// moveCS[parent]->vel.x = 0;
 		//if(CS::collisionCS[parent]->touching & FLOOR){
 					//moveCS[parent]->acc.x *= -1;
-					moveCS[parent]->vel.y = -300;
-					CS::propCS[id]->boolProps["active"] = false;
+					moveCS[parent]->vel.y = -280;
+					CS::propCS[parent]->boolProps["WEflip"] = false;
 		//}
+	}else {
+		CS::propCS[parent]->boolProps["WEflip"] = true;
 	}
 	if(moveCS[parent]->vel.x > 0){
 		moveCS[id]->pos.x = moveCS[parent]->pos.x + CS::collisionCS[parent]->rect.w 
@@ -372,7 +372,7 @@ eId mBox(float x, float y){
 	//CS::spriteCS[id]->setScale(0.1,0.1);
 	CS::collisionCS[id] = std::shared_ptr<CollisionComponent>(new CollisionComponent(CS::spriteCS,moveCS,id,true));
 	CS::collisionCS[id]->moveable = false;
-	CS::collisionCS[id]->touchable =  FLOOR;
+	CS::collisionCS[id]->touchable =  ALL;
 	//CS::collisionCS[id]->debugDraw = true;
 	float grid = CS::spriteCS[id]->imgRect.w;
 	moveCS[id]->pos = {floor(x/grid)*grid, floor(y/grid)*grid};

@@ -183,8 +183,6 @@ SpriteComponent::SpriteComponent(const std::string &file,
 	clipRect.h = imgRect.h *= scale.y;
 	clipRect.x = 0;
 	clipRect.y = 0;
-	//imgRect.w *= 0.5;
-	//clipRect.w *= 0.5;
 	playingAnimation = false;
 	facing = RIGHT;
 	layer = 0;
@@ -195,7 +193,6 @@ SpriteComponent::SpriteComponent(const std::string &file,
 void SpriteComponent::draw(){
 	SDL_SetTextureColorMod(img, color.r, color.g, color.b);
 	Window::Draw(img, imgRect, &clipRect, 0,0,0, flip);
-	//SDL_SetTextureColorMod(img, 255, 255, 255);
 }
 
 void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
@@ -203,68 +200,20 @@ void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
 	SDL_Rect b1, b2, cBounds, area;
 	b1 = imgRect;
 	b2 = clipRect;
-	cBounds.x = pos.x;
-	cBounds.y = pos.y;
+	cBounds.x = gamePos.x;
+	cBounds.y = gamePos.y;
 	cBounds.w = size.x;
 	cBounds.h = size.y;
-	imgRect.x = (imgRect.x - int(gamePos.x));
-	imgRect.y = (imgRect.y - int(gamePos.y));
+	
 
 	if(SDL_IntersectRect(&imgRect, &cBounds, &area)){
-		// if(imgRect.x + imgRect.w > pos.x + size.x){
-		// 	if((flip & SDL_FLIP_HORIZONTAL) == SDL_FLIP_NONE){
-		// 		imgRect.w = area.w;
-		// 		clipRect.w = area.w/scale.x;
-		// 	}
-		// 	else if((flip & SDL_FLIP_HORIZONTAL) == SDL_FLIP_HORIZONTAL){
-		// 		clipRect.x += (imgRect.x - (pos.x+size.x))/scale.x;
-		// 		imgRect.w = area.w;
-		// 		clipRect.w = area.w/scale.x;
-		// 	}
-		// }
-		// else if(imgRect.x < pos.x ){
-		// 	if((flip & SDL_FLIP_HORIZONTAL) == SDL_FLIP_NONE){
-		// 		clipRect.x += (pos.x - imgRect.x)/(scale.x);
-		// 		imgRect.x = area.x;
-		// 		imgRect.w = area.w;
-		// 		clipRect.w = area.w/scale.x;
-		// 	}
-		// 	else if((flip & SDL_FLIP_HORIZONTAL) == SDL_FLIP_HORIZONTAL){
-		// 		imgRect.x = area.x;
-		// 		imgRect.w = area.w;
-		// 		clipRect.w = area.w/scale.x;
-		// 	}
-		// }
-		// if(imgRect.y + imgRect.h > pos.y + size.y){
-		// 	if((flip & SDL_FLIP_VERTICAL) == SDL_FLIP_NONE){
-		// 		imgRect.h = area.h;
-		// 		clipRect.h = area.h/scale.y;
-		// 	}
-		// 	else if((flip & SDL_FLIP_VERTICAL) == SDL_FLIP_VERTICAL){
-		// 		clipRect.y += (imgRect.y - (pos.y+size.y))/(scale.y);
-		// 		imgRect.h = area.h;
-		// 		clipRect.h = area.h/scale.y;
-		// 	}
-		// }
-		// else if(imgRect.y < pos.y ){
-		// 	if((flip & SDL_FLIP_VERTICAL) == SDL_FLIP_NONE ){
-		// 		clipRect.y += (pos.y - imgRect.y)/scale.y;
-		// 		imgRect.y = area.y;
-		// 		imgRect.h = area.h;
-		// 		clipRect.h = area.h/scale.y;
-		// 	}
-		// 	else if((flip & SDL_FLIP_VERTICAL) == SDL_FLIP_VERTICAL){
-		// 		imgRect.y = area.y;
-		// 		imgRect.h = area.h;
-		// 		clipRect.h = area.h/scale.y;
-		// 	}
-		// }
-		imgRect.x = round(imgRect.x*zoom);
-		imgRect.y = round(imgRect.y*zoom);
-		imgRect.h = round(imgRect.h*zoom);
-		imgRect.w = round(imgRect.w*zoom);
-	
-		//Window::Draw(img, imgRect, &clipRect, 0,0,0,flip);
+		imgRect.x = (imgRect.x - int(gamePos.x));
+		imgRect.y = (imgRect.y - int(gamePos.y));
+		imgRect.x = floor(imgRect.x*zoom);
+		imgRect.y = floor(imgRect.y*zoom);
+		imgRect.h = floor(imgRect.h*zoom);
+		imgRect.w = floor(imgRect.w*zoom);
+
 		draw();
 	}
 	imgRect = b1;
@@ -462,16 +411,11 @@ SDL_Rect Camera::getScreenRect(SDL_Rect r){
 }
 
 void Camera::update(){
-	//pos.x = CS::worldbounds.x;
-	//pos.y = CS::worldbounds.y;
-	//winSize.x = CS::worldbounds.w;
-	//winSize.y = CS::worldbounds.h;
-	//zoom = (winSize.y*winSize.x)/(CS::worldbounds.h*CS::worldbounds.w);
 	size.x = winSize.x/zoom;
 	size.y = winSize.y/zoom;
 	if(followE != NULL){
-		pos.x = moveCS[followE]->pos.x + CS::collisionCS[followE]->rect.w/2.f - winSize.x/(2.f*zoom);
-		pos.y = moveCS[followE]->pos.y + CS::collisionCS[followE]->rect.h/2.f - winSize.y/(2.f*zoom);
+		pos.x = moveCS[followE]->pos.x + CS::collisionCS[followE]->rect.w/2.f - winSize.x/(2*zoom);
+		pos.y = moveCS[followE]->pos.y + CS::collisionCS[followE]->rect.h/2.f - winSize.y/(2*zoom);
 	}
 	
 }
