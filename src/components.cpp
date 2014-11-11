@@ -184,7 +184,7 @@ SpriteComponent::SpriteComponent(const std::string &file,
 	clipRect.x = 0;
 	clipRect.y = 0;
 	playingAnimation = false;
-	facing = RIGHT;
+	facing = LEFT;
 	layer = 0;
 	flip = SDL_FLIP_NONE;
 }
@@ -211,8 +211,8 @@ void SpriteComponent::CameraDraw(Vec2 pos, Vec2 size, float zoom, Vec2 gamePos){
 		imgRect.y = (imgRect.y - int(gamePos.y));
 		imgRect.x = floor(imgRect.x*zoom);
 		imgRect.y = floor(imgRect.y*zoom);
-		imgRect.h = floor(imgRect.h*zoom);
-		imgRect.w = floor(imgRect.w*zoom);
+		imgRect.h = ceil(imgRect.h*zoom);
+		imgRect.w = ceil(imgRect.w*zoom);
 
 		draw();
 	}
