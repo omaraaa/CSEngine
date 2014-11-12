@@ -142,3 +142,8 @@ Camera:
 * A camera has a window bounds and a game bounds.
 * A main camera is the camera that spriteComponents default to if no cameras are assinged to them.
 * camera size in game world changes according to zoom level and camera veiw size.
+
+Enitites interacting with each other
+----
+
+Entities should have the ability to talk to each other.
