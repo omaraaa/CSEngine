@@ -8,6 +8,8 @@
 #include "../include/CS.h"
 #include "../include/components.h"
 #include "../include/entities.h"
+#include <lua.hpp>
+#include "../include/LuaBridge/LuaBridge.h"
 
 PropertiesComponent::PropertiesComponent(eId id) : Component(id){
 
@@ -20,12 +22,19 @@ void FuncQComponent::add(void (*f)(eId)){
 	functions.push_back(f);
 }
 
+void FuncQComponent::add(luabridge::LuaRef f){
+	luafunctions.push_back(f);
+}
+
 void FuncQComponent::addEventFunc(void (*f)(eId, SDL_Event&)){
 	eventFunctions.push_back(f);
 }
 
 void FuncQComponent::update(){
 	for(auto it = functions.begin(); it != functions.end(); ++it){
+		(*it)(owner);
+	}
+	for(auto it = luafunctions.begin(); it != luafunctions.end(); ++it){
 		(*it)(owner);
 	}
 }

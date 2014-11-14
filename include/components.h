@@ -9,6 +9,8 @@
 #include <iostream>
 #include <functional>
 #include "../include/system.h"
+#include <lua.hpp>
+#include "../include/LuaBridge/LuaBridge.h"
 //Entities are just an unsinged long
 typedef unsigned long eId;
 
@@ -128,9 +130,11 @@ struct ControllerComponent : public Component {
 
 struct FuncQComponent : public Component {
 	std::vector<void (*)(eId)> functions;
+	std::vector<luabridge::LuaRef> luafunctions;
 	std::vector<void (*)(eId, SDL_Event&)> eventFunctions;
 	FuncQComponent(eId id);
 	void add(void (*f)(eId));
+	void add(luabridge::LuaRef f);
 	void addEventFunc(void (*f)(eId, SDL_Event&));
 	void update();
 	void eventUpdate(SDL_Event &e);

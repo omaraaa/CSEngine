@@ -53,7 +53,16 @@ Vec2 getMousePos(){
 	int x, y;
 	SDL_GetMouseState(&x, &y);
 	Vec2 v{x, y};
-	return v;
+	return CS::cameras[1]->getWorldPos(v);
+}
+
+MoveComponent* getEntityMove(eId id){
+	return moveCS[id].get();
+}
+
+void setMoveC(MoveComponent* mc){
+	shared_ptr<MoveComponent> sp(mc);
+	moveCS[mc->owner] = sp;
 }
 
 double time_in_seconds(){
@@ -75,8 +84,8 @@ void setLua(lua_State *L){
 	getGlobalNamespace (L)
   .beginNamespace ("game")
 	.beginClass<Vec2> ("Vec2")
-		.addData("x", &Vec2::x)
-		.addData("y", &Vec2::y)
+		.addProperty ("x", &Vec2::getX, &Vec2::setX)
+		.addProperty ("y", &Vec2::getY, &Vec2::setY)
 	.endClass()
 	.beginClass<MoveComponent> ("MoveComponent")
 		.addData("pos", &MoveComponent::pos)
@@ -91,6 +100,8 @@ void setLua(lua_State *L){
     .addFunction ("clear", clear)
     .addFunction("setPos", &setPos)
     .addFunction("getMousePos", &getMousePos)
+    .addFunction("getMC", &getEntityMove)
+    .addFunction("setMC", &setMoveC)
     .addFunction("follow", cameraFollow)
     .addFunction ("createVec2", &createVec2);
 }
@@ -125,7 +136,8 @@ int main(int argc, char **argv){
     	|| lua_pcall(L,0,0,0)){
 		cout << "FAILED TO LOAD LUA SCRIPT" << endl;
 	}
-
+	LuaRef update = getGlobal(L, "update");
+	CS::funcQCS[14]->add(update);
 	Timer::currentTime = time_in_seconds();
 	while(!quit){
 		text = "";
@@ -214,6 +226,5 @@ int main(int argc, char **argv){
 	}
 
 	Window::Quit();
-	lua_close(L);
 	return 0;
 }
