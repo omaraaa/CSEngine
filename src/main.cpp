@@ -67,6 +67,10 @@ double timeMs(){
 			chrono::duration<double, std::milli>>(t.time_since_epoch()).count();
 }
 
+void cameraFollow(eId id){
+	CS::cameras[1]->follow(id);
+}
+
 void setLua(lua_State *L){
 	getGlobalNamespace (L)
   .beginNamespace ("game")
@@ -87,6 +91,7 @@ void setLua(lua_State *L){
     .addFunction ("clear", clear)
     .addFunction("setPos", &setPos)
     .addFunction("getMousePos", &getMousePos)
+    .addFunction("follow", cameraFollow)
     .addFunction ("createVec2", &createVec2);
 }
 
@@ -129,6 +134,9 @@ int main(int argc, char **argv){
 		Timer::currentTime = newTime;
 		Timer::accumulator += frameTime;
 		while (SDL_PollEvent(&e)){
+			if(!consoleOpen)
+				CS::eventUpdate(e);
+			
 			if (e.type == SDL_QUIT)
 				quit = true;
 			if(e.type == SDL_MOUSEWHEEL){
@@ -183,8 +191,7 @@ int main(int argc, char **argv){
 				text = e.text.text;
 				command += text;
 			}
-			if(!consoleOpen)
-				CS::eventUpdate(e);
+			
 		}
 		if(text != ""){
 			std::cout << text;
