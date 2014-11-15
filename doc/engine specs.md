@@ -88,6 +88,18 @@ void CS_CloseConsole();
 ```
 Closes console.
 
+```
+Camera:follow(ID)
+```
+follow an entity
+
+```
+getMC(ID)
+```
+gets Movement Component
+
+```
+
 Usage Example
 =============
 main.cpp
