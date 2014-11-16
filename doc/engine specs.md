@@ -98,7 +98,6 @@ getMC(ID)
 ```
 gets Movement Component
 
-```
 
 Usage Example
 =============

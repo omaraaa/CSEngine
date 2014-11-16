@@ -360,12 +360,12 @@ eId collisionChecker(float x, float y, void(*callback)(eId)){
 	CS::funcQCS[id] = std::shared_ptr<FuncQComponent>(new FuncQComponent(id));
 	CS::funcQCS[id]->add(callback);
 }
-
+#include <time.h> 
 eId mBox(float x, float y){
 	eId id = CS::createEntityID();
 	CS::createMoveC(x, y, id);
 	CS::spriteCS[id] = std::shared_ptr<SpriteComponent>(new SpriteComponent("../data/hello.png", moveCS, id));
-	CS::spriteCS[id]->setColor(0,111,0);
+	CS::spriteCS[id]->setColor(rand()%255,rand()%255,rand()%255);
 	//moveCS[id]->vel.y = sin(rand()%361)*moveCS[id]->maxV.y;
 	//moveCS[id]->vel.x = cos(rand()%361)*moveCS[id]->maxV.x;
 	//moveCS[id]->maxV = {3,3};

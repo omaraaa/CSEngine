@@ -204,8 +204,8 @@ void CS::deleteEntity(eId id){
 void CS::cleanup(){
 	for(auto it = toDelete.begin(); it != toDelete.end();){
 		moveCS.erase(*it);
-		if(spriteCS.find(*it) != spriteCS.end())
-		drawCalls[spriteCS.at(*it)->layer].erase(*it);
+		//if(spriteCS.find(*it) != spriteCS.end())
+		//drawCalls[spriteCS.at(*it)->layer].erase(*it);
 		CS::spriteCS.erase(*it);
 		CS::controllerCS.erase(*it);
 		CS::collisionCS.erase(*it);

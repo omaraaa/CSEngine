@@ -10,6 +10,14 @@ end
 pos = createVec2(100,100);
 pl = player(pos);
 follow(pl);
+plmc = getMC(pl);
+p2 = plmc.maxVel
+p2.y = 100000000
+plmc.maxVel = p2
+p2 = plmc.acc
+p2.y = p2.y * 1.5
+plmc.acc = p2
+plmc.acc.y = plmc.acc.y * 4
 
 function p()
 	return player(getMousePos());
@@ -28,9 +36,5 @@ function createBoxes2(pos, n)
 end
 
 function update(id)
-	mc = getMC(id)
-	pos2 = mc.acc
-	pos2.y = getMousePos().y - mc.pos.y
-	pos2.x = getMousePos().x - mc.pos.x
-	mc.acc = pos2
+	
 end
