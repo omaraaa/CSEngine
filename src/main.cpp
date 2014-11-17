@@ -37,6 +37,7 @@ Vec2 createVec2(float x, float y){
 // 	cout << "TEST" << endl;
 // }
 std::string command = "";
+unsigned int cursor = 0;
 bool consoleOpen = false;
 eId c;
 
@@ -178,9 +179,10 @@ int main(int argc, char **argv){
 					case SDLK_F1:
 						consoleOpen = !consoleOpen;break;
 					case SDLK_BACKSPACE:
-						if(consoleOpen){
+						if(consoleOpen && cursor > 0){
 							command.erase(command.end()-1);
-							cout << '\b';
+							cursor--;
+							cout << "\b \b\r";
 						}
 						break;
 					case SDLK_RETURN:
@@ -203,6 +205,7 @@ int main(int argc, char **argv){
 			if(e.type == SDL_TEXTINPUT && consoleOpen){
 				text = e.text.text;
 				command += text;
+				cursor++;
 			}
 			
 		}
