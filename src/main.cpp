@@ -182,7 +182,7 @@ int main(int argc, char **argv){
 						if(consoleOpen && cursor > 0){
 							command.erase(command.end()-1);
 							cursor--;
-							cout << "\b \b\r";
+							cout << "\b \b";
 						}
 						break;
 					case SDLK_RETURN:

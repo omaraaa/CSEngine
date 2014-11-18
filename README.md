@@ -25,12 +25,16 @@ Components:
 Lua Commands:
 -------------
 Press F1 to type a command
+
 * createVec2(x, y) - creates a 2d Vector
 * setPos(entity id, vec2) - sets the position of an entity
 * createBoxes(x, y, no. boxes) - creates a row of boxes
 * getMousePos() - return Vec2 of mouse pos
 * mBox(x, y) - creates a box
 * player(Vec2) - creates a player
+* follow(ID) - camera follow entity provided
+* getMC(ID) - gets movement component
+* setMC(ID) - sets movement component
 
 TODO:
 -----

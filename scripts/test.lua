@@ -17,7 +17,7 @@ plmc.maxVel = p2
 p2 = plmc.acc
 p2.y = p2.y * 1
 plmc.acc = p2
-plmc.acc.y = plmc.acc.y * 4
+(plmc.acc).y = plmc.acc.y * 4
 
 function p()
 	return player(getMousePos());
