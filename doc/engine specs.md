@@ -159,3 +159,12 @@ Enitites interacting with each other
 
 Entities should have the ability to talk to each other.
 ...
+
+Mock Code
+=========
+```
+Entity e = cs.createSprite(x, y, "img");
+e.addFunction(update);
+group.add(e);
+
+```

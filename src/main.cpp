@@ -83,7 +83,6 @@ void cameraFollow(eId id){
 
 void setLua(lua_State *L){
 	getGlobalNamespace (L)
-  // .beginNamespace ("game")
 	.beginClass<Vec2> ("Vec2")
 		.addProperty ("x", &Vec2::getX, &Vec2::setX)
 		.addProperty ("y", &Vec2::getY, &Vec2::setY)
@@ -95,7 +94,8 @@ void setLua(lua_State *L){
 		.addData("maxVel", &MoveComponent::maxV)
 		.addData("terVel", &MoveComponent::terV)
 	.endClass()
-   // .endNamespace ()
+	.beginNamespace("CS")
+	.endNamespace()
     .addFunction ("mBox", mBox)
     .addFunction ("player", &TEST)
     .addFunction ("clear", clear)
