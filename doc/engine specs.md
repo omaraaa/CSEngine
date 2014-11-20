@@ -162,9 +162,20 @@ Entities should have the ability to talk to each other.
 
 Mock Code
 =========
+
+mock 1
 ```
 Entity e = cs.createSprite(x, y, "img");
 e.addFunction(update);
 group.add(e);
 
+```
+
+mock 2(functional?)
+```
+CS cs;
+LoadCS(cs);
+Entity e = presets::sprite(cs, x, y, "img");
+e.addFunction(update);
+group.add(e);
 ```
