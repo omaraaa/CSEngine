@@ -62,7 +62,7 @@ public:
 
 struct Entity
 {
-	
+
 };
 
 class ComponentSystem {
