@@ -60,16 +60,4 @@ public:
 	static SDL_Rect worldbounds;
 };
 
-struct Entity
-{
-
-};
-
-class ComponentSystem {
-public:
-	std::map<ID, entityContainer> entities;
-};
-
-
-
 #endif
