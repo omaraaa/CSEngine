@@ -1,6 +1,6 @@
 
 
-
+setSeed(math.random(os.time()));
 for i=0,12 do
 	mBox(i*64, 400)
 end
@@ -39,3 +39,4 @@ function update(id)
 	
 end
 
+collectgarbage()

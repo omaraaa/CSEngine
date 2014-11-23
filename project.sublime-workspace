@@ -569,13 +569,10 @@
 			}
 		},
 		{
-			"contents": "#ifndef CS_H\n#define CS_H\n//Includes\n#include <vector>\n#include <map>\n#include <iostream>\n#include <typeindex>\n#include <typeinfo>\n#include <memory>\n#include \"../include/system.h\"\n#include \"../include/components.h\"\n\n\nstruct Entity\n{\n	\n};\n\nextern std::map<eId, std::shared_ptr<MoveComponent>> moveCS;\n\nclass CS {\npublic:\n	static std::map<eId, std::shared_ptr<SpriteComponent>> spriteCS;\n	static std::map<eId, std::shared_ptr<ControllerComponent>> controllerCS;\n	static std::map<eId, std::shared_ptr<CollisionComponent>> collisionCS;\n	static std::map<eId, std::shared_ptr<PropertiesComponent>> propCS;\n	static std::map<eId, std::shared_ptr<FuncQComponent>> funcQCS;\n	static std::map<const std::string, std::vector<eId>> groups; \n	static std::map<const std::string, SDL_Texture*> textures;\n	static std::map<const int, std::map<eId, void (*)(eId)>> drawCalls;\n	static std::map<eId, std::shared_ptr<Camera>> cameras;\n	static std::vector<eId> deletedEntities;\n	static std::vector<eId> toDelete;\n	static QuadTree qt;\n	static Grid grid;\n	static std::shared_ptr<Camera> mainCamera;\n\n	static eId createEntityID();\n	static eId createCameraID();\n	static void createMoveC(float xx, float yy, const eId &id);\n	static void deleteEntity(eId id);\n	static void updateEntity(eId id);\n	static void setGroup(const eId &id, const std::string &s);\n\n	static void eventUpdate(SDL_Event &e);\n	static void update();\n	static void interpolate();\n	static void draw();\n	static void collisionUpdate();\n	static void cameraUpdate();\n	static void clear();\n	static void cleanup();\n\n	static std::shared_ptr<SpriteComponent> getSpriteC(eId e);\n	static std::shared_ptr<CollisionComponent> getCollisionC(eId e);\n	static bool inGroup(const eId &id, const std::string &s);\n\n	static eId _E_INDEX; //entities index\n	static eId _C_INDEX; //cameras index\n	static SDL_Rect worldbounds;\n};\n\nstruct Entity\n{\n\n};\n\nclass ComponentSystem {\npublic:\n	std::map<ID, entityContainer> entities;\n};\n\n\n\n#endif",
 			"file": "include/CS.h",
-			"file_size": 2023,
-			"file_write_time": 130610707243151334,
 			"settings":
 			{
-				"buffer_size": 1949,
+				"buffer_size": 1849,
 				"line_ending": "Windows"
 			}
 		},
@@ -1337,15 +1334,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1949,
+						"buffer_size": 1849,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1862,
-								1862
+								1072,
+								1072
 							]
 						],
 						"settings":
@@ -1354,7 +1351,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 950.0,
+						"translation.y": 142.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1717,7 +1714,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 240.0
+		"height": 103.0
 	},
 	"output.find_results":
 	{

@@ -81,6 +81,10 @@ void cameraFollow(eId id){
 	CS::cameras[1]->follow(id);
 }
 
+void setSeed(int seed){
+	srand(seed);
+}
+
 void setLua(lua_State *L){
 	getGlobalNamespace (L)
 	.beginClass<Vec2> ("Vec2")
@@ -104,11 +108,11 @@ void setLua(lua_State *L){
     .addFunction("getMC", &getEntityMove)
     .addFunction("setMC", &setMoveC)
     .addFunction("follow", cameraFollow)
+    .addFunction("setSeed", setSeed)
     .addFunction ("createVec2", &createVec2);
 }
 
 int main(int argc, char **argv){
-	srand(4);
 	L = lua_open();
 	luaL_openlibs(L);
 	setLua(L);
@@ -129,6 +133,7 @@ int main(int argc, char **argv){
 	}
 	SDL_Event e;
 	bool quit=false;
+	bool createboxes=false;
 	int controll = 1;
 	c = createCamera(0,0);
 	SDL_Rect textrect = {0,0,400,100};
@@ -158,8 +163,7 @@ int main(int argc, char **argv){
 			}
 			if(e.type == SDL_MOUSEBUTTONDOWN){
 				if(e.button.button == SDL_BUTTON_LEFT){
-					Vec2 p = CS::cameras[c]->getWorldPos({e.button.x, e.button.y});
-					collisionChecker(p.x, p.y, createBox);
+					createboxes = true;
 				}
 				if(e.button.button == SDL_BUTTON_RIGHT){
 					if(controll < 0)
@@ -171,6 +175,9 @@ int main(int argc, char **argv){
 				
 			}
 			if(e.type == SDL_MOUSEBUTTONUP){
+				if(e.button.button == SDL_BUTTON_LEFT){
+					createboxes = false;
+				}
 			}
 			if (e.type == SDL_KEYDOWN){
 				switch(e.key.keysym.sym){
@@ -216,6 +223,10 @@ int main(int argc, char **argv){
 		}
 		Window::Clear();
 		Timer::t = 0;
+		if(createboxes){
+			Vec2 p = getMousePos();
+			collisionChecker(p.x, p.y, createBox);
+		}
 		while(Timer::accumulator >= Timer::dt)
 		{
 			if(!consoleOpen)
