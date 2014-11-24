@@ -288,10 +288,10 @@ void wallCheckerUpdate(eId id){
 	//CollisionComponent* pCollC = CS::collisionCS[parent];
 	if(CS::collisionCS[id]->overlaped){
 		// moveCS[parent]->acc.x *= -1;
-		// moveCS[parent]->vel.x = 0;
+		moveCS[parent]->vel.x = 0;
 		//if(CS::collisionCS[parent]->touching & FLOOR){
-					//moveCS[parent]->acc.x *= -1;
-					moveCS[parent]->vel.y = -280;
+					moveCS[parent]->acc.x *= -1;
+					//moveCS[parent]->vel.y = -280;
 					CS::propCS[parent]->boolProps["WEflip"] = false;
 		//}
 	}else {
