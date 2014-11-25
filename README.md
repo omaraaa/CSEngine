@@ -40,6 +40,8 @@ TODO:
 -----
 * change how collision and overlap checking is handled
 * implement QuadTrees
+* add full lua intergration
+* test out different approachs 
 * more features
 
 notes
