@@ -231,13 +231,16 @@ int main(int argc, char **argv){
 		{
 			if(!consoleOpen)
 				CS::update();
+
 			Timer::t += Timer::dt;
 			Timer::accumulator -= Timer::dt;
 			CS::cleanup();
+
 		}
 		Timer::alpha = Timer::accumulator / Timer::dt;
 		CS::draw();
 		Window::Present();
+		
 	}
 
 	Window::Quit();

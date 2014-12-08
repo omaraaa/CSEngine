@@ -150,7 +150,7 @@ void Grid::clear(){
 void Grid::draw(){
 	SDL_Rect r;
 	for(int i =0; i<((bounds.w*bounds.h)/(cellSize*cellSize));i++){
-		r = getRect(i);
+		r = CS::cameras[1]->getScreenRect(getRect(i));
 		if(activeIndexes[i].size()>0)
 			Window::DrawRect(&r, 0, 0, 255);
 		else
@@ -160,8 +160,8 @@ void Grid::draw(){
 
 SDL_Rect Grid::getRect(const int index){
 	SDL_Rect r;
-	r.x = cellSize*index - bounds.w*floor(index/(bounds.w/cellSize));
-	r.y = floor(index/(bounds.w/cellSize))*cellSize;
+	r.x = bounds.x + cellSize*index - bounds.w*floor(index/(bounds.w/cellSize));
+	r.y = bounds.y + floor(index/(bounds.w/cellSize))*cellSize;
 	r.w = cellSize;
 	r.h = cellSize;
 	return r;
@@ -492,6 +492,9 @@ bool strToBool(std::string str){
 QuadTree::QuadTree(Rect b, int l){
 	bounds = b;
 	level = l;
+	isSplit = false;
+	maxEntities = 4;
+	maxLevel = 4;
 }
 
 void QuadTree::split(){
@@ -501,8 +504,90 @@ void QuadTree::split(){
 	Rect topRight = {midX, bounds.y, bounds.w/2.f, bounds.h/2.f};
 	Rect botLeft  = {bounds.x, midY,  bounds.w/2.f, bounds.h/2.f};
 	Rect botRight = {midX, midY, bounds.w/2.f, bounds.h/2.f};
-	nodes[0] = new QuadTree(topLeft, level+1);
-	nodes[1] = new QuadTree(topRight, level+1);
-	nodes[2] = new QuadTree(botLeft, level+1);
-	nodes[3] = new QuadTree(botRight, level+1);
+	nodes.push_back(new QuadTree(topLeft, level+1));
+	nodes.push_back(new QuadTree(topRight, level+1));
+	nodes.push_back(new QuadTree(botLeft, level+1));
+	nodes.push_back(new QuadTree(botRight, level+1));
+	isSplit = true;
+}
+
+int QuadTree::getIndex(Rect r){
+	int index = -1;
+	double midX = bounds.x + bounds.w/2.f;
+	double midY = bounds.y + bounds.h/2.f;
+	if(level == maxLevel)
+		return index;
+	if( r.y+r.h < midY && r.x+r.w < midX && r.y > bounds.y && r.x > bounds.x){
+		index = 0; //TOP LEFT
+	}else if(r.y+r.h < midY && r.x > midX && r.y > bounds.y && r.x+r.w < bounds.x+bounds.w){
+		index = 1; //TOP RIGHT
+	}else if(r.y > midY && r.x+r.w < midX && r.y+r.h < bounds.y+bounds.h && r.x > bounds.x){
+		index = 2; //BOT LEFT
+	}else if(r.y > midY && r.x > midX && r.y+r.h < bounds.y+bounds.h && r.x+r.w < bounds.x+bounds.w){
+		index = 3; //BOT RIGHT
+	}
+	return index;
+}
+
+void QuadTree::insert(unsigned long id){
+	Rect r = CS::collisionCS[id]->rect;
+	int index = getIndex(r);
+	if(isSplit){
+		if(index != -1)
+			nodes[index]->insert(id);
+		else
+			entities.push_back(id);
+	} else if(!isSplit){
+		entities.push_back(id);
+		if(entities.size() > maxEntities && level < maxLevel){
+			split();
+			std::vector<unsigned long> ph;
+			ph.swap(entities);
+			for (std::vector<unsigned long>::iterator i = ph.begin(); i != ph.end(); ++i){
+				insert(*i);
+			}
+		}
+	}
+}
+
+std::vector<unsigned long> QuadTree::getEntities(unsigned long id){
+	int index = getIndex(CS::collisionCS[id]->rect);
+	std::vector<unsigned long> result;
+	if(index != -1 && isSplit){
+		std::vector<unsigned long> r2 = nodes[index]->getEntities(id);
+		result.insert(result.end(), r2.begin(), r2.end());
+	}
+	result.insert(result.end(), entities.begin(), entities.end());
+
+	return result;
+}
+
+void QuadTree::clear(){
+	if(isSplit){
+		nodes[0]->clear();
+		nodes[1]->clear();
+		nodes[2]->clear();
+		nodes[3]->clear();
+		nodes.clear();
+	}
+	entities.clear();
+	isSplit = false;
+}
+
+void QuadTree::updateBounds(Rect *r){
+	bounds = *r;
+}
+
+void QuadTree::draw(){
+	if(isSplit){
+		nodes[0]->draw();
+		nodes[1]->draw();
+		nodes[2]->draw();
+		nodes[3]->draw();
+	} else {
+		SDL_Rect r = {bounds.x, bounds.y, bounds.w, bounds.h};
+		r = CS::cameras[1]->getScreenRect(r);
+		Window::DrawRect(&r, 200, 0, 0);
+	}
+	
 }

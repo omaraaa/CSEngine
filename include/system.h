@@ -37,13 +37,20 @@ public:
 	QuadTree(Rect b, int l=0);
 	void split();
 	void insert(unsigned long id);
-	void getIndex(Rect r);
+	int getIndex(Rect r);
+	std::vector<unsigned long> getEntities(unsigned long id);
+	void clear();
+	void updateBounds(Rect *r);
+	void draw();
 
 private:
 	Rect bounds;
 	int level;
 	int maxLevel;
-	QuadTree** nodes;
+	bool isSplit;
+	std::vector<QuadTree*> nodes;
+	std::vector<unsigned long> entities;
+	int maxEntities;
 };
 
 class Grid {

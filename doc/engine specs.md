@@ -165,9 +165,19 @@ Mock Code
 
 mock 1
 ```
+c++
+
 Entity e = cs.createSprite(x, y, "img");
 e.addFunction(update);
 group.add(e);
+
+lua
+
+player = CS.createSprite(x, y, "img")
+function playerupdate
+	--player update here
+end
+CS.addFunction(player, playerupdate)
 
 ```
 

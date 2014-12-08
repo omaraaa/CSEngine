@@ -57,7 +57,7 @@ public:
 
 	static eId _E_INDEX; //entities index
 	static eId _C_INDEX; //cameras index
-	static SDL_Rect worldbounds;
+	static Rect worldbounds;
 };
 
 #endif
