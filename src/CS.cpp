@@ -97,8 +97,8 @@ void CS::collisionUpdate(){
 	//std::cout << "CRASHED?!2" << std::endl;
 
 	for(auto checking = collisionCS.begin(); checking != collisionCS.end(); checking++){
-		if(!CS::collisionCS[checking->first]->moveable)
-			continue;
+		// if(!CS::collisionCS[checking->first]->moveable)
+		// 	continue;
 		std::vector<eId> entities;
 		std::map<float, eId> overlapedMap;
 		//if(!qt.getObject(entities, checking->first))
@@ -112,8 +112,8 @@ void CS::collisionUpdate(){
 		for (auto it = entities.begin(); it != entities.end(); ++it){
 			if(*it == checking->first)
 				continue;
-			if(!CS::collisionCS[*it]->moveable && !CS::collisionCS[checking->first]->moveable)
-				continue;
+			// if(!CS::collisionCS[*it]->moveable && !CS::collisionCS[checking->first]->moveable)
+			// 	continue;
 			if(checkOverlap(checking->first, *it, &area)){
 				checking->second->overlapingWith.push_back(*it);
 				collisionCS[*it]->overlapingWith.push_back(checking->first);
@@ -180,7 +180,6 @@ void CS::interpolate(){
 }
 
 void CS::draw(){
-	qt.draw();
 	for(auto it = drawCalls.begin(); it != drawCalls.end(); it++){
 		std::map<eId, void(*)(eId)> dmap = it->second;
 		if(dmap.size() == 0){
@@ -199,6 +198,7 @@ void CS::draw(){
 				Window::DrawRect(&r, 100, 150, 100);
 			}
 	}
+	qt.draw();
 
 }
 

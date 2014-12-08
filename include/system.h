@@ -39,11 +39,11 @@ public:
 	void insert(unsigned long id);
 	int getIndex(Rect r);
 	std::vector<unsigned long> getEntities(unsigned long id);
+	std::vector<unsigned long> getEntities();
 	void clear();
 	void updateBounds(Rect *r);
 	void draw();
 
-private:
 	Rect bounds;
 	int level;
 	int maxLevel;

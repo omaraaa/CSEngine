@@ -550,12 +550,17 @@ void QuadTree::insert(unsigned long id){
 	}
 }
 
+//TODO make a -1 index entity get all lower entities
+
 std::vector<unsigned long> QuadTree::getEntities(unsigned long id){
 	int index = getIndex(CS::collisionCS[id]->rect);
 	std::vector<unsigned long> result;
-	if(index != -1 && isSplit){
-		std::vector<unsigned long> r2 = nodes[index]->getEntities(id);
-		result.insert(result.end(), r2.begin(), r2.end());
+	if(isSplit){
+		std::vector<unsigned long> r2;
+		if(index != -1){
+			r2 = nodes[index]->getEntities(id);
+			result.insert(result.end(), r2.begin(), r2.end());
+		}
 	}
 	result.insert(result.end(), entities.begin(), entities.end());
 

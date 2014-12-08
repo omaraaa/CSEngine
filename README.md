@@ -38,11 +38,9 @@ Press F1 to type a command
 
 TODO:
 -----
-* change how collision and overlap checking is handled
-* implement QuadTrees
-* add full lua intergration
-* test out different approachs 
-* more features
+* bug in quadtree implementation
+
+>when a -1 index entity gets the entities for the quadtree it doesn't get the lower levels entitites
 
 notes
 -----
