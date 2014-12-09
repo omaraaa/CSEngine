@@ -561,6 +561,17 @@ std::vector<unsigned long> QuadTree::getEntities(unsigned long id){
 			r2 = nodes[index]->getEntities(id);
 			result.insert(result.end(), r2.begin(), r2.end());
 		}
+		else
+		{
+			r2 = nodes[0]->getEntities(id);
+			result.insert(result.end(), r2.begin(), r2.end());
+			r2 = nodes[1]->getEntities(id);
+			result.insert(result.end(), r2.begin(), r2.end());
+			r2 = nodes[2]->getEntities(id);
+			result.insert(result.end(), r2.begin(), r2.end());
+			r2 = nodes[3]->getEntities(id);
+			result.insert(result.end(), r2.begin(), r2.end());	
+		}
 	}
 	result.insert(result.end(), entities.begin(), entities.end());
 

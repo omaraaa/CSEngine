@@ -79,12 +79,12 @@ void CS::clear(){
 }
 
 Grid CS::grid(0,0,800,600,1000);
-QuadTree CS::qt({0,0,800,600});
+QuadTree CS::qt({0,0,1800,1600});
 int nc=0;
 void CS::collisionUpdate(){
 	qt.clear();
 	qt.updateBounds(&worldbounds);
-	std::cout << worldbounds.x << std::endl;
+	//std::cout << worldbounds.x << std::endl;
 	//std::cout << "CRASHED?!1" << std::endl;
 	//grid.updateBounds(&worldbounds);
 	//grid.clear();
@@ -95,25 +95,25 @@ void CS::collisionUpdate(){
 	Rect area;
 	int n=0;
 	//std::cout << "CRASHED?!2" << std::endl;
-
+	std::map<eId, std::vector<eId>> checkedWith;
 	for(auto checking = collisionCS.begin(); checking != collisionCS.end(); checking++){
-		// if(!CS::collisionCS[checking->first]->moveable)
-		// 	continue;
+		if(!CS::collisionCS[checking->first]->moveable)
+			continue;
 		std::vector<eId> entities;
-		std::map<float, eId> overlapedMap;
+		std::map<float, eId> overlapedMap;   
 		//if(!qt.getObject(entities, checking->first))
 		//	continue;
 		//std::map<eId, float> areas;
 		float maxArea=0;
 		eId maxAreaID;
-		bool collided = false;
+		bool collided  = false;
 		entities = qt.getEntities(checking->first);
 
 		for (auto it = entities.begin(); it != entities.end(); ++it){
 			if(*it == checking->first)
 				continue;
-			// if(!CS::collisionCS[*it]->moveable && !CS::collisionCS[checking->first]->moveable)
-			// 	continue;
+			if(!CS::collisionCS[*it]->moveable && !CS::collisionCS[checking->first]->moveable)
+				continue;
 			if(checkOverlap(checking->first, *it, &area)){
 				checking->second->overlapingWith.push_back(*it);
 				collisionCS[*it]->overlapingWith.push_back(checking->first);
