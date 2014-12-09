@@ -110,6 +110,7 @@ void CS::collisionUpdate(){
 		entities = qt.getEntities(checking->first);
 
 		for (auto it = entities.begin(); it != entities.end(); ++it){
+			n++;
 			if(*it == checking->first)
 				continue;
 			if(!CS::collisionCS[*it]->moveable && !CS::collisionCS[checking->first]->moveable)
@@ -135,7 +136,7 @@ void CS::collisionUpdate(){
 	
 	//Window::DrawRect(&CS::worldbounds, 255, 0, 0);
 	if(nc != n)
-	std::cout << n << std::endl;
+		std::cout << n << std::endl;
 	nc = n;
 
 }

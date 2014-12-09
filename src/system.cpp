@@ -491,10 +491,11 @@ bool strToBool(std::string str){
 
 QuadTree::QuadTree(Rect b, int l){
 	bounds = b;
+	area = b.w*b.h;
 	level = l;
 	isSplit = false;
 	maxEntities = 4;
-	maxLevel = 4;
+	maxLevel = 16;
 }
 
 void QuadTree::split(){
@@ -539,7 +540,7 @@ void QuadTree::insert(unsigned long id){
 			entities.push_back(id);
 	} else if(!isSplit){
 		entities.push_back(id);
-		if(entities.size() > maxEntities && level < maxLevel){
+		if(entities.size() > maxEntities){
 			split();
 			std::vector<unsigned long> ph;
 			ph.swap(entities);
@@ -591,6 +592,7 @@ void QuadTree::clear(){
 }
 
 void QuadTree::updateBounds(Rect *r){
+	maxLevel = maxLevel*((r->w*r->h)/(bounds.w*bounds.h));
 	bounds = *r;
 }
 

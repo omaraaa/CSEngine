@@ -45,6 +45,7 @@ public:
 	void draw();
 
 	Rect bounds;
+	double area;
 	int level;
 	int maxLevel;
 	bool isSplit;

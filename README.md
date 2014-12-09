@@ -38,9 +38,7 @@ Press F1 to type a command
 
 TODO:
 -----
-* bug in quadtree implementation
-
->when a -1 index entity gets the entities for the quadtree it doesn't get the lower levels entitites
+* quadtree add point getindex
 
 notes
 -----
