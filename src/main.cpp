@@ -135,6 +135,7 @@ int main(int argc, char **argv){
 	bool quit=false;
 	bool createboxes=false;
 	int controll = 1;
+	eId boxCreater = 0;
 	c = createCamera(0,0);
 	SDL_Rect textrect = {0,0,400,100};
 	SDL_StartTextInput();
@@ -159,7 +160,7 @@ int main(int argc, char **argv){
 			if (e.type == SDL_QUIT)
 				quit = true;
 			if(e.type == SDL_MOUSEWHEEL){
-				CS::cameras[c]->zoom += 0.01*e.wheel.y;
+				CS::cameras[c]->zoom += 0.025*e.wheel.y;
 			}
 			if(e.type == SDL_MOUSEBUTTONDOWN){
 				if(e.button.button == SDL_BUTTON_LEFT){
@@ -223,12 +224,14 @@ int main(int argc, char **argv){
 		}
 		Window::Clear();
 		Timer::t = 0;
-		if(createboxes){
-			Vec2 p = getMousePos();
-			collisionChecker(p.x, p.y, createBox);
-		}
+		
 		while(Timer::accumulator >= Timer::dt)
 		{
+			if(createboxes){
+				Vec2 p = getMousePos();
+				if(moveCS.find(boxCreater) == moveCS.end())
+					boxCreater = collisionChecker(p.x, p.y, createBox);
+			}
 			if(!consoleOpen)
 				CS::update();
 

@@ -45,7 +45,7 @@ void Window::Init(std::string title, bool fullscreen, int x, int y, int w, int h
 
     //Create the renderer
     mRenderer.reset(SDL_CreateRenderer(mWindow.get(), -1,
-     /*SDL_RENDERER_PRESENTVSYNC |*/ SDL_RENDERER_ACCELERATED));
+     SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED));
     //Make sure it created ok
     if (mRenderer == nullptr)
         throw std::runtime_error("Failed to create renderer");

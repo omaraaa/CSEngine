@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"chec",
+				"checkedWith[*it"
+			],
+			[
 				"for",
 				"for	For Loop"
 			],
@@ -50,10 +54,6 @@
 			[
 				"std",
 				"std::vector"
-			],
-			[
-				"chec",
-				"checkOverlap"
 			],
 			[
 				"inde",
@@ -523,7 +523,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 1220,
+				"buffer_size": 1115,
 				"line_ending": "Windows",
 				"name": "CSEngine"
 			}
@@ -561,13 +561,10 @@
 			}
 		},
 		{
-			"contents": "#include <iostream>\n#include <SDL2/SDL.h>\n#include <memory>\n#include \"../include/window.h\"\n#include \"../include/system.h\"\n#include \"../include/CS.h\"\n#include \"../include/components.h\"\n#include \"../include/entities.h\"\n\n\n\n\n//CS INIT//\neId CS::_E_INDEX{0};\neId CS::_C_INDEX{0};\nRect CS::worldbounds = {0,0,0,0};\nstd::map<eId, std::shared_ptr<MoveComponent>> moveCS{};\nstd::map<eId, std::shared_ptr<SpriteComponent>> CS::spriteCS{};\nstd::map<eId, std::shared_ptr<ControllerComponent>> CS::controllerCS{};\nstd::map<eId, std::shared_ptr<CollisionComponent>> CS::collisionCS{};\nstd::map<eId, std::shared_ptr<PropertiesComponent>> CS::propCS{};\nstd::map<eId, std::shared_ptr<FuncQComponent>> CS::funcQCS{};\nstd::map<const std::string, std::vector<eId>> CS::groups{};\nstd::map<const std::string, SDL_Texture*> CS::textures{};\nstd::map<const int, std::map<eId, void (*)(eId)>> CS::drawCalls;\nstd::map<eId, std::shared_ptr<Camera>> CS::cameras{};\nstd::vector<eId> CS::deletedEntities{};\nstd::vector<eId> CS::toDelete{};\n//QuadTree CS::qt(0,0,800,600);\n//CS INIT//\n\n//CS CREATE//\neId CS::createEntityID(){\n	if(deletedEntities.empty()){\n		_E_INDEX++;\n		return _E_INDEX; \n	}\n	eId id = deletedEntities.back();\n	deletedEntities.pop_back();\n	return id;\n}\n\neId CS::createCameraID(){\n	_C_INDEX++;\n	return _C_INDEX;\n}\n\nvoid CS::createMoveC(float xx, float yy, const eId &id){\n	moveCS[id] = std::shared_ptr<MoveComponent>(new MoveComponent(xx, yy, id));\n}\n\nvoid CS::updateEntity(eId id){\n	if(moveCS[id])\n		moveCS[id]->update();\n	if(CS::spriteCS[id])\n		CS::spriteCS[id]->update();\n	if(CS::collisionCS[id])\n		CS::collisionCS[id]->update();\n	if(CS::funcQCS[id])\n		CS::funcQCS[id]->update();\n}\n//CS CREATE//\n\n\nvoid CS::clear(){\n	moveCS.clear();\n	CS::spriteCS.clear();\n	CS::drawCalls.clear();\n	CS::controllerCS.clear();\n	CS::collisionCS.clear();\n	CS::funcQCS.clear();\n	CS::propCS.clear();\n	CS::cameras.clear();\n	deletedEntities.clear();\n	CS::groups.clear();\n	CS::_E_INDEX = 0;\n	CS::_C_INDEX = 0;\n	worldbounds = {0,0,0,0};\n}\n\nGrid CS::grid(0,0,800,600,1000);\nQuadTree CS::qt({0,0,800,600});\nint nc=0;\nvoid CS::collisionUpdate(){\n	qt.clear();\n	qt.updateBounds(&worldbounds);\n	std::cout << worldbounds.x << std::endl;\n	//std::cout << \"CRASHED?!1\" << std::endl;\n	//grid.updateBounds(&worldbounds);\n	//grid.clear();\n	for(auto checking = collisionCS.begin(); checking != collisionCS.end(); checking++){\n		qt.insert(checking->first);\n		//checking->second->getGridIndex(grid);\n	}\n	Rect area;\n	int n=0;\n	//std::cout << \"CRASHED?!2\" << std::endl;\n\n	for(auto checking = collisionCS.begin(); checking != collisionCS.end(); checking++){\n		// if(!CS::collisionCS[checking->first]->moveable)\n		// 	continue;\n		std::vector<eId> entities;\n		std::map<float, eId> overlapedMap;   \n		//if(!qt.getObject(entities, checking->first))\n		//	continue;\n		//std::map<eId, float> areas;\n		float maxArea=0;\n		eId maxAreaID;\n		bool   = false;\n		entities = qt.getEntities(checking->first);\n\n		for (auto it = entities.begin(); it != entities.end(); ++it){\n			if(*it == checking->first)\n				continue;\n			// if(!CS::collisionCS[*it]->moveable && !CS::collisionCS[checking->first]->moveable)\n			// 	continue;\n			if(checkOverlap(checking->first, *it, &area)){\n				checking->second->overlapingWith.push_back(*it);\n				collisionCS[*it]->overlapingWith.push_back(checking->first);\n				checking->second->overlaped = true;\n				CS::collisionCS[*it]->overlaped = true;\n				if(CS::collisionCS[*it]->solid && CS::collisionCS[checking->first]->solid){\n					checking->second->collided = true;\n					CS::collisionCS[*it]->collided = true;\n					collided = true;\n					overlapedMap[area.w*area.h] = *it;\n				}\n			}\n		}\n		for(auto it = overlapedMap.rbegin(); it != overlapedMap.rend(); ++it)\n			collide(checking->first, it->second);\n		overlapedMap.clear();\n	}\n	//qt.draw();\n	\n	//Window::DrawRect(&CS::worldbounds, 255, 0, 0);\n	if(nc != n)\n	std::cout << n << std::endl;\n	nc = n;\n\n}\n\nvoid CS::eventUpdate(SDL_Event &e){\n	for(auto it = funcQCS.begin(); it != funcQCS.end(); it++){\n		it->second->eventUpdate(e);\n	}\n}\n\nvoid CS::update(){\n	\n	for(auto it = moveCS.begin(); it != moveCS.end(); it++){\n		it->second->update();\n	}\n	for(auto it = collisionCS.begin(); it != collisionCS.end(); it++){\n		it->second->update();\n	}\n	CS::collisionUpdate();\n	for(auto it = collisionCS.begin(); it != collisionCS.end(); it++){\n		it->second->postUpdate();\n	}\n	for(auto it = spriteCS.begin(); it != spriteCS.end(); it++){\n		it->second->update();\n	}\n	CS::cameraUpdate();\n	for(auto it = funcQCS.begin(); it != funcQCS.end(); it++){\n		it->second->update();\n	}\n}\n\nvoid CS::cameraUpdate(){\n	for(auto it = cameras.begin(); it != cameras.end(); it++){\n			it->second->update();\n	}\n}\n\nvoid CS::interpolate(){\n	for(auto it = moveCS.begin(); it != moveCS.end(); it++){\n		it->second->interpolate();\n	}\n}\n\nvoid CS::draw(){\n	for(auto it = drawCalls.begin(); it != drawCalls.end(); it++){\n		std::map<eId, void(*)(eId)> dmap = it->second;\n		if(dmap.size() == 0){\n			it = drawCalls.erase(it);\n		}\n		for(auto it2 = dmap.begin(); it2 != dmap.end(); it2++){\n			void (*drawcall)(eId) = it2->second;\n			if(CS::spriteCS.find(it2->first) != CS::spriteCS.end())\n				drawcall(it2->first);\n		}\n	}\n	for(auto it = collisionCS.begin(); it != collisionCS.end(); it++){\n		if(it->second->debugDraw)\n			for(auto cIt = cameras.begin(); cIt != cameras.end(); cIt++){\n				SDL_Rect r = cameras.begin()->second->getScreenRect(it->second->rect.getSDLRect());\n				Window::DrawRect(&r, 100, 150, 100);\n			}\n	}\n	qt.draw();\n\n}\n\nvoid CS::deleteEntity(eId id){\n	toDelete.push_back(id);\n}\n\nvoid CS::cleanup(){\n	for(auto it = toDelete.begin(); it != toDelete.end();){\n		moveCS.erase(*it);\n		//if(spriteCS.find(*it) != spriteCS.end())\n		//drawCalls[spriteCS.at(*it)->layer].erase(*it);\n		CS::spriteCS.erase(*it);\n		CS::controllerCS.erase(*it);\n		CS::collisionCS.erase(*it);\n		CS::funcQCS.erase(*it);\n		CS::propCS.erase(*it);\n		CS::deletedEntities.push_back(*it);\n		it = toDelete.erase(it);\n	}\n}\n\nvoid CS::setGroup(const eId &id, const std::string &s){\n	CS::groups[s].push_back(id);\n}\n\n\n\nstd::shared_ptr<SpriteComponent> CS::getSpriteC(eId e){\n	if(spriteCS[e] != nullptr){\n		return spriteCS[e];\n	} else {\n		throw \"spirte component not found\";\n		return nullptr;\n	}\n}\n\n\n\nstd::shared_ptr<CollisionComponent> CS::getCollisionC(eId e){\n	if(collisionCS[e] != nullptr){\n		return collisionCS[e];\n	} else {\n		throw \"collision component not found\";\n		return nullptr;\n	}\n}",
 			"file": "src/CS.cpp",
-			"file_size": 6660,
-			"file_write_time": 130625402951598253,
 			"settings":
 			{
-				"buffer_size": 6409,
+				"buffer_size": 6463,
 				"line_ending": "Windows"
 			}
 		},
@@ -631,7 +628,7 @@
 			"file": "src/system.cpp",
 			"settings":
 			{
-				"buffer_size": 15657,
+				"buffer_size": 16083,
 				"line_ending": "Windows"
 			}
 		},
@@ -639,7 +636,7 @@
 			"file": "include/system.h",
 			"settings":
 			{
-				"buffer_size": 1936,
+				"buffer_size": 1950,
 				"line_ending": "Windows"
 			}
 		},
@@ -647,7 +644,7 @@
 			"file": "src/window.cpp",
 			"settings":
 			{
-				"buffer_size": 3526,
+				"buffer_size": 3530,
 				"line_ending": "Windows"
 			}
 		},
@@ -1158,15 +1155,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1220,
+						"buffer_size": 1115,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1056,
-								1056
+								1115,
+								1115
 							]
 						],
 						"settings":
@@ -1196,8 +1193,8 @@
 						"selection":
 						[
 							[
-								399,
-								399
+								422,
+								422
 							]
 						],
 						"settings":
@@ -1211,7 +1208,7 @@
 						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1240,7 +1237,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -1256,8 +1253,8 @@
 						"selection":
 						[
 							[
-								5399,
-								5399
+								4837,
+								4837
 							]
 						],
 						"settings":
@@ -1266,10 +1263,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3780.0,
+						"translation.y": 4077.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1297,7 +1294,7 @@
 						"translation.y": 398.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
@@ -1306,15 +1303,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6409,
+						"buffer_size": 6463,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2876,
-								2876
+								2471,
+								2463
 							]
 						],
 						"settings":
@@ -1323,10 +1320,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1728.0,
+						"translation.y": 2115.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1355,7 +1352,7 @@
 						"translation.y": 685.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -1384,7 +1381,7 @@
 						"translation.y": 2000.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -1410,10 +1407,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7346.0,
+						"translation.y": 6930.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1441,7 +1438,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1469,7 +1466,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -1497,7 +1494,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1526,7 +1523,7 @@
 						"translation.y": 4761.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1535,15 +1532,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15657,
+						"buffer_size": 16083,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15067,
-								15067
+								14511,
+								14511
 							]
 						],
 						"settings":
@@ -1552,10 +1549,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 9783.0,
+						"translation.y": 10395.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1564,15 +1561,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1936,
+						"buffer_size": 1950,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								821,
-								821
+								910,
+								910
 							]
 						],
 						"settings":
@@ -1593,15 +1590,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3526,
+						"buffer_size": 3530,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1548,
-								1548
+								1492,
+								1465
 							]
 						],
 						"settings":
@@ -1610,11 +1607,11 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 324.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{

@@ -553,6 +553,31 @@ void QuadTree::insert(unsigned long id){
 
 //TODO make a -1 index entity get all lower entities
 
+std::vector<unsigned long> pointGet(QuadTree* qt, Vec2 v){
+	double midX = qt->bounds.x + qt->bounds.w/2.f;
+	double midY = qt->bounds.y + qt->bounds.h/2.f;
+	std::vector<unsigned long> result;
+	std::vector<unsigned long> r2;
+	if(qt->isSplit){
+		if(v.y <= midY && v.x <= midX){
+			r2 = pointGet(qt->nodes[0], v);
+			result.insert(result.end(), r2.begin(), r2.end());
+		}else if(v.y <= midY && v.x > midX){
+			r2 = pointGet(qt->nodes[1], v);
+			result.insert(result.end(), r2.begin(), r2.end());
+		}else if(v.y > midY && v.x <= midX){
+			r2 = pointGet(qt->nodes[2], v);
+			result.insert(result.end(), r2.begin(), r2.end());
+		}else if(v.y > midY && v.x > midX){
+			r2 = pointGet(qt->nodes[3], v);
+			result.insert(result.end(), r2.begin(), r2.end());
+		}
+	}
+
+	result.insert(result.end(), qt->entities.begin(), qt->entities.end());
+	return result;
+};
+
 std::vector<unsigned long> QuadTree::getEntities(unsigned long id){
 	int index = getIndex(CS::collisionCS[id]->rect);
 	std::vector<unsigned long> result;
@@ -564,20 +589,31 @@ std::vector<unsigned long> QuadTree::getEntities(unsigned long id){
 		}
 		else
 		{
-			r2 = nodes[0]->getEntities(id);
+			Vec2 p0 = {CS::collisionCS[id]->rect.x,
+			 CS::collisionCS[id]->rect.y};
+			Vec2 p1 = {CS::collisionCS[id]->rect.x+CS::collisionCS[id]->rect.w,
+			 CS::collisionCS[id]->rect.y};
+			Vec2 p2 = {CS::collisionCS[id]->rect.x,
+			 CS::collisionCS[id]->rect.y+CS::collisionCS[id]->rect.h};
+			Vec2 p3 = {CS::collisionCS[id]->rect.x+CS::collisionCS[id]->rect.w,
+			 CS::collisionCS[id]->rect.y+CS::collisionCS[id]->rect.h};
+			r2 = pointGet(this,  p0);
 			result.insert(result.end(), r2.begin(), r2.end());
-			r2 = nodes[1]->getEntities(id);
+			r2 = pointGet(this,  p1);
 			result.insert(result.end(), r2.begin(), r2.end());
-			r2 = nodes[2]->getEntities(id);
+			r2 = pointGet(this,  p2);
 			result.insert(result.end(), r2.begin(), r2.end());
-			r2 = nodes[3]->getEntities(id);
-			result.insert(result.end(), r2.begin(), r2.end());	
+			r2 = pointGet(this,  p3);
+			result.insert(result.end(), r2.begin(), r2.end());
 		}
 	}
 	result.insert(result.end(), entities.begin(), entities.end());
-
+	sort( result.begin(), result.end() );
+	result.erase( unique( result.begin(), result.end() ), result.end() );
 	return result;
 }
+
+
 
 void QuadTree::clear(){
 	if(isSplit){
