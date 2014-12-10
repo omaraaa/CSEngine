@@ -38,7 +38,7 @@ Press F1 to type a command
 
 TODO:
 -----
-* quadtree add point getindex
+* update collision update so 2 objects don't check themselves twice
 
 notes
 -----
