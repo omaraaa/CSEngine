@@ -199,7 +199,7 @@ void CS::draw(){
 				Window::DrawRect(&r, 100, 150, 100);
 			}
 	}
-	qt.draw();
+	//qt.draw();
 
 }
 

@@ -60,4 +60,24 @@ public:
 	static Rect worldbounds;
 };
 
+struct Base
+{
+	unsigned long id;
+
+};
+
+template<class E>
+class Manager : public Base {
+public:
+	using Container = std::vector<std::unique_ptr<E>>;
+
+private:
+	unsigned long index = 0;
+	Container entities;
+public:
+	
+	E createEntity();
+	void deleteEntity(E e);
+};
+
 #endif

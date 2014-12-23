@@ -516,8 +516,8 @@ int QuadTree::getIndex(Rect r){
 	int index = -1;
 	double midX = bounds.x + bounds.w/2.f;
 	double midY = bounds.y + bounds.h/2.f;
-	if(level == maxLevel)
-		return index;
+	// if(level == maxLevel)
+	// 	return index;
 	if( r.y+r.h < midY && r.x+r.w < midX && r.y > bounds.y && r.x > bounds.x){
 		index = 0; //TOP LEFT
 	}else if(r.y+r.h < midY && r.x > midX && r.y > bounds.y && r.x+r.w < bounds.x+bounds.w){
