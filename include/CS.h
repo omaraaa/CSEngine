@@ -75,8 +75,7 @@ private:
 	unsigned long index = 0;
 	Container entities;
 public:
-	
-	E createEntity();
+	E create();
 	void deleteEntity(E e);
 };
 

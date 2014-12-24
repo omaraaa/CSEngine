@@ -111,6 +111,7 @@ void CollisionComponent::update(){
 	overlaped = false;
 	overlapingWith.clear();
 	collidingWith.clear();
+	checkedWith.clear();
 	//CS::qt.insert(owner);
 }
 

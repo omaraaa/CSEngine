@@ -108,12 +108,16 @@ void CS::collisionUpdate(){
 		eId maxAreaID;
 		bool collided  = false;
 		entities = qt.getEntities(checking->first);
-
+		// std::cout << entities.size() << std::endl;
 		for (auto it = entities.begin(); it != entities.end(); ++it){
-			n++;
 			if(*it == checking->first)
 				continue;
+			checking->second->checkedWith[*it] = true;
+			if(CS::collisionCS[*it]->checkedWith[checking->first])
+				continue;
 			if(!CS::collisionCS[*it]->moveable && !CS::collisionCS[checking->first]->moveable)
+				continue;
+			if(CS::collisionCS[*it]->moveable && CS::collisionCS[checking->first]->moveable)
 				continue;
 			if(checkOverlap(checking->first, *it, &area)){
 				checking->second->overlapingWith.push_back(*it);
@@ -127,6 +131,7 @@ void CS::collisionUpdate(){
 					overlapedMap[area.w*area.h] = *it;
 				}
 			}
+			n++;
 		}
 		for(auto it = overlapedMap.rbegin(); it != overlapedMap.rend(); ++it)
 			collide(checking->first, it->second);
@@ -199,7 +204,7 @@ void CS::draw(){
 				Window::DrawRect(&r, 100, 150, 100);
 			}
 	}
-	//qt.draw();
+	qt.draw();
 
 }
 

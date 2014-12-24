@@ -15,7 +15,7 @@ float Timer::elapsed{0};
 float Timer::frame{1000.f/60.f};
 float Timer::slice{0.f};
 double Timer::t{0.0};
-double Timer::dt{0.01};
+double Timer::dt{1.f/60.f};
 double Timer::currentTime{0.0};
 double Timer::accumulator{0.0};
 float Timer::alpha{0.0};
@@ -518,13 +518,13 @@ int QuadTree::getIndex(Rect r){
 	double midY = bounds.y + bounds.h/2.f;
 	// if(level == maxLevel)
 	// 	return index;
-	if( r.y+r.h < midY && r.x+r.w < midX && r.y > bounds.y && r.x > bounds.x){
+	if( r.y+r.h <= midY && r.x+r.w <= midX && r.y > bounds.y && r.x > bounds.x){
 		index = 0; //TOP LEFT
-	}else if(r.y+r.h < midY && r.x > midX && r.y > bounds.y && r.x+r.w < bounds.x+bounds.w){
+	}else if(r.y+r.h <= midY && r.x > midX && r.y > bounds.y && r.x+r.w <= bounds.x+bounds.w){
 		index = 1; //TOP RIGHT
-	}else if(r.y > midY && r.x+r.w < midX && r.y+r.h < bounds.y+bounds.h && r.x > bounds.x){
+	}else if(r.y > midY && r.x+r.w <= midX && r.y+r.h <= bounds.y+bounds.h && r.x > bounds.x){
 		index = 2; //BOT LEFT
-	}else if(r.y > midY && r.x > midX && r.y+r.h < bounds.y+bounds.h && r.x+r.w < bounds.x+bounds.w){
+	}else if(r.y > midY && r.x > midX && r.y+r.h <= bounds.y+bounds.h && r.x+r.w <= bounds.x+bounds.w){
 		index = 3; //BOT RIGHT
 	}
 	return index;
@@ -534,16 +534,19 @@ void QuadTree::insert(unsigned long id){
 	Rect r = CS::collisionCS[id]->rect;
 	int index = getIndex(r);
 	if(isSplit){
-		if(index != -1)
+		if(index != -1){
+			
 			nodes[index]->insert(id);
-		else
+		}else{
 			entities.push_back(id);
+		}
 	} else if(!isSplit){
 		entities.push_back(id);
 		if(entities.size() > maxEntities){
 			split();
 			std::vector<unsigned long> ph;
 			ph.swap(entities);
+			entities.clear();
 			for (std::vector<unsigned long>::iterator i = ph.begin(); i != ph.end(); ++i){
 				insert(*i);
 			}
@@ -587,29 +590,27 @@ std::vector<unsigned long> QuadTree::getEntities(unsigned long id){
 			r2 = nodes[index]->getEntities(id);
 			result.insert(result.end(), r2.begin(), r2.end());
 		}
-		else
-		{
-			Vec2 p0 = {CS::collisionCS[id]->rect.x,
-			 CS::collisionCS[id]->rect.y};
-			Vec2 p1 = {CS::collisionCS[id]->rect.x+CS::collisionCS[id]->rect.w,
-			 CS::collisionCS[id]->rect.y};
-			Vec2 p2 = {CS::collisionCS[id]->rect.x,
-			 CS::collisionCS[id]->rect.y+CS::collisionCS[id]->rect.h};
-			Vec2 p3 = {CS::collisionCS[id]->rect.x+CS::collisionCS[id]->rect.w,
-			 CS::collisionCS[id]->rect.y+CS::collisionCS[id]->rect.h};
-			r2 = pointGet(this,  p0);
-			result.insert(result.end(), r2.begin(), r2.end());
-			r2 = pointGet(this,  p1);
-			result.insert(result.end(), r2.begin(), r2.end());
-			r2 = pointGet(this,  p2);
-			result.insert(result.end(), r2.begin(), r2.end());
-			r2 = pointGet(this,  p3);
-			result.insert(result.end(), r2.begin(), r2.end());
-		}
+		// else
+		// {
+		// 	Vec2 p0 = {CS::collisionCS[id]->rect.x,
+		// 	 CS::collisionCS[id]->rect.y};
+		// 	Vec2 p1 = {CS::collisionCS[id]->rect.x+CS::collisionCS[id]->rect.w,
+		// 	 CS::collisionCS[id]->rect.y};
+		// 	Vec2 p2 = {CS::collisionCS[id]->rect.x,
+		// 	 CS::collisionCS[id]->rect.y+CS::collisionCS[id]->rect.h};
+		// 	Vec2 p3 = {CS::collisionCS[id]->rect.x+CS::collisionCS[id]->rect.w,
+		// 	 CS::collisionCS[id]->rect.y+CS::collisionCS[id]->rect.h};
+		// 	r2 = pointGet(this,  p0);
+		// 	result.insert(result.end(), r2.begin(), r2.end());
+		// 	r2 = pointGet(this,  p1);
+		// 	result.insert(result.end(), r2.begin(), r2.end());
+		// 	r2 = pointGet(this,  p2);
+		// 	result.insert(result.end(), r2.begin(), r2.end());
+		// 	r2 = pointGet(this,  p3);
+		// 	result.insert(result.end(), r2.begin(), r2.end());
+		// }
 	}
 	result.insert(result.end(), entities.begin(), entities.end());
-	sort( result.begin(), result.end() );
-	result.erase( unique( result.begin(), result.end() ), result.end() );
 	return result;
 }
 
