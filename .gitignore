@@ -4,5 +4,6 @@
 /obj
 /trash
 project.sublime-project
+project.sublime-workspace
 workspace.sublime-workspace
 *.dmp

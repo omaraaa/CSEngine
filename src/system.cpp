@@ -64,6 +64,13 @@ SDL_Rect Rect::getSDLRect(){
 	return r;
 }
 
+double Rect::maxY(){
+	return y+h;
+}
+double Rect::maxX(){
+	return x+w;
+}
+
 bool inCamBounds(Vec2 pos, Camera* c){
 	if(pos.x < c->pos.x || pos.x > c->pos.x + c->size.x || pos.y < c->pos.y || pos.y > c->pos.y + c->size.y)
 		return false;
@@ -139,8 +146,14 @@ bool checkOverlap(Rect r1, Rect r2, Rect* result){
 }
 
 
-void Grid::updateBounds(SDL_Rect *r){
-	bounds = *r;
+void Grid::updateBounds(Rect r){
+	if(fmod(r.w,cellSize) != 0){
+		r.w = ceil(r.w/cellSize)*cellSize;
+	}
+	if(fmod(r.h,cellSize) != 0){
+		r.h = ceil(r.h/cellSize)*cellSize;
+	}
+	bounds = r;
 }
 
 void Grid::clear(){
@@ -149,7 +162,13 @@ void Grid::clear(){
 
 void Grid::draw(){
 	SDL_Rect r;
-	for(int i =0; i<((bounds.w*bounds.h)/(cellSize*cellSize));i++){
+	int count=0;
+	for(int i =0; i<bounds.w/cellSize; i++){
+		for(int y = 0; y < bounds.h/cellSize; y++){
+			count++;
+		}
+	}
+	for(int i =0; i<count; i++){
 		r = CS::cameras[1]->getScreenRect(getRect(i));
 		if(activeIndexes[i].size()>0)
 			Window::DrawRect(&r, 0, 0, 255);
@@ -180,7 +199,7 @@ std::vector<unsigned long> Grid::getEntities(std::vector<int> indexes){
 
 std::vector<int> Grid::getIndex(unsigned long id){
 	Rect r1 = CS::collisionCS[id]->rect;
-	int xstart = int((floor(r1.x/cellSize)));
+	int xstart = int((floor((r1.x)/cellSize)));
 	if(r1.x < bounds.x)
 		xstart = 0;
 	int xend = int((floor((r1.x+r1.w)/cellSize)));
@@ -489,160 +508,3 @@ bool strToBool(std::string str){
 	}
 }
 
-QuadTree::QuadTree(Rect b, int l){
-	bounds = b;
-	area = b.w*b.h;
-	level = l;
-	isSplit = false;
-	maxEntities = 4;
-	maxLevel = 16;
-}
-
-void QuadTree::split(){
-	double midX = bounds.x + bounds.w/2.f;
-	double midY = bounds.y + bounds.h/2.f;
-	Rect topLeft  = {bounds.x, bounds.y, bounds.w/2.f, bounds.h/2.f};
-	Rect topRight = {midX, bounds.y, bounds.w/2.f, bounds.h/2.f};
-	Rect botLeft  = {bounds.x, midY,  bounds.w/2.f, bounds.h/2.f};
-	Rect botRight = {midX, midY, bounds.w/2.f, bounds.h/2.f};
-	nodes.push_back(new QuadTree(topLeft, level+1));
-	nodes.push_back(new QuadTree(topRight, level+1));
-	nodes.push_back(new QuadTree(botLeft, level+1));
-	nodes.push_back(new QuadTree(botRight, level+1));
-	isSplit = true;
-}
-
-int QuadTree::getIndex(Rect r){
-	int index = -1;
-	double midX = bounds.x + bounds.w/2.f;
-	double midY = bounds.y + bounds.h/2.f;
-	// if(level == maxLevel)
-	// 	return index;
-	if( r.y+r.h <= midY && r.x+r.w <= midX && r.y > bounds.y && r.x > bounds.x){
-		index = 0; //TOP LEFT
-	}else if(r.y+r.h <= midY && r.x > midX && r.y > bounds.y && r.x+r.w <= bounds.x+bounds.w){
-		index = 1; //TOP RIGHT
-	}else if(r.y > midY && r.x+r.w <= midX && r.y+r.h <= bounds.y+bounds.h && r.x > bounds.x){
-		index = 2; //BOT LEFT
-	}else if(r.y > midY && r.x > midX && r.y+r.h <= bounds.y+bounds.h && r.x+r.w <= bounds.x+bounds.w){
-		index = 3; //BOT RIGHT
-	}
-	return index;
-}
-
-void QuadTree::insert(unsigned long id){
-	Rect r = CS::collisionCS[id]->rect;
-	int index = getIndex(r);
-	if(isSplit){
-		if(index != -1){
-			
-			nodes[index]->insert(id);
-		}else{
-			entities.push_back(id);
-		}
-	} else if(!isSplit){
-		entities.push_back(id);
-		if(entities.size() > maxEntities){
-			split();
-			std::vector<unsigned long> ph;
-			ph.swap(entities);
-			entities.clear();
-			for (std::vector<unsigned long>::iterator i = ph.begin(); i != ph.end(); ++i){
-				insert(*i);
-			}
-		}
-	}
-}
-
-//TODO make a -1 index entity get all lower entities
-
-std::vector<unsigned long> pointGet(QuadTree* qt, Vec2 v){
-	double midX = qt->bounds.x + qt->bounds.w/2.f;
-	double midY = qt->bounds.y + qt->bounds.h/2.f;
-	std::vector<unsigned long> result;
-	std::vector<unsigned long> r2;
-	if(qt->isSplit){
-		if(v.y <= midY && v.x <= midX){
-			r2 = pointGet(qt->nodes[0], v);
-			result.insert(result.end(), r2.begin(), r2.end());
-		}else if(v.y <= midY && v.x > midX){
-			r2 = pointGet(qt->nodes[1], v);
-			result.insert(result.end(), r2.begin(), r2.end());
-		}else if(v.y > midY && v.x <= midX){
-			r2 = pointGet(qt->nodes[2], v);
-			result.insert(result.end(), r2.begin(), r2.end());
-		}else if(v.y > midY && v.x > midX){
-			r2 = pointGet(qt->nodes[3], v);
-			result.insert(result.end(), r2.begin(), r2.end());
-		}
-	}
-
-	result.insert(result.end(), qt->entities.begin(), qt->entities.end());
-	return result;
-};
-
-std::vector<unsigned long> QuadTree::getEntities(unsigned long id){
-	int index = getIndex(CS::collisionCS[id]->rect);
-	std::vector<unsigned long> result;
-	if(isSplit){
-		std::vector<unsigned long> r2;
-		if(index != -1){
-			r2 = nodes[index]->getEntities(id);
-			result.insert(result.end(), r2.begin(), r2.end());
-		}
-		// else
-		// {
-		// 	Vec2 p0 = {CS::collisionCS[id]->rect.x,
-		// 	 CS::collisionCS[id]->rect.y};
-		// 	Vec2 p1 = {CS::collisionCS[id]->rect.x+CS::collisionCS[id]->rect.w,
-		// 	 CS::collisionCS[id]->rect.y};
-		// 	Vec2 p2 = {CS::collisionCS[id]->rect.x,
-		// 	 CS::collisionCS[id]->rect.y+CS::collisionCS[id]->rect.h};
-		// 	Vec2 p3 = {CS::collisionCS[id]->rect.x+CS::collisionCS[id]->rect.w,
-		// 	 CS::collisionCS[id]->rect.y+CS::collisionCS[id]->rect.h};
-		// 	r2 = pointGet(this,  p0);
-		// 	result.insert(result.end(), r2.begin(), r2.end());
-		// 	r2 = pointGet(this,  p1);
-		// 	result.insert(result.end(), r2.begin(), r2.end());
-		// 	r2 = pointGet(this,  p2);
-		// 	result.insert(result.end(), r2.begin(), r2.end());
-		// 	r2 = pointGet(this,  p3);
-		// 	result.insert(result.end(), r2.begin(), r2.end());
-		// }
-	}
-	result.insert(result.end(), entities.begin(), entities.end());
-	return result;
-}
-
-
-
-void QuadTree::clear(){
-	if(isSplit){
-		nodes[0]->clear();
-		nodes[1]->clear();
-		nodes[2]->clear();
-		nodes[3]->clear();
-		nodes.clear();
-	}
-	entities.clear();
-	isSplit = false;
-}
-
-void QuadTree::updateBounds(Rect *r){
-	maxLevel = maxLevel*((r->w*r->h)/(bounds.w*bounds.h));
-	bounds = *r;
-}
-
-void QuadTree::draw(){
-	if(isSplit){
-		nodes[0]->draw();
-		nodes[1]->draw();
-		nodes[2]->draw();
-		nodes[3]->draw();
-	} else {
-		SDL_Rect r = {bounds.x, bounds.y, bounds.w, bounds.h};
-		r = CS::cameras[1]->getScreenRect(r);
-		Window::DrawRect(&r, 200, 0, 0);
-	}
-	
-}

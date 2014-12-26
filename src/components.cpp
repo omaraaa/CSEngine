@@ -70,11 +70,13 @@ CollisionComponent::CollisionComponent(int w, int h,
 	rect.h = h;
 	moveC = moveMap[id];
 	if(moveC->pos.x < CS::worldbounds.x){
+		CS::worldbounds.w += CS::worldbounds.x-moveC->pos.x;
 		CS::worldbounds.x = moveC->pos.x;
 	} else if(moveC->pos.x + rect.w > CS::worldbounds.x + CS::worldbounds.w){
 		CS::worldbounds.w = (moveC->pos.x + rect.w) - CS::worldbounds.x;
 	}
 	if(moveC->pos.y < CS::worldbounds.y){
+		CS::worldbounds.h += CS::worldbounds.y-moveC->pos.y;
 		CS::worldbounds.y = moveC->pos.y;
 	} else if(moveC->pos.y + rect.h > CS::worldbounds.y + CS::worldbounds.h){
 		CS::worldbounds.h = (moveC->pos.y + rect.h) - CS::worldbounds.y;
@@ -91,11 +93,13 @@ CollisionComponent::CollisionComponent(int w, int h,
 
 void CollisionComponent::update(){
 	if(moveC->pos.x < CS::worldbounds.x){
+		CS::worldbounds.w += CS::worldbounds.x-moveC->pos.x;
 		CS::worldbounds.x = moveC->pos.x;
 	} else if(moveC->pos.x + rect.w > CS::worldbounds.x + CS::worldbounds.w){
 		CS::worldbounds.w = (moveC->pos.x + rect.w) - CS::worldbounds.x;
 	}
 	if(moveC->pos.y < CS::worldbounds.y){
+		CS::worldbounds.h += CS::worldbounds.y-moveC->pos.y;
 		CS::worldbounds.y = moveC->pos.y;
 	} else if(moveC->pos.y + rect.h > CS::worldbounds.y + CS::worldbounds.h){
 		CS::worldbounds.h = (moveC->pos.y + rect.h) - CS::worldbounds.y;

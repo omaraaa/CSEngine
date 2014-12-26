@@ -78,19 +78,19 @@ void CS::clear(){
 	worldbounds = {0,0,0,0};
 }
 
-Grid CS::grid(0,0,800,600,1000);
-QuadTree CS::qt({0,0,1800,1600});
+Grid CS::grid(0,0,800,600,100);
+// QuadTree CS::qt({0,0,1800,1600});
 int nc=0;
 void CS::collisionUpdate(){
-	qt.clear();
-	qt.updateBounds(&worldbounds);
+	// qt.clear();
+	// qt.updateBounds(&worldbounds);
 	//std::cout << worldbounds.x << std::endl;
 	//std::cout << "CRASHED?!1" << std::endl;
-	//grid.updateBounds(&worldbounds);
-	//grid.clear();
+	grid.updateBounds(worldbounds);
+	grid.clear();
 	for(auto checking = collisionCS.begin(); checking != collisionCS.end(); checking++){
-		qt.insert(checking->first);
-		//checking->second->getGridIndex(grid);
+		// qt.insert(checking->first);
+		checking->second->getGridIndex(grid);
 	}
 	Rect area;
 	int n=0;
@@ -107,7 +107,7 @@ void CS::collisionUpdate(){
 		float maxArea=0;
 		eId maxAreaID;
 		bool collided  = false;
-		entities = qt.getEntities(checking->first);
+		entities = grid.getEntities(checking->second->gridIndex);
 		// std::cout << entities.size() << std::endl;
 		for (auto it = entities.begin(); it != entities.end(); ++it){
 			if(*it == checking->first)
@@ -137,7 +137,7 @@ void CS::collisionUpdate(){
 			collide(checking->first, it->second);
 		overlapedMap.clear();
 	}
-	//qt.draw();
+	//grid.draw();
 	
 	//Window::DrawRect(&CS::worldbounds, 255, 0, 0);
 	if(nc != n)
@@ -204,7 +204,7 @@ void CS::draw(){
 				Window::DrawRect(&r, 100, 150, 100);
 			}
 	}
-	qt.draw();
+	// qt.draw();
 
 }
 

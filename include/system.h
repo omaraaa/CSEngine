@@ -24,6 +24,8 @@ struct Rect
 {
 	double x, y, w, h;
 	SDL_Rect getSDLRect();
+	double maxY();
+	double maxX();
 };  
 
 class Timer {
@@ -34,30 +36,15 @@ public:
 
 class QuadTree {
 public:
-	QuadTree(Rect b, int l=0);
-	void split();
-	void insert(unsigned long id);
-	int getIndex(Rect r);
-	std::vector<unsigned long> getEntities(unsigned long id);
-	std::vector<unsigned long> getEntities();
-	void clear();
-	void updateBounds(Rect *r);
-	void draw();
 
-	Rect bounds;
-	double area;
-	int level;
-	int maxLevel;
-	bool isSplit;
-	std::vector<QuadTree*> nodes;
-	std::vector<unsigned long> entities;
-	int maxEntities;
+private:
+
 };
 
 class Grid {
 public:
 	float cellSize;
-	SDL_Rect bounds;
+	Rect bounds;
 	std::map<int, std::vector<unsigned long>> activeIndexes;
 	Grid(int x, int y, int w, int h, int c): cellSize(c){bounds = { x, y, w, h};};
 	bool overlap(const unsigned long &id1,const unsigned long &id2, SDL_Rect* result);
@@ -65,7 +52,7 @@ public:
 	void draw();
 	void clear();
 	SDL_Rect getRect(const int index);
-	void updateBounds(SDL_Rect *r);
+	void updateBounds(Rect r);
 	std::vector<unsigned long> getEntities(std::vector<int> indexes);
 };
 
