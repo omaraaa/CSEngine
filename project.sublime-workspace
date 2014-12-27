@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ge",
+				"getSDLRect"
+			],
+			[
+				"pri",
+				"private"
+			],
+			[
+				"std",
+				"std::endl"
+			],
+			[
 				"vec",
 				"Vec2"
 			],
@@ -78,10 +90,6 @@
 			[
 				"push",
 				"push_back"
-			],
-			[
-				"std",
-				"std::vector"
 			],
 			[
 				"inde",
@@ -506,14 +514,6 @@
 			[
 				"se",
 				"sel::State"
-			],
-			[
-				"cre",
-				"createEntityID"
-			],
-			[
-				"scr",
-				"scripts"
 			]
 		]
 	},
@@ -564,8 +564,28 @@
 			"file": "src/CS.cpp",
 			"settings":
 			{
-				"buffer_size": 6726,
+				"buffer_size": 6749,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "[SideBarGit@SublimeText] \n[master d06ecf7] Removed QuadTree and added back Grid. Rewriting QuadTree later, its performance wasn't super.\n 6 files changed, 153 insertions(+), 263 deletions(-)\nwarning: LF will be replaced by CRLF in .gitignore.\nThe file will have its original line endings in your working directory.\nwarning: LF will be replaced by CRLF in project.sublime-workspace.\nThe file will have its original line endings in your working directory.\nwarning: LF will be replaced by CRLF in .gitignore.\nThe file will have its original line endings in your working directory.\nwarning: LF will be replaced by CRLF in project.sublime-workspace.\nThe file will have its original line endings in your working directory.\nwarning: LF will be replaced by CRLF in .gitignore.\nThe file will have its original line endings in your working directory.\nwarning: LF will be replaced by CRLF in project.sublime-workspace.\nThe file will have its original line endings in your working directory.\nwarning: LF will be replaced by CRLF in .gitignore.\nThe file will have its original line endings in your working directory.\nwarning: LF will be replaced by CRLF in project.sublime-workspace.\nThe file will have its original line endings in your working directory.",
+			"settings":
+			{
+				"buffer_size": 1242,
+				"line_ending": "Windows",
+				"name": "[SideBarGit@SublimeText]",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "[SideBarGit@SublimeText] \nwarning: push.default is unset; its implicit value is changing in\nGit 2.0 from 'matching' to 'simple'. To squelch this message\nand maintain the current behavior after the default changes, use:\n\n  git config --global push.default matching\n\nTo squelch this message and adopt the new behavior now, use:\n\n  git config --global push.default simple\n\nWhen push.default is set to 'matching', git will push local branches\nto the remote branches that already exist with the same name.\n\nIn Git 2.0, Git will default to the more conservative 'simple'\nbehavior, which only pushes the current branch to the corresponding\nremote branch that 'git pull' uses to update the current branch.\n\nSee 'git help config' and search for 'push.default' for further information.\n(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode\n'current' instead of 'simple' if you sometimes use older versions of Git)\n\nTo https://github.com/SequenceK/CSEngine\n   00dc40c..d06ecf7  master -> master",
+			"settings":
+			{
+				"buffer_size": 999,
+				"line_ending": "Windows",
+				"name": "[SideBarGit@SublimeText]",
+				"scratch": true
 			}
 		},
 		{
@@ -588,7 +608,7 @@
 			"file": "src/components.cpp",
 			"settings":
 			{
-				"buffer_size": 11017,
+				"buffer_size": 11237,
 				"line_ending": "Windows"
 			}
 		},
@@ -628,7 +648,15 @@
 			"file": "src/system.cpp",
 			"settings":
 			{
-				"buffer_size": 18641,
+				"buffer_size": 13176,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "include/system.h",
+			"settings":
+			{
+				"buffer_size": 1568,
 				"line_ending": "Windows"
 			}
 		},
@@ -638,14 +666,6 @@
 			{
 				"buffer_size": 114,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "include/system.h",
-			"settings":
-			{
-				"buffer_size": 1950,
-				"line_ending": "Windows"
 			}
 		},
 		{
@@ -1156,7 +1176,7 @@
 	"groups":
 	[
 		{
-			"selected": 13,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -1187,7 +1207,7 @@
 						"translation.y": 324.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
@@ -1218,7 +1238,7 @@
 						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 16,
+					"stack_index": 18,
 					"type": "text"
 				},
 				{
@@ -1247,7 +1267,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 17,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
@@ -1276,7 +1296,7 @@
 						"translation.y": 2295.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
@@ -1304,7 +1324,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
@@ -1313,15 +1333,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6726,
+						"buffer_size": 6749,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2709,
-								2649
+								4129,
+								4129
 							]
 						],
 						"settings":
@@ -1330,14 +1350,72 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1485.0,
+						"translation.y": 2151.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "[SideBarGit@SublimeText]",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "[SideBarGit@SublimeText]",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
 					"file": "include/CS.h",
 					"semi_transient": false,
 					"settings":
@@ -1359,14 +1437,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1071.0,
+						"translation.y": 738.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 9,
 					"file": "include/components.h",
 					"semi_transient": false,
 					"settings":
@@ -1378,8 +1456,8 @@
 						"selection":
 						[
 							[
-								2243,
-								2254
+								2479,
+								2470
 							]
 						],
 						"settings":
@@ -1391,24 +1469,24 @@
 						"translation.y": 1514.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "src/components.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11017,
+						"buffer_size": 11237,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3091,
-								3091
+								2131,
+								2131
 							]
 						],
 						"settings":
@@ -1417,14 +1495,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1557.0,
+						"translation.y": 1179.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"file": "include/game.h",
 					"semi_transient": false,
 					"settings":
@@ -1448,11 +1526,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 17,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 12,
 					"file": "src/game.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1476,11 +1554,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 13,
 					"file": "include/entities.h",
 					"semi_transient": false,
 					"settings":
@@ -1504,11 +1582,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 14,
 					"file": "src/entities.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1520,8 +1598,8 @@
 						"selection":
 						[
 							[
-								9346,
-								9346
+								10195,
+								10195
 							]
 						],
 						"settings":
@@ -1530,43 +1608,72 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4761.0,
+						"translation.y": 5625.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 15,
 					"file": "src/system.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 18641,
+						"buffer_size": 13176,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14870,
-								14870
+								3559,
+								3559
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
+							"syntax": "Packages/C++11/C++11.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 9421.0,
+						"translation.y": 2439.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 16,
+					"file": "include/system.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1568,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1080,
+								1080
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
 					"file": ".gitignore",
 					"semi_transient": false,
 					"settings":
@@ -1590,40 +1697,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 15,
-					"file": "include/system.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1950,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								910,
-								910
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++11/C++11.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 378.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 16,
+					"buffer": 18,
 					"file": "src/window.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1649,17 +1727,17 @@
 						"translation.y": 1458.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 15,
 					"type": "text"
 				},
 				{
 					"file": "/C/Program Files (x86)/Steam/steamapps/common/Cave Story+/data/base/Bullet.bmp",
 					"semi_transient": false,
-					"stack_index": 19,
+					"stack_index": 21,
 					"type": "image"
 				},
 				{
-					"buffer": 17,
+					"buffer": 19,
 					"file": "config.ini",
 					"semi_transient": false,
 					"settings":
@@ -1683,11 +1761,11 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 18,
+					"stack_index": 20,
 					"type": "text"
 				},
 				{
-					"buffer": 18,
+					"buffer": 20,
 					"file": "src/componentsystem.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1711,7 +1789,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1723,7 +1801,7 @@
 	},
 	"input":
 	{
-		"height": 31.0
+		"height": 34.0
 	},
 	"layout":
 	{
@@ -1850,7 +1928,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 188.0,
+	"side_bar_width": 203.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

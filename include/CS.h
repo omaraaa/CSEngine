@@ -31,7 +31,6 @@ public:
 	static std::map<eId, std::shared_ptr<Camera>> cameras;
 	static std::vector<eId> deletedEntities;
 	static std::vector<eId> toDelete;
-	static QuadTree qt;
 	static Grid grid;
 	static std::shared_ptr<Camera> mainCamera;
 

@@ -34,13 +34,6 @@ public:
 	static double t, dt, currentTime, accumulator;
 };
 
-class QuadTree {
-public:
-
-private:
-
-};
-
 class Grid {
 public:
 	float cellSize;

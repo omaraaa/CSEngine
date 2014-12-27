@@ -507,4 +507,3 @@ bool strToBool(std::string str){
 		return false;
 	}
 }
-

@@ -242,6 +242,13 @@ int main(int argc, char **argv){
 		}
 		Timer::alpha = Timer::accumulator / Timer::dt;
 		CS::draw();
+		std::ostringstream ss;
+		ss << Timer::elapsed;
+		std::string s(ss.str());
+		SDL_Texture* tex = Window::RenderText(command, "../data/fonts/PressStart2P.ttf", {255,255,255}, 13);
+		SDL_Rect r = {0,0};
+		SDL_QueryTexture(tex, NULL, NULL, &r.w, &r.h);
+		Window::Draw(tex, r);
 		Window::Present();
 		
 	}
