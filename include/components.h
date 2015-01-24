@@ -22,8 +22,11 @@ enum Direction {UP = 0x0001, TOP = 0x0001, DOWN = 0x0010, FLOOR = 0x0010, LEFT =
 //Basic component
 struct Component {
 	Component(eId id);
+	~Component(){
+		delete CS;
+	};
 	eId owner;
-	//ComponentSystem CS;
+	ComponentSystem *CS;
 };
 
 //Movemenet component

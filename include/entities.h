@@ -8,6 +8,7 @@ eId ENEMY(Vec2 const &pos);
 eId mBox(float x, float y);
 eId GAMEOVER();
 eId createCamera(float x, float y);
+eId ETest(float x, float y);
 eId edgeChecker(eId parent);
 eId wallChecker(eId parent);
 eId collisionChecker(float x, float y, void(*callback)(eId));

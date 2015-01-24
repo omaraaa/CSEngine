@@ -417,3 +417,7 @@ void createBox(eId id){
 		return;
 	}
 }
+
+eId ETest(float x, float y){
+	
+}

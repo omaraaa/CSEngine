@@ -28,13 +28,24 @@
 #include "../include/cleanup.h"
 
 
-class CS {
+class ComponentSystem {
 private:
 	lua_State *L;
+	Console console;
 	std::shared_ptr<Camera> mainCamera;
+
+	void initLua();
+	void initConfigIni();
+	void initWindow();
+
 public:
-	CS();
-	
+	ComponentSystem();
+	int init();
+	void update();
 };
+
+class {
+    
+} Manger;
 
 #endif

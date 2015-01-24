@@ -9,20 +9,21 @@
 
 using namespace luabridge;
 
-int CS::init(){
+int ComponentSystem::init(){
 	initLua();
 	initConfigIni();
 
 	initWindow();
+	SDL_StartTextInput();
 }
 
-void CS::initLua(){
+void ComponentSystem::initLua(){
 	L = lua_open();
 	luaL_openlibs(L);
 	setLua(L);
 }
 
-void CS::initConfigIni(){
+void ComponentSystem::initConfigIni(){
 	CSimpleIniA ini;
 	ini.SetUnicode();
 	// ini.LoadFile("../config.ini");
@@ -30,7 +31,7 @@ void CS::initConfigIni(){
 	// bool fullscreen = strToBool(ini.GetValue("window","fullscreen",NULL));
 }
 
-void CS::initWindow(){
+void ComponentSystem::initWindow(){
 	try {
 		Window::Init(title, fullscreen);
 	}
@@ -41,6 +42,6 @@ void CS::initWindow(){
 	}
 }
 
-void CS::update(){
+void ComponentSystem::update(){
 
 }
