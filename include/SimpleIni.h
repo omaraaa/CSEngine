@@ -2306,7 +2306,9 @@ CSimpleIniTempl<SI_CHAR,SI_STRLESS,SI_CONVERTER>::GetAllKeys(
 
     return true;
 }
-
+#ifdef __STRICT_ANSI__
+#undef __STRICT_ANSI__
+#endif
 template<class SI_CHAR, class SI_STRLESS, class SI_CONVERTER>
 SI_Error
 CSimpleIniTempl<SI_CHAR,SI_STRLESS,SI_CONVERTER>::SaveFile(

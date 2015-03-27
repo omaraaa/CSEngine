@@ -1,8 +1,6 @@
 
 #include <lua.hpp>
 
-
-
 #include <stdexcept>
 #include <string>
 #include <sstream>
@@ -145,7 +143,7 @@ int main(int argc, char **argv){
 		cout << "FAILED TO LOAD LUA SCRIPT" << endl;
 	}
 	LuaRef update = getGlobal(L, "update");
-	//CS::funcQCS[5]->add(update);
+	// CS::funcQCS[5]->add(update);
 	Timer::currentTime = time_in_seconds();
 	while(!quit){
 		text = "";
