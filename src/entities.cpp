@@ -121,13 +121,8 @@ void playerUpdate(eId id){
 	}
 	if(CS::propCS[id]->boolProps["shooting"] && CS::propCS[id]->fProps["fireRate"] <= shootTimer)
 	{
-		bullet(moveCS[id]->pos, id);
 		Vec2 pos2 = moveCS[id]->pos;
-		pos2.y -= 10;
-		bullet(pos2, id);
-		pos2.y -= 10;
-		bullet(pos2, id);
-		pos2.y -= 10;
+		pos2.y -= 5;
 		bullet(pos2, id);
 		//CS::propCS[id]->boolProps["shooting"] = false;
 		shootTimer = 0;

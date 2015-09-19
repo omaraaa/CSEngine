@@ -1,68 +1,35 @@
+	
+//#include <lua.hpp>
 
-#include <lua.hpp>
-
+//STD includes
 #include <stdexcept>
 #include <string>
 #include <sstream>
 #include <iostream>
 #include <chrono>
 
+//SDL includes
 #include <SDL2/SDL.h>
 #include <SDL2/SDL.h>
+
+//My includes
 #include "../include/window.h"
 #include "../include/cleanup.h"
 #include "../include/CS.h"
 #include "../include/system.h"
 #include "../include/entities.h"
-#include "../include/SimpleIni.h"
-#include "../include/LuaBridge/LuaBridge.h"
+#include "../include/luaSystem.h"
 
+//SimpleIni includes
+#include "../include/SimpleIni.h"
 
 using namespace std;
-using namespace luabridge;
+using namespace LS;
 
-lua_State *L;
-
-
-void foo () { cout << "TEST" << endl; }
-Vec2 createVec2(float x, float y){
-	Vec2 v = {x, y};
-	return v;
-}
-
-
-// void foo(){
-// 	cout << "TEST" << endl;
-// }
 std::string command = "";
 unsigned int cursor = 0;
 bool consoleOpen = false;
-eId c;
-
-void clear(){
-	CS::clear();
-	c = createCamera(0,0);
-}
-
-void setPos(eId id, Vec2 p){
-	moveCS[id]->pos = p;
-}
-
-Vec2 getMousePos(){
-	int x, y;
-	SDL_GetMouseState(&x, &y);
-	Vec2 v{x, y};
-	return CS::cameras[1]->getWorldPos(v);
-}
-
-MoveComponent* getEntityMove(eId id){
-	return moveCS[id].get();
-}
-
-void setMoveC(MoveComponent* mc){
-	shared_ptr<MoveComponent> sp(mc);
-	moveCS[mc->owner] = sp;
-}
+eId c; //camera id
 
 double time_in_seconds(){
 	auto t = chrono::high_resolution_clock::now();
@@ -75,45 +42,17 @@ double timeMs(){
 			chrono::duration<double, std::milli>>(t.time_since_epoch()).count();
 }
 
-void cameraFollow(eId id){
-	CS::cameras[1]->follow(id);
-}
 
-void setSeed(int seed){
-	srand(seed);
-}
 
-void setLua(lua_State *L){
-	getGlobalNamespace (L)
-	.beginClass<Vec2> ("Vec2")
-		.addProperty ("x", &Vec2::getX, &Vec2::setX)
-		.addProperty ("y", &Vec2::getY, &Vec2::setY)
-	.endClass()
-	.beginClass<MoveComponent> ("MoveComponent")
-		.addData("pos", &MoveComponent::pos)
-		.addData("vel", &MoveComponent::vel)
-		.addData("acc", &MoveComponent::acc)
-		.addData("maxVel", &MoveComponent::maxV)
-		.addData("terVel", &MoveComponent::terV)
-	.endClass()
-	.beginNamespace("CS")
-	.endNamespace()
-    .addFunction ("mBox", mBox)
-    .addFunction ("player", &TEST)
-    .addFunction ("clear", clear)
-    .addFunction("setPos", &setPos)
-    .addFunction("getMousePos", &getMousePos)
-    .addFunction("getMC", &getEntityMove)
-    .addFunction("setMC", &setMoveC)
-    .addFunction("follow", cameraFollow)
-    .addFunction("setSeed", setSeed)
-    .addFunction ("createVec2", &createVec2);
+
+
+void clear(){
+	CS::clear();
+	c = createCamera(0, 0);
 }
 
 int main(int argc, char **argv){
-	L = lua_open();
-	luaL_openlibs(L);
-	setLua(L);
+	LS::init_LS();
 
 	CSimpleIniA ini;
 	ini.SetUnicode();
@@ -138,11 +77,10 @@ int main(int argc, char **argv){
 	SDL_Rect textrect = {0,0,400,100};
 	SDL_StartTextInput();
 	std::string text = "";
-	if(luaL_loadfile(L, "../scripts/test.lua")
-    	|| lua_pcall(L,0,0,0)){
-		cout << "FAILED TO LOAD LUA SCRIPT" << endl;
-	}
-	LuaRef update = getGlobal(L, "update");
+	
+	LS::loadScript("../scripts/test.lua");
+
+	//LuaRef update = getGlobal(L, "update");
 	// CS::funcQCS[5]->add(update);
 	Timer::currentTime = time_in_seconds();
 	while(!quit){
@@ -193,7 +131,7 @@ int main(int argc, char **argv){
 						break;
 					case SDLK_RETURN:
 						if(consoleOpen){
-							luaL_dostring(L, command.c_str());
+							LS::runCommand(command.c_str());
 							cout << endl;
 							command = "";
 							consoleOpen = false;
