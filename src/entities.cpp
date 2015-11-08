@@ -50,16 +50,16 @@ void bulletUpdate(eId id){
 
 eId bullet(Vec2 const &pos, eId const &oid){
 	eId id = CS::createEntityID();
-	CS::createMoveC(pos.x, pos.y + CS::spriteCS[oid]->imgRect.h/2 + 10, id);
+	CS::createMoveC(pos.x, pos.y, id);
 	moveCS[id]->drag = {1,1};
 	moveCS[id]->maxV = {1500, 1500};
 	moveCS[id]->terV = {1500, 1500};
-	moveCS[id]->vel.x = moveCS[oid]->vel.x;
+	moveCS[id]->vel.x = moveCS[oid]->vel.x;// +10 * (abs(moveCS[oid]->vel.x) / moveCS[oid]->vel.x);
 
 	CS::spriteCS[id] = std::shared_ptr<SpriteComponent>(new SpriteComponent("../data/hello.png", moveCS, id));
 	CS::spriteCS[id]->setScale(0.3, 0.1);
 	CS::spriteCS[id]->setColor(255, 255, 255);
-	float speed = 4000;
+	float speed = 8000;
 	if(CS::spriteCS[oid]->facing == RIGHT){
 		moveCS[id]->acc.x = speed;
 		moveCS[id]->pos.x += CS::spriteCS[oid]->imgRect.w;
@@ -122,7 +122,7 @@ void playerUpdate(eId id){
 	if(CS::propCS[id]->boolProps["shooting"] && CS::propCS[id]->fProps["fireRate"] <= shootTimer)
 	{
 		Vec2 pos2 = moveCS[id]->pos;
-		pos2.y -= 5;
+		pos2.y += CS::spriteCS[id]->imgRect.h / 2;
 		bullet(pos2, id);
 		//CS::propCS[id]->boolProps["shooting"] = false;
 		shootTimer = 0;

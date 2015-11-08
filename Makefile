@@ -1,17 +1,17 @@
 CXX = g++
-SDL_LIB = -LD:\SDL\x86_64-w64-mingw32\lib -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
-SDL_INCLUDE = -ID:\SDL\x86_64-w64-mingw32\include
+SDL_LIB = -LSDL\x86_64-w64-mingw32\lib -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+SDL_INCLUDE = -ISDL\x86_64-w64-mingw32\include
 #LUA_LIB = -LC:\lua\lib -llua
 LUA_LIB = -LD:\lua\lib -llua
 LUA_INCLUDE = -ID:\lua\include
-LUAJIT_SRC = -LD:\LuaJIT-2.0.3\src D:\LuaJIT-2.0.3\src\lua51.dll
-LUAJIT_SRC32 = -LD:\LuaJIT-2.0.3\src D:\LuaJIT-2.0.3\src\lua51.dll
-LUAJIT_INCLUDE = -ID:\LuaJIT-2.0.3\src
-LUAJIT_INCLUDE32 = -ID:\LuaJIT-2.0.3\src
+LUAJIT_SRC = -LLuaJIT-2.0.3\src LuaJIT-2.0.3\src\lua51.dll
+LUAJIT_SRC32 = -LLuaJIT-2.0.3\src LuaJIT-2.0.3\src\lua51.dll
+LUAJIT_INCLUDE = -ILuaJIT-2.0.3\src
+LUAJIT_INCLUDE32 = -ILuaJIT-2.0.3\src
 # SGS_INCLUDE = -IC:\sgscript\src -IC:\sgscript\ext
 # SGS_LIB = -Lbin -lsgscript
-SDL_LIB32 = -LD:\SDL\i686-w64-mingw32\lib -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
-SDL_INCLUDE32 = -ID:\SDL\i686-w64-mingw32\include
+SDL_LIB32 = -LSDL\i686-w64-mingw32\lib -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
+SDL_INCLUDE32 = -ISDL\i686-w64-mingw32\include
 CXXFLAGS = -Wall -c -std=c++11 $(SDL_INCLUDE) $(LUAJIT_INCLUDE)
 CXXFLAGS32 = -Wall -m32 -c -std=c++11 $(SDL_INCLUDE32) $(LUAJIT_INCLUDE32)
 LDFLAGS = -lmingw32 -mwindows -mconsole $(SDL_LIB) $(LUAJIT_SRC)
@@ -29,7 +29,7 @@ OBJS := $(patsubst $(SDIR)%.cpp,$(ODIR)%.o,$(wildcard $(SDIR)*.cpp))
 OBJS32 := $(patsubst $(SDIR)%.cpp,$(ODIR32)%.o,$(wildcard $(SDIR)*.cpp))
 INCLUDES := $(wildcard $(IDIR)*.h)
 
-all: $(EXE)
+all: $(EXE32)
 
 # O -> EXE 
 $(EXE): $(OBJS)
