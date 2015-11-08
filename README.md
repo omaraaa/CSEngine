@@ -1,6 +1,6 @@
 CSEngine
 ========
-My own personal engine made for educational purposes.
+My own personal engine made for educational purposes. The development of this project is inactive, for I got new projects to work on. I learned a great deal of concepts and gained experience from making this engine, so it was worth the effort.
 
 Components:
 -----------
@@ -38,7 +38,7 @@ Press F1 to type a command
 
 TODO:
 -----
-* update collision update so 2 objects don't check themselves twice
+* none
 
 notes
 -----
@@ -46,6 +46,6 @@ notes
 
 Verion
 ------
-0.0.1
+0.3
 
 [TwinklebearDev SDL 2.0 Tutorial]:http://www.willusher.io/pages/sdl2/
